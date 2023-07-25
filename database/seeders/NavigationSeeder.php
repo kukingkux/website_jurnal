@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Navigation;
+
 
 class NavigationSeeder extends Seeder
 {
@@ -22,13 +24,13 @@ class NavigationSeeder extends Seeder
             'name' => 'Agenda',
             'url' => 'konfigurasi/agenda',
             'icon' => 'ti-settings',
-            'main_menu' => null,
+            'main_menu' => 1,
         ]);
         Navigation::create([
             'name' => 'Riwayat',
             'url' => 'konfigurasi/history',
             'icon' => 'ti-settings',
-            'main_menu' => null,
+            'main_menu' => 1,
         ]);
     }
 }

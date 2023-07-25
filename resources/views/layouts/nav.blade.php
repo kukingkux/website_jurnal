@@ -147,7 +147,7 @@
             </path>
         </symbol>
     </svg>
-    <div class="d-flex flex-column flex-shrink-0 p-3 bg-light position-fixed" style="width: 280px; height:100vh;">
+    <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px; height:100vh;">
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
             <svg class="bi me-2" width="40" height="32">
 
@@ -156,30 +156,7 @@
         </a>
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
-            <li class="nav-item">
-                <a href="#" class="nav-link active" aria-current="page">
-                    <svg class="bi me-2" width="16" height="16">
-                        <use xlink:href="#home"></use>
-                    </svg>
-                    Dashboard
-                </a>
-            </li>
-            <li>
-                <a href="#" class="nav-link " aria-current="page">
-                    <svg class="bi me-2" width="16" height="16">
-                        <use xlink:href="#speedometer2"></use>
-                    </svg>
-                    History
-                </a>
-            </li>
-            <li>
-                <a href="#" class="nav-link " aria-current="page">
-                    <svg class="bi me-2" width="16" height="16">
-                        <use xlink:href="#table"></use>
-                    </svg>
-                    Attendance
-                </a>
-            </li>
+
             {{-- <li>
                 <a href="#" class="nav-link ">
                     <svg class="bi me-2" width="16" height="16">
@@ -196,16 +173,46 @@
                     Customers
                 </a>
             </li> --}}
+
+            {{-- @foreach (getMenus() as $menu) --}}
+            <li class="nav-item">
+                <a href="/home" class="nav-link {{ request()->is('home') ? 'active' : 'nav-link' }}"
+                    aria-current="page">
+                    <svg class="bi me-2" width="16" height="16">
+                        <use xlink:href="#home"></use>
+                    </svg>
+                    Dashboard
+                </a>
+            </li>
+            <li>
+                <a href="/agenda" class="nav-link {{ request()->is('agenda') ? 'active' : 'nav-link' }}"
+                    aria-current="page">
+                    <svg class="bi me-2" width="16" height="16">
+                        <use xlink:href="#table"></use>
+                    </svg>
+                    Attendance
+                </a>
+            </li>
+            <li>
+                <a href="/history" class="nav-link {{ request()->is('history') ? 'active' : 'nav-link' }} "
+                    aria-current="page">
+                    <svg class="bi me-2" width="16" height="16">
+                        <use xlink:href="#speedometer2"></use>
+                    </svg>
+                    History
+                </a>
+            </li>
+
+            {{-- @endforeach --}}
         </ul>
         <hr>
-        <div class="dropdown">
-            <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle"
-                id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="https://github.com/mdo.png" alt="" width="32" height="32"
-                    class="rounded-circle me-2">
-                {{-- <strong>{{ $data->nama }}</strong> --}}
-            </a>
-            <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+        <div class="btn-group dropup">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Dropup
+            </button>
+            <ul class="dropdown-menu">
+                <!-- Dropdown menu links -->
                 <li><a class="dropdown-item" href="#">Sign out</a></li>
             </ul>
         </div>
@@ -223,6 +230,16 @@
 
             $(this).addClass('active');
 
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(function() {
+            //$(".dropdown-toggle").dropdown('toggle'); // this works
+            $('#click').click(function(e) {
+                e.stopPropagation();
+                $(".dropdown-toggle").dropdown('toggle'); // this doesn't
+            });
         });
     </script>
 </body>

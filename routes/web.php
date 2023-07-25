@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AgendaController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\GroupsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +17,7 @@ use App\Http\Controllers\AgendaController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/home', function () {
     return view('dashboard');
 });
 
@@ -32,5 +35,12 @@ Route::get('/dash2', function() {
 Route::resource('/agenda', AgendaController::class);
 
 Route::get('/history', 'App\Http\Controllers\AgendaController@history');
+Route::get('/agenda', 'App\Http\Controllers\GroupsController@group');
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');

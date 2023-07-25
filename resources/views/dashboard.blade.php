@@ -10,28 +10,30 @@
 </head>
 
 <body>
-    @include('layouts.main')
-    <section class="bg-light py-5">
-        <div class="container">
+    <div class="container-fluid d-flex p-2">
+        @include('layouts.nav')
+        <section class="bg-light py-5" style="flex-basis: 100%">
+            <div class="container">
 
 
-            <div class="justify-content-center    d-flex flex-column" style="height: 100%  ; width:50%; margin: auto;">
+                <div class="justify-content-center    d-flex flex-column"
+                    style="height: 100%  ; width:50%; margin: auto;">
 
-                <h5>Halaman Utama</h5>
-                <hr>
-                <div class="">
-                    <a href="/agenda"><button href="index.html" class="btn btn-outline-success me-2 p-2" type="button"
-                            style="width: 100%;">Absensi</button><br><br></a>
+                    <h5>Halaman Utama</h5>
+                    <hr>
+                    <div class="">
+                        <a href="/agenda"><button href="index.html" class="btn btn-outline-success me-2 p-2"
+                                type="button" style="width: 100%;">Absensi</button><br><br></a>
+                    </div>
+                    <div class=""><a href="/history"><button class="btn btn-outline-success me-2 p-2"
+                                type="button" style="width: 100%;">Riwayat Absensi</button><br><br></a></div>
+                    <div class=""><a href="/logout"><button class="btn btn-outline-success me-2 p-2"
+                                type="button" style="width: 100%;">Keluar</button></a></div>
+
+
                 </div>
-                <div class=""><a href="/history"><button class="btn btn-outline-success me-2 p-2" type="button"
-                            style="width: 100%;">Riwayat Absensi</button><br><br></a></div>
-                <div class=""><a href="#"><button class="btn btn-outline-success me-2 p-2" type="button"
-                            style="width: 100%;">Keluar</button></a></div>
-
-
-            </div>
-    </section>
-
+        </section>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
     </script>

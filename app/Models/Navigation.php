@@ -9,4 +9,8 @@ class Navigation extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
+
+    public function subMenus() {
+        return $this->hasMany(Navigation::class,'main_menu');
+    }
 }
