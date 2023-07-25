@@ -29,9 +29,9 @@ Route::get('/agenda', function() {
     return view('agenda');
 });
 
-Route::get('/', function() {
-    return view('auth.login');
-})
+Route::get('/', function () {
+
+})->middleware('auth');
 
 Route::resource('/agenda', AgendaController::class);
 
