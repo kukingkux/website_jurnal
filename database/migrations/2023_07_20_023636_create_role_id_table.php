@@ -11,16 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::dropIfExists('agenda');
-        Schema::create('agenda', function (Blueprint $table) {
-            $table->string('nama');
-            $table->string('sekolah');
-            $table->string('waktu');
-            $table->string('tanggal');
-            $table->string('kegiatan');
+        Schema::create('role_id', function (Blueprint $table) {
+            $table->id('id');
+            $table->string('code',255);
+            $table->integer('is_admin');
+            $table->integer('is_global');
+            $table->integer('num_order');
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
-
         });
     }
 
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('agenda');
+        Schema::dropIfExists('role_id');
     }
 };
