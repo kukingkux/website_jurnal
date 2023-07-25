@@ -28,9 +28,10 @@ Route::get('/history', function() {
 Route::get('/agenda', function() {
     return view('agenda');
 });
-Route::get('/dash2', function() {
-    return view('dashboard2');
-});
+
+Route::get('/', function() {
+    return view('auth.login');
+})
 
 Route::resource('/agenda', AgendaController::class);
 
