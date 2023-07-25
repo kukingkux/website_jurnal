@@ -29,7 +29,7 @@ Route::get('/agenda', function() {
     return view('agenda');
 });
 
-Route::get('/', function () {
+Route::get('/home', function () {
 
 })->middleware('auth');
 
