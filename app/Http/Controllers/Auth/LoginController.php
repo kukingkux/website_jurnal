@@ -44,4 +44,10 @@ class LoginController extends Controller
         Auth::logout();
         return redirect('/login');
     }
+
+    public function authenticated() {
+        if(Auth::check()) {
+            return redirect()->route('dashboard');
+        }
+    }
 }

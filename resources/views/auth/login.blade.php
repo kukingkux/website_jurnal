@@ -29,10 +29,11 @@
                     <div class="card" style="border-radius: 20px; box-shadow: 0px 10px 20px -3px #A18AFF;">
                         <div class="card-header p-3"
                             style="background-color: #6E56CF; color: #ffff; border-radius: 20px 20px 0px 0px; font-size: 18px;">
-                            <strong>{{ __('LOGIN') }}</strong></div>
+                            <strong>{{ __('LOGIN') }}</strong>
+                        </div>
 
                         <div class="card-body">
-                            <form method="POST" action="{{ route('login') }}">
+                            <form method="POST" action="{{ route('authenticate') }}">
                                 @csrf
 
                                 <div class="row mb-1">
@@ -71,7 +72,7 @@
                                     <div class="text-center mt-2">
                                         <button type="submit" class="btn"
                                             style="background-color: #6E56CF; color: #fff; width: 100%;">
-                                            {{ __('Login') }}
+
                                         </button>
                                     </div>
                                 </div>

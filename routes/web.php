@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\Auth\LoginRegisterController;
 use App\Http\Controllers\GroupsController;
 
 /*
@@ -17,17 +17,11 @@ use App\Http\Controllers\GroupsController;
 |
 */
 
-Route::get('/home', function () {
-    return view('dashboard');
-});
 
 Route::get('/history', function() {
     return view('history');
 });
 
-Route::get('/agenda', function() {
-    return view('agenda');
-});
 
 Route::get('/', function () {
 
@@ -36,12 +30,31 @@ Route::get('/', function () {
 Route::resource('/agenda', AgendaController::class);
 
 Route::get('/history', 'App\Http\Controllers\AgendaController@history');
+
 Route::get('/agenda', 'App\Http\Controllers\GroupsController@group');
 
 
 
+
+
+Route::controller(LoginRegisterController::class)->group(function() {
+    Route::get('/register', 'register')->name('register');
+    Route::post('/store', 'store')->name('store');
+    Route::get('/login', 'login')->name('login');
+    Route::post('/authenticate', 'authenticate')->name('authenticate');
+    Route::get('/dashboard', 'dashboard')->name('dashboard');
+    Route::get('/logout', 'logout')->name('logout');
+});
+
+
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 
-Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+
+// Q U E R Y
+
+Route::get('delete/{id}','App\Http\Controllers\AgendaController@delete');
+Route::get('{id}/edit','App\Http\Controllers\AgendaController@edit');
+Route::post('update/{id}', 'App\Http\Controllers\AgendaController@update');
