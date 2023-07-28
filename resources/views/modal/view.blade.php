@@ -30,7 +30,7 @@
                         <label class="form-label">Tanggal</label>
                         <p>
                             {{ $data->tanggal }}
-                        </p </div>
+                        </p>
                         <div class="mb-3">
                             <label class="form-label">Kegiatan</label>
                             <p>
