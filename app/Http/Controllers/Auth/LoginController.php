@@ -28,7 +28,13 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected function redirectTo() {
+        if (Auth::user()->user_type == 'Administrator') {
+            return 'admin'; // Admin dashboard
+        } else {
+            return 'dashboard'; // Member dashboard
+        }
+    }
 
     /**
      * Create a new controller instance.
@@ -45,9 +51,10 @@ class LoginController extends Controller
         return redirect('/login');
     }
 
-    public function authenticated() {
-        if(Auth::check()) {
-            return redirect()->route('dashboard');
-        }
-    }
+    // public function authenticated() {
+    //     if(Auth::check()) {
+    //         return redirect()->route('dashboard');
+    //     }
+    // }
+    
 }

@@ -33,7 +33,7 @@
                         </div>
 
                         <div class="card-body">
-                            <form method="POST" action="{{ route('authenticate') }}">
+                            <form method="POST" action="">
                                 @csrf
 
                                 <div class="row mb-1">

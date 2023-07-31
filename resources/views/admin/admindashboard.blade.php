@@ -22,8 +22,8 @@
                     <h5>Halaman Utama</h5>
                     <hr>
                     <div class="">
-                        <a href="/agenda"><button href="index.html" class="btn btn-outline-success me-2 p-2"
-                                type="button" style="width: 100%;">Absensi</button><br><br></a>
+                        <a href="/users"><button href="index.html" class="btn btn-outline-success me-2 p-2"
+                                type="button" style="width: 100%;">User</button><br><br></a>
                     </div>
                     <div class=""><a href="/history"><button class="btn btn-outline-success me-2 p-2"
                                 type="button" style="width: 100%;">Riwayat Absensi</button><br><br></a></div>

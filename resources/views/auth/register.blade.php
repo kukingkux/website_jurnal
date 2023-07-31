@@ -21,7 +21,7 @@
                     </div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('store') }}">
+                        <form method="POST" action="">
                             @csrf
 
                             <div class="row mb-1">
@@ -33,11 +33,11 @@
                                 <!-- name username password -->
                                 <div class="col">
                                     <label for="">Nama</label>
-                                    <input type="text" class="form-control @error('nama') is-invalid @enderror"
-                                        id="nama" name="nama" value="{{ old('nama') }}"
+                                    <input type="text" class="form-control @error('name') is-invalid @enderror"
+                                        id="name" name="name" value="{{ old('name') }}"
                                         style="border-radius: 10px; margin-top: 10px; background-color: #F4F4F4; border-style: none;">
-                                    @if ($errors->has('nama'))
-                                        <span class="text-danger">{{ $errors->first('nama') }}</span>
+                                    @if ($errors->has('name'))
+                                        <span class="text-danger">{{ $errors->first('name') }}</span>
                                     @endif
                                 </div>
 

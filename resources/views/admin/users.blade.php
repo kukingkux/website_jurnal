@@ -21,10 +21,8 @@
 
                             <th scope="col">Nama</th>
                             <th scope="col">Sekolah</th>
-                            <th scope="col">Waktu</th>
-                            <th scope="col">Tanggal</th>
-                            <th scope="col">Kegiatan</th>
-                            <th scope="col">Opsi</th>
+                            <th scope="col">Email</th>
+
 
                         </tr>
                     </thead>

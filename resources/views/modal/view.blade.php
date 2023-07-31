@@ -9,34 +9,35 @@
             <div class="modal-body">
                 <form>
                     <div class="mb-3">
-                        <label class="form-label">Nama</label>
+                        <label class="form-label"><strong>Nama</strong></label>
                         <p>
                             {{ $data->nama }}
                         </p>
                     </div>
                     <div class="mb-3">
-                        <label for="disabledSelect" class="form-label">Sekolah</label>
+                        <label for="disabledSelect" class="form-label"><strong>Sekolah</strong></label>
                         <p>
                             {{ $data->sekolah }}
                         </p>
                     </div>
                     <div class="mb-3">
-                        <label for="disabledSelect" class="form-label">Waktu Kerja</label>
+                        <label for="disabledSelect" class="form-label"><strong>Waktu Kerja</strong></label>
                         <p>
                             {{ $data->waktu }}
                         </p>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Tanggal</label>
+                        <label class="form-label"><strong>Tanggal</strong></label>
                         <p>
                             {{ $data->tanggal }}
                         </p>
-                        <div class="mb-3">
-                            <label class="form-label">Kegiatan</label>
-                            <p>
-                                {{ $data->kegiatan }}
-                            </p>
-                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label"><strong>Kegiatan</strong></label>
+                        <p>
+                            {{ $data->kegiatan }}
+                        </p>
+                    </div>
                 </form>
             </div>
             <div class="modal-footer">

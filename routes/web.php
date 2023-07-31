@@ -33,24 +33,32 @@ Route::get('/history', 'App\Http\Controllers\AgendaController@history');
 
 Route::get('/agenda', 'App\Http\Controllers\GroupsController@group');
 
+// Middleware
+// Route::middleware(['auth', 'isAdmin'])->group(function() {
+//     Route::get('/admin', function() {
+//         return view('admin.dashboard');
+//     })->name('dashboard');
+// });
 
+Route::group(['middleware' => ['auth','ceklevel:1']], function() {
+    Route::get('/dashboard', 'App\Http\Controllers\HomeController@index');
+    Route::get('/admin', 'App\Http\Controllers\HomeController@adminpage');
 
-
-
-Route::controller(LoginRegisterController::class)->group(function() {
-    Route::get('/register', 'register')->name('register');
-    Route::post('/store', 'store')->name('store');
-    Route::get('/login', 'login')->name('login');
-    Route::post('/authenticate', 'authenticate')->name('authenticate');
-    Route::get('/dashboard', 'dashboard')->name('dashboard');
-    Route::get('/logout', 'logout')->name('logout');
 });
+Route::group(['middleware' => ['auth','ceklevel:0']], function() {
+    Route::get('/dashboard', 'App\Http\Controllers\HomeController@index');
+    
+
+});
+
+
+
 
 
 Auth::routes();
 
-Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 
 // Q U E R Y

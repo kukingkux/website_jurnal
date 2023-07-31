@@ -14,23 +14,23 @@ class NavigationSeeder extends Seeder
      */
     public function run(): void
     {
-        Navigation::create([
-            'name' => 'Konfigurasi',
-            'url' => 'konfigurasi',
-            'icon' => 'ti-settings',
-            'main_menu' => null,
-        ]);
-        Navigation::create([
-            'name' => 'Agenda',
-            'url' => 'konfigurasi/agenda',
-            'icon' => 'ti-settings',
-            'main_menu' => 1,
-        ]);
-        Navigation::create([
-            'name' => 'Riwayat',
-            'url' => 'konfigurasi/history',
-            'icon' => 'ti-settings',
-            'main_menu' => 1,
-        ]);
+        // Navigation::create([
+        //     'name' => 'Konfigurasi',
+        //     'url' => 'konfigurasi',
+        //     'icon' => 'ti-settings',
+        //     'main_menu' => null,
+        // ]);
+        // Navigation::create([
+        //     'name' => 'Agenda',
+        //     'url' => 'konfigurasi/agenda',
+        //     'icon' => 'ti-settings',
+        //     'main_menu' => 1,
+        // ]);
+        // Navigation::create([
+        //     'name' => 'Riwayat',
+        //     'url' => 'konfigurasi/history',
+        //     'icon' => 'ti-settings',
+        //     'main_menu' => 1,
+        // ]);
     }
 }
