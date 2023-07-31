@@ -84,7 +84,7 @@
 <body>
 
     <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px; height:100vh;">
-        <a href="/dashboard" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+        <a href="/admin" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
             <svg class="bi me-2" width="40" height="32">
 
             </svg>
@@ -111,18 +111,18 @@
             </li> --}}
 
             {{-- @foreach (getMenus() as $menu) --}}
-            <li class="nav-item" style="background-color: #ae9fec;">
-                <a href="/dashboard" class="nav-link {{ request()->is('dashboard') ? 'active' : 'nav-link' }}"
+            <li class="nav-item">
+                <a href="/admin" class="nav-link {{ request()->is('admin') ? 'active' : 'nav-link' }}"
                     aria-current="page">
                     <i class="fa-solid fa-gauge" href="#"></i>&nbsp;
-                    Dashboard
+                    Dashboard (Admin)
                 </a>
             </li>
             <li>
-                <a href="/agenda" class="nav-link {{ request()->is('agenda') ? 'active' : 'nav-link' }}"
+                <a href="/user" class="nav-link {{ request()->is('user') ? 'active' : 'nav-link' }}"
                     aria-current="page">
                     <i class="fa-solid fa-clipboard-user"></i>&nbsp;
-                    Attendance
+                    Users
                 </a>
             </li>
             <li>

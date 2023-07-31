@@ -43,6 +43,7 @@ Route::get('/agenda', 'App\Http\Controllers\GroupsController@group');
 Route::group(['middleware' => ['auth','ceklevel:1']], function() {
     Route::get('/dashboard', 'App\Http\Controllers\HomeController@index');
     Route::get('/admin', 'App\Http\Controllers\HomeController@adminpage');
+    Route::get('/user', 'App\Http\Controllers\UserController@users');
 
 });
 Route::group(['middleware' => ['auth','ceklevel:0']], function() {

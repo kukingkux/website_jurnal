@@ -11,10 +11,11 @@
 
 <body>
     <div class="container-fluid d-flex p-2">
-        @include('layouts.nav')
+        @include('admin.layouts.nav')
         <div class="container mt-5" style="background-color: rgb(255, 255, 255); border-radius: 5px;">
             <div class="row text-center">
-                <h1 class="mt-4">Riwayat Absensi & Kegiatan</h1>
+                <h1 class="mt-4">List Users</h1>
+
                 <table class="table table-striped mt-5">
                     <thead>
                         <tr>
@@ -22,19 +23,25 @@
                             <th scope="col">Nama</th>
                             <th scope="col">Sekolah</th>
                             <th scope="col">Email</th>
-
+                            <th>
+                                <div class="text-end mt-4">
+                                    <a href="/register"><button type="button"
+                                            style="background-color: #6E56CF; color: #fff;"
+                                            class="btn text-center">Tambah
+                                            Data &nbsp;<i class="fa-solid fa-plus"></i></button></a>
+                                </div>
+                            </th>
 
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($agendas as $data)
+                        @foreach ($users as $data)
                             <tr>
 
-                                <td tdscope="col">{{ $data->nama }}</td>
-                                <td scope="col">{{ $data->sekolah }}</td>
-                                <td scope="col">{{ $data->waktu }}</td>
-                                <td scope="col">{{ $data->tanggal }}</td>
-                                <td scope="col">{{ $data->kegiatan }}</td>
+                                <td tdscope="col">{{ $data->name }}</td>
+                                <td scope="col">-</td>
+                                <td scope="col">{{ $data->email }}</td>
+
                                 <td>
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-sm btn-info" data-bs-toggle="modal"
@@ -50,8 +57,8 @@
                                 </td>
                             </tr>
 
-                            @include('modal.edit')
-                            @include('modal.view')
+                            {{-- @include('modal.edit') --}}
+                            @include('admin.modal.view')
                         @endforeach
 
                     </tbody>

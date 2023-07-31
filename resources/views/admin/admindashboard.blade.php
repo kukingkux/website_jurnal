@@ -11,7 +11,7 @@
 
 <body>
     <div class="container-fluid d-flex p-2">
-        @include('layouts.nav')
+        @include('admin.layouts.nav')
         <section class="bg-light py-5" style="flex-basis: 100%">
             <div class="container">
 
@@ -22,7 +22,7 @@
                     <h5>Halaman Utama</h5>
                     <hr>
                     <div class="">
-                        <a href="/users"><button href="index.html" class="btn btn-outline-success me-2 p-2"
+                        <a href="/user"><button href="index.html" class="btn btn-outline-success me-2 p-2"
                                 type="button" style="width: 100%;">User</button><br><br></a>
                     </div>
                     <div class=""><a href="/history"><button class="btn btn-outline-success me-2 p-2"

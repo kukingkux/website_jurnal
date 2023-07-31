@@ -24,7 +24,7 @@ class AgendaController extends Controller
     }
 
     public function create(Request $request) {
- return view('agenda', [
+        return view('agenda', [
             "title" => "Agenda"
         ]);
     }
