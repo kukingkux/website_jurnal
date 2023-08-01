@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\Auth\LoginRegisterController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\GroupsController;
 
 /*
@@ -17,21 +17,9 @@ use App\Http\Controllers\GroupsController;
 |
 */
 
-
-Route::get('/history', function() {
-    return view('history');
-});
-
-
 Route::get('/', function () {
 
 })->middleware('auth');
-
-Route::resource('/agenda', AgendaController::class);
-
-Route::get('/history', 'App\Http\Controllers\AgendaController@history');
-
-Route::get('/agenda', 'App\Http\Controllers\GroupsController@group');
 
 // Middleware
 // Route::middleware(['auth', 'isAdmin'])->group(function() {
@@ -40,24 +28,24 @@ Route::get('/agenda', 'App\Http\Controllers\GroupsController@group');
 //     })->name('dashboard');
 // });
 
+
+
 Route::group(['middleware' => ['auth','ceklevel:1']], function() {
-    Route::get('/dashboard', 'App\Http\Controllers\HomeController@index');
+    // Route::get('/dashboard', 'App\Http\Controllers\HomeController@index');
     Route::get('/admin', 'App\Http\Controllers\HomeController@adminpage');
     Route::get('/user', 'App\Http\Controllers\UserController@users');
-
+    Route::get('/attendance', 'App\Http\Controllers\LeavesController@attendanceEmployee');
+    Auth::routes(['register' => true]);
 });
-Route::group(['middleware' => ['auth','ceklevel:0']], function() {
+Route::group(['middleware' => ['auth','ceklevel:0,1']], function() {
     Route::get('/dashboard', 'App\Http\Controllers\HomeController@index');
+    Route::get('/history', 'App\Http\Controllers\AgendaController@history');
+    Route::resource('/agenda', AgendaController::class);
+    Route::get('/agenda', 'App\Http\Controllers\GroupsController@group');
     
-
 });
 
-
-
-
-
-Auth::routes();
-
+Auth::routes(['register' => false]);
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
@@ -65,5 +53,9 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 // Q U E R Y
 
 Route::get('delete/{id}','App\Http\Controllers\AgendaController@delete');
+
 Route::get('{id}/edit','App\Http\Controllers\AgendaController@edit');
 Route::post('update/{id}', 'App\Http\Controllers\AgendaController@update');
+Route::post('create', 'App\Http\Controllers\UserController@create');
+
+Route::get('deleteuser/{id}','App\Http\Controllers\UserController@deleteuser');

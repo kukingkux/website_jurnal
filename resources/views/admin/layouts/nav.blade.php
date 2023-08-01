@@ -126,10 +126,10 @@
                 </a>
             </li>
             <li>
-                <a href="/history" class="nav-link {{ request()->is('history') ? 'active' : 'nav-link' }} "
+                <a href="/attendance" class="nav-link {{ request()->is('attendance') ? 'active' : 'nav-link' }} "
                     aria-current="page">
                     <i class="fa-solid fa-clock-rotate-left"></i>&nbsp;
-                    History
+                    Attendance
                 </a>
             </li>
 

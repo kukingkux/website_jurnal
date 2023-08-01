@@ -88,7 +88,7 @@
             <svg class="bi me-2" width="40" height="32">
 
             </svg>
-            <span class="fs-4">Admin</span>
+            <span class="fs-4">Jurnal</span>
         </a>
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">

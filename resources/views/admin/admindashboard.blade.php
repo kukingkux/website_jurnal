@@ -23,10 +23,10 @@
                     <hr>
                     <div class="">
                         <a href="/user"><button href="index.html" class="btn btn-outline-success me-2 p-2"
-                                type="button" style="width: 100%;">User</button><br><br></a>
+                                type="button" style="width: 100%;">Users</button><br><br></a>
                     </div>
-                    <div class=""><a href="/history"><button class="btn btn-outline-success me-2 p-2"
-                                type="button" style="width: 100%;">Riwayat Absensi</button><br><br></a></div>
+                    <div class=""><a href="/attendance"><button class="btn btn-outline-success me-2 p-2"
+                                type="button" style="width: 100%;">Attendance</button><br><br></a></div>
                     <div class=""><a href="/logout"><button class="btn btn-outline-success me-2 p-2"
                                 type="button" style="width: 100%;">Keluar</button></a></div>
 
