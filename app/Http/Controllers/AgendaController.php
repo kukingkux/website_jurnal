@@ -51,6 +51,7 @@ class AgendaController extends Controller
         $agendas->delete();
         return redirect('history')->with('status',"Hapus data berhasil!");
     }
+    
 
     
 
