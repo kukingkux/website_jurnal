@@ -5,6 +5,7 @@ use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\GroupsController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +35,8 @@ Route::group(['middleware' => ['auth','ceklevel:1']], function() {
     // Route::get('/dashboard', 'App\Http\Controllers\HomeController@index');
     Route::get('/admin', 'App\Http\Controllers\HomeController@adminpage');
     Route::get('/user', 'App\Http\Controllers\UserController@users');
+    
+    
     Route::get('/attendance', 'App\Http\Controllers\LeavesController@attendanceEmployee');
     Auth::routes(['register' => true]);
 });

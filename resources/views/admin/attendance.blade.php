@@ -89,7 +89,6 @@
                                     <th scope="col">19</th>
                                     <th scope="col">20</th>
                                     <th scope="col">21</th>
-
                                     <th scope="col">22</th>
                                     <th scope="col">23</th>
                                     <th scope="col">24</th>
@@ -105,37 +104,38 @@
                             <tbody>
                                 <tr>
                                     <th scope="row">Indra</th>
-                                    <td><i class="fa-solid fa-check" style="color: green;" onclick=""></i></td>
-                                    <td><i class="fa-solid fa-xmark" style="color: red;"></i></td>
-                                    <td><i class="fa-solid fa-check" style="color: green;"></i></td>
-                                    <td><i class="fa-solid fa-xmark" style="color: red;"></i></td>
-                                    <td><i class="fa-solid fa-check" style="color: green;"></i></td>
-                                    <td><i class="fa-solid fa-xmark" style="color: red;"></i></td>
-                                    <td><i class="fa-solid fa-check" style="color: green;"></i></td>
-                                    <td><i class="fa-solid fa-xmark" style="color: red;"></i></td>
-                                    <td><i class="fa-solid fa-check" style="color: green;"></i></td>
-                                    <td><i class="fa-solid fa-xmark" style="color: red;"></i></td>
-                                    <td><i class="fa-solid fa-check" style="color: green;"></i></td>
-                                    <td><i class="fa-solid fa-xmark" style="color: red;"></i></td>
-                                    <td><i class="fa-solid fa-check" style="color: green;"></i></td>
-                                    <td><i class="fa-solid fa-xmark" style="color: red;"></i></td>
-                                    <td><i class="fa-solid fa-check" style="color: green;"></i></td>
-                                    <td><i class="fa-solid fa-xmark" style="color: red;"></i></td>
-                                    <td><i class="fa-solid fa-check" style="color: green;"></i></td>
-                                    <td><i class="fa-solid fa-xmark" style="color: red;"></i></td>
-                                    <td><i class="fa-solid fa-check" style="color: green;"></i></td>
-                                    <td><i class="fa-solid fa-xmark" style="color: red;"></i></td>
-                                    <td><i class="fa-solid fa-check" style="color: green;"></i></td>
-                                    <td><i class="fa-solid fa-xmark" style="color: red;"></i></td>
-                                    <td><i class="fa-solid fa-check" style="color: green;"></i></td>
-                                    <td><i class="fa-solid fa-xmark" style="color: red;"></i></td>
-                                    <td><i class="fa-solid fa-check" style="color: green;"></i></td>
-                                    <td><i class="fa-solid fa-xmark" style="color: red;"></i></td>
-                                    <td><i class="fa-solid fa-check" style="color: green;"></i></td>
-                                    <td><i class="fa-solid fa-xmark" style="color: red;"></i></td>
-                                    <td><i class="fa-solid fa-check" style="color: green;"></i></td>
-                                    <td><i class="fa-solid fa-xmark" style="color: red;"></i></td>
-                                    <td><i class="fa-solid fa-check" style="color: green;"></i></td>
+                                    <td><i class="fa-regular fa-circle-check" style="color: green;" onclick=""></i>
+                                    </td>
+                                    <td><i class="fa-regular fa-circle-xmark" style="color: red;"></i></td>
+                                    <td><i class="fa-regular fa-circle-check" style="color: green;"></i></td>
+                                    <td><i class="fa-regular fa-circle-xmark" style="color: red;"></i></td>
+                                    <td><i class="fa-regular fa-circle-check" style="color: green;"></i></td>
+                                    <td><i class="fa-regular fa-circle-xmark" style="color: red;"></i></td>
+                                    <td><i class="fa-regular fa-circle-check" style="color: green;"></i></td>
+                                    <td><i class="fa-regular fa-circle-xmark" style="color: red;"></i></td>
+                                    <td><i class="fa-regular fa-circle-check" style="color: green;"></i></td>
+                                    <td><i class="fa-regular fa-circle-xmark" style="color: red;"></i></td>
+                                    <td><i class="fa-regular fa-circle-check" style="color: green;"></i></td>
+                                    <td><i class="fa-regular fa-circle-xmark" style="color: red;"></i></td>
+                                    <td><i class="fa-regular fa-circle-check" style="color: green;"></i></td>
+                                    <td><i class="fa-regular fa-circle-xmark" style="color: red;"></i></td>
+                                    <td><i class="fa-regular fa-circle-check" style="color: green;"></i></td>
+                                    <td><i class="fa-regular fa-circle-xmark" style="color: red;"></i></td>
+                                    <td><i class="fa-regular fa-circle-check" style="color: green;"></i></td>
+                                    <td><i class="fa-regular fa-circle-xmark" style="color: red;"></i></td>
+                                    <td><i class="fa-regular fa-circle-check" style="color: green;"></i></td>
+                                    <td><i class="fa-regular fa-circle-xmark" style="color: red;"></i></td>
+                                    <td><i class="fa-regular fa-circle-check" style="color: green;"></i></td>
+                                    <td><i class="fa-regular fa-circle-xmark" style="color: red;"></i></td>
+                                    <td><i class="fa-regular fa-circle-check" style="color: green;"></i></td>
+                                    <td><i class="fa-regular fa-circle-xmark" style="color: red;"></i></td>
+                                    <td><i class="fa-regular fa-circle-check" style="color: green;"></i></td>
+                                    <td><i class="fa-regular fa-circle-xmark" style="color: red;"></i></td>
+                                    <td><i class="fa-regular fa-circle-check" style="color: green;"></i></td>
+                                    <td><i class="fa-regular fa-circle-xmark" style="color: red;"></i></td>
+                                    <td><i class="fa-regular fa-circle-check" style="color: green;"></i></td>
+                                    <td><i class="fa-regular fa-circle-xmark" style="color: red;"></i></td>
+                                    <td><i class="fa-regular fa-circle-check" style="color: green;"></i></td>
 
                                 </tr>
                             </tbody>
@@ -151,6 +151,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
+
+    <script></script>
 </body>
 
 </html>

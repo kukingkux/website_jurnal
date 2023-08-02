@@ -34,7 +34,9 @@
                             <div class="d-flex">
                                 <i class="col fa-solid fa-chart-simple fa-spin-pulse p-4 me-3"
                                     style="background-color: #6E56CF; color: #fff; border-radius: 10px;"></i>
-                                <h1 class="col-lg-10">7</h1>
+                                <h1 class="col-lg-10">
+                                    {{ $count }}
+                                </h1>
                             </div>
                         </div>
                     </div>
@@ -99,7 +101,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($users as $data)
+                            @foreach ($user as $data)
                                 <tr>
                                     <th scope="row">{{ $data->name }}</th>
                                     <td>-</td>

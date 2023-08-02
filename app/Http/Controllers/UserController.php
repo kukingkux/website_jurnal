@@ -10,10 +10,14 @@ use App\Models\User;
 
 class UserController extends Controller
 {
+    
+
     public function users()
     {
-        $users = User::all();
-        return view('admin.users', compact('users'));
+        $user = User::all();
+        $count = User::count();
+
+        return view('admin.users', compact('user','count'));
     }
 
     protected function create(Request $data)
@@ -27,8 +31,10 @@ class UserController extends Controller
     }
 
     public function deleteuser($id) {
-        $users = User::where('id',$id)->firstOrFail();
-        $users->delete();
+        $user = User::where('id',$id)->firstOrFail();
+        $user->delete();
         return redirect('user')->with('status',"Hapus data berhasil!");
     }
+
+    
 }
