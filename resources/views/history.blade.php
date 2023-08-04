@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div class="container-fluid d-flex p-2">
+    <div class="container-fluid d-flex p-2" style="box-shadow: 0px 10px 20px -10px #A18AFF;">
         @include('layouts.nav')
         <div class="container mt-5" style="background-color: rgb(255, 255, 255); border-radius: 5px;">
             <div class="row text-center">

@@ -23,15 +23,18 @@
                             <li class="breadcrumb-item active" aria-current="page">Attendance</li>
                         </ol>
                     </nav>
-                    <div class="d-flex">
+                    <div class="d-flex" style="box-shadow: 0px 10px 20px -10px #A18AFF;">
                         <div class="col">
                             <input class="form-control" type="text" placeholder="Employee Name"
                                 aria-label="default input example">
                         </div>
                         <div class="col input-group">
-                            <select class="form-select form-control-sm" id="inputGroupSelect01">
+                            <select class="form-select form-control-sm filter-select" id="inputGroupSelect01">
                                 <option selected>Select Month</option>
-                                <option value="1">January</option>
+                                @foreach ($month as $m)
+                                    <option>{{ $m->month }}</option>
+                                @endforeach
+                                {{-- <option value="1">January</option>
                                 <option value="2">February</option>
                                 <option value="3">March</option>
                                 <option value="1">April</option>
@@ -42,15 +45,15 @@
                                 <option value="3">September</option>
                                 <option value="1">October</option>
                                 <option value="2">November</option>
-                                <option value="3">Desember</option>
+                                <option value="3">Desember</option> --}}
                             </select>
                         </div>
                         <div class="col input-group">
                             <select class="form-select form-control-sm" id="inputGroupSelect01">
                                 <option selected>Select Year</option>
-                                <option value="1">2023</option>
-                                <option value="2">2022</option>
-                                <option value="3">2021</option>
+                                @foreach ($year as $y)
+                                    <option value="1">{{ $y->year }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="col">
@@ -61,15 +64,18 @@
                 </div>
                 <!-- table -->
                 <div class="container mt-2"
-                    style="background-color: rgb(255, 255, 255); border-radius: 10px; overflow-x: scroll;">
+                    style="background-color: rgb(255, 255, 255); border-radius: 10px; overflow-x: scroll; box-shadow: 0px 10px 20px -10px #A18AFF;">
                     <div class="row text-center">
 
-                        <table class="table table-sm" style="overflow-x: scroll;">
+                        <table id="datatable" class="table table-sm" style="overflow-x: scroll;">
                             <thead style="background-color: #f4f4f4;">
                                 <tr>
                                     <th scope="col">Name</th>
-                                    <th scope="col">1</th>
-                                    <th scope="col">2</th>
+                                    @foreach ($day as $d)
+                                        <th scope="col">{{ $d->day }}</th>
+                                    @endforeach
+
+                                    {{-- <th scope="col">2</th>
                                     <th scope="col">3</th>
                                     <th scope="col">4</th>
                                     <th scope="col">5</th>
@@ -98,46 +104,50 @@
                                     <th scope="col">28</th>
                                     <th scope="col">29</th>
                                     <th scope="col">30</th>
-                                    <th scope="col">31</th>
+                                    <th scope="col">31</th> --}}
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">Indra</th>
-                                    <td><i class="fa-regular fa-circle-check" style="color: green;" onclick=""></i>
-                                    </td>
-                                    <td><i class="fa-regular fa-circle-xmark" style="color: red;"></i></td>
-                                    <td><i class="fa-regular fa-circle-check" style="color: green;"></i></td>
-                                    <td><i class="fa-regular fa-circle-xmark" style="color: red;"></i></td>
-                                    <td><i class="fa-regular fa-circle-check" style="color: green;"></i></td>
-                                    <td><i class="fa-regular fa-circle-xmark" style="color: red;"></i></td>
-                                    <td><i class="fa-regular fa-circle-check" style="color: green;"></i></td>
-                                    <td><i class="fa-regular fa-circle-xmark" style="color: red;"></i></td>
-                                    <td><i class="fa-regular fa-circle-check" style="color: green;"></i></td>
-                                    <td><i class="fa-regular fa-circle-xmark" style="color: red;"></i></td>
-                                    <td><i class="fa-regular fa-circle-check" style="color: green;"></i></td>
-                                    <td><i class="fa-regular fa-circle-xmark" style="color: red;"></i></td>
-                                    <td><i class="fa-regular fa-circle-check" style="color: green;"></i></td>
-                                    <td><i class="fa-regular fa-circle-xmark" style="color: red;"></i></td>
-                                    <td><i class="fa-regular fa-circle-check" style="color: green;"></i></td>
-                                    <td><i class="fa-regular fa-circle-xmark" style="color: red;"></i></td>
-                                    <td><i class="fa-regular fa-circle-check" style="color: green;"></i></td>
-                                    <td><i class="fa-regular fa-circle-xmark" style="color: red;"></i></td>
-                                    <td><i class="fa-regular fa-circle-check" style="color: green;"></i></td>
-                                    <td><i class="fa-regular fa-circle-xmark" style="color: red;"></i></td>
-                                    <td><i class="fa-regular fa-circle-check" style="color: green;"></i></td>
-                                    <td><i class="fa-regular fa-circle-xmark" style="color: red;"></i></td>
-                                    <td><i class="fa-regular fa-circle-check" style="color: green;"></i></td>
-                                    <td><i class="fa-regular fa-circle-xmark" style="color: red;"></i></td>
-                                    <td><i class="fa-regular fa-circle-check" style="color: green;"></i></td>
-                                    <td><i class="fa-regular fa-circle-xmark" style="color: red;"></i></td>
-                                    <td><i class="fa-regular fa-circle-check" style="color: green;"></i></td>
-                                    <td><i class="fa-regular fa-circle-xmark" style="color: red;"></i></td>
-                                    <td><i class="fa-regular fa-circle-check" style="color: green;"></i></td>
-                                    <td><i class="fa-regular fa-circle-xmark" style="color: red;"></i></td>
-                                    <td><i class="fa-regular fa-circle-check" style="color: green;"></i></td>
+                                @foreach ($user as $data)
+                                    <tr>
 
-                                </tr>
+                                        <th scope="row">{{ $data->name }}</th>
+                                        <td><i class="fa-regular fa-circle-check" style="color: green;"
+                                                onclick=""></i>
+                                        </td>
+                                        <td><i class="fa-regular fa-circle-xmark" style="color: red;"></i></td>
+                                        <td><i class="fa-regular fa-circle-check" style="color: green;"></i></td>
+                                        <td><i class="fa-regular fa-circle-xmark" style="color: red;"></i></td>
+                                        <td><i class="fa-regular fa-circle-check" style="color: green;"></i></td>
+                                        <td><i class="fa-regular fa-circle-xmark" style="color: red;"></i></td>
+                                        <td><i class="fa-regular fa-circle-check" style="color: green;"></i></td>
+                                        <td><i class="fa-regular fa-circle-xmark" style="color: red;"></i></td>
+                                        <td><i class="fa-regular fa-circle-check" style="color: green;"></i></td>
+                                        <td><i class="fa-regular fa-circle-xmark" style="color: red;"></i></td>
+                                        <td><i class="fa-regular fa-circle-check" style="color: green;"></i></td>
+                                        <td><i class="fa-regular fa-circle-xmark" style="color: red;"></i></td>
+                                        <td><i class="fa-regular fa-circle-check" style="color: green;"></i></td>
+                                        <td><i class="fa-regular fa-circle-xmark" style="color: red;"></i></td>
+                                        <td><i class="fa-regular fa-circle-check" style="color: green;"></i></td>
+                                        <td><i class="fa-regular fa-circle-xmark" style="color: red;"></i></td>
+                                        <td><i class="fa-regular fa-circle-check" style="color: green;"></i></td>
+                                        <td><i class="fa-regular fa-circle-xmark" style="color: red;"></i></td>
+                                        <td><i class="fa-regular fa-circle-check" style="color: green;"></i></td>
+                                        <td><i class="fa-regular fa-circle-xmark" style="color: red;"></i></td>
+                                        <td><i class="fa-regular fa-circle-check" style="color: green;"></i></td>
+                                        <td><i class="fa-regular fa-circle-xmark" style="color: red;"></i></td>
+                                        <td><i class="fa-regular fa-circle-check" style="color: green;"></i></td>
+                                        <td><i class="fa-regular fa-circle-xmark" style="color: red;"></i></td>
+                                        <td><i class="fa-regular fa-circle-check" style="color: green;"></i></td>
+                                        <td><i class="fa-regular fa-circle-xmark" style="color: red;"></i></td>
+                                        <td><i class="fa-regular fa-circle-check" style="color: green;"></i></td>
+                                        <td><i class="fa-regular fa-circle-xmark" style="color: red;"></i></td>
+                                        <td><i class="fa-regular fa-circle-check" style="color: green;"></i></td>
+                                        <td><i class="fa-regular fa-circle-xmark" style="color: red;"></i></td>
+                                        <td><i class="fa-regular fa-circle-check" style="color: green;"></i></td>
+
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -152,7 +162,31 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
 
-    <script></script>
+    <script>
+        $(document).ready(function() {
+            var table = $('#datatable').DataTable({
+                'processing': true,
+                'serverSide': true,
+                'ajax': "{{ route('attendance.date') }}",
+                'columns': [{
+                        'data': 'day'
+                    },
+                    {
+                        'data': 'month'
+                    },
+                    {
+                        'data': 'year'
+                    }
+                ]
+            })
+        })
+
+        $('.filter-select').change(function() {
+            table.column($(this).data('column'))
+                .search($(this).val())
+                .draw();
+        })
+    </script>
 </body>
 
 </html>

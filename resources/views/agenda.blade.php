@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div class="container-fluid d-flex p-2">
+    <div class="container-fluid d-flex p-2" style="box-shadow: 0px 10px 20px -10px #A18AFF;">
         @include('layouts.nav')
         <section class="bg-light py-5" style="flex-basis: 100%">
             <div class="container">

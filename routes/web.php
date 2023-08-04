@@ -1,11 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\GroupsController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LeavesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,9 +37,12 @@ Route::group(['middleware' => ['auth','ceklevel:1']], function() {
     // Route::get('/dashboard', 'App\Http\Controllers\HomeController@index');
     Route::get('/admin', 'App\Http\Controllers\HomeController@adminpage');
     Route::get('/user', 'App\Http\Controllers\UserController@users');
+    Route::get('/user', function() {
+        return view('admin.users');
+    });
+    Route::get('/attendance', [LeavesController::class, 'attendanceDate'])->name('attendance.date');
     
     
-    Route::get('/attendance', 'App\Http\Controllers\LeavesController@attendanceEmployee');
     Auth::routes(['register' => true]);
 });
 Route::group(['middleware' => ['auth','ceklevel:0,1']], function() {
@@ -62,3 +67,17 @@ Route::post('update/{id}', 'App\Http\Controllers\AgendaController@update');
 Route::post('create', 'App\Http\Controllers\UserController@create');
 
 Route::get('deleteuser/{id}','App\Http\Controllers\UserController@deleteuser');
+
+// VIEW
+
+view()->composer(['*'], function ($view) {
+    $user = User::all();
+    $count_user = User::count();
+    $count_member = User::where('role_id', '0')->count();
+    $count_admin = User::where('role_id', '1')->count();
+
+    $view->with('user', $user)
+    ->with('count_user', $count_user)
+    ->with('count_member', $count_member)
+    ->with('count_admin', $count_admin);
+});

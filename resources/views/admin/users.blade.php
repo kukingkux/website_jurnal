@@ -35,7 +35,7 @@
                                 <i class="col fa-solid fa-chart-simple fa-spin-pulse p-4 me-3"
                                     style="background-color: #6E56CF; color: #fff; border-radius: 10px;"></i>
                                 <h1 class="col-lg-10">
-                                    {{ $count }}
+                                    {{ $count_user }}
                                 </h1>
                             </div>
                         </div>

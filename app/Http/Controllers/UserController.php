@@ -6,19 +6,22 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use Illuminate\Support\Facades\View;
 
 
 class UserController extends Controller
 {
     
 
-    public function users()
-    {
-        $user = User::all();
-        $count = User::count();
+    // public function users()
+    // {
+    //     $user = User::all();
+    //     $count = User::count();
 
-        return view('admin.users', compact('user','count'));
-    }
+    //     View::share('user', $user);
+    //     View::share('count', $count);
+        
+    // }
 
     protected function create(Request $data)
     {
