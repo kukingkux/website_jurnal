@@ -31,7 +31,7 @@
                         <div class="d-flex" style="box-shadow: 0px 10px 20px -10px #A18AFF;">
                             <div class="col">
                                 <input class="form-control" type="text" placeholder="Employee Name"
-                                    aria-label="default input example" value="">
+                                    aria-label="default input example" value="{{ $currentuser->name }}">
                             </div>
                             <div class="col input-group">
                                 <select class="form-select form-control-sm filter-select" id="inputGroupSelect01">

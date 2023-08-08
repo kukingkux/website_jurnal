@@ -6,14 +6,21 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Agenda;
 use App\Models\User;
+use DB;
 use Auth;
 
 
 class AgendaController extends Controller
 {
-    public function agenda()
+    public function history()
     {
-        $agendas = Agenda::all();
+        
+        $userId = Auth::id();
+        
+        $agendas = DB::table('agenda')
+        ->join('users', 'users.id', '=', 'agenda.user_id')->get()
+        ->where('id', $userId);
+        
         return view('history', ['agendas' => $agendas]);
     }
 

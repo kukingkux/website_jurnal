@@ -46,7 +46,7 @@ Route::group(['middleware' => ['auth','ceklevel:1']], function() {
 });
 Route::group(['middleware' => ['auth','ceklevel:0,1']], function() {
     Route::get('/dashboard', 'App\Http\Controllers\HomeController@index');
-    Route::get('/history', 'App\Http\Controllers\AgendaController@agenda');
+    Route::get('/history', 'App\Http\Controllers\AgendaController@history');
     Route::resource('/agenda', AgendaController::class);
     Route::get('/agenda', 'App\Http\Controllers\GroupsController@group');
     
