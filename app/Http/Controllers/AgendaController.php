@@ -5,14 +5,16 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Agenda;
-use App\User;
+use App\Models\User;
+use Auth;
+
 
 class AgendaController extends Controller
 {
-    public function history()
+    public function agenda()
     {
         $agendas = Agenda::all();
-        return view('history', compact('agendas'));
+        return view('history', ['agendas' => $agendas]);
     }
 
      public function store(Request $request)
@@ -56,6 +58,9 @@ class AgendaController extends Controller
     
 
     public function index(Request $request) {
-        return view('agenda', ["title" => "Agenda"]);
+        
+        
+
+        return view('agenda', [title => 'Agenda']);
     }
 }

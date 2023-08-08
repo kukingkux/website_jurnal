@@ -11,4 +11,9 @@ class Agenda extends Model
    
     protected $fillable = ['id','nama', 'sekolah', 'waktu', 'tanggal', 'kegiatan'];
     protected $primaryKey = 'id';
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

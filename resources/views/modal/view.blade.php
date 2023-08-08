@@ -11,7 +11,7 @@
                     <div class="mb-3">
                         <label class="form-label"><strong>Nama</strong></label>
                         <p>
-                            {{ $data->nama }}
+                            {{ $data->name }}
                         </p>
                     </div>
                     <div class="mb-3">

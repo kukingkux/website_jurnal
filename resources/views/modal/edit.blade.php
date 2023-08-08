@@ -11,7 +11,7 @@
                     @csrf
                     <div class="mb-3">
                         <label class="form-label">Nama</label>
-                        <input type="text" name="nama" class="form-control" value="{{ $data->nama }}">
+                        <input type="text" name="nama" class="form-control" value="{{ $data->name }}">
                     </div>
                     <div class="mb-3">
                         <label for="disabledSelect" class="form-label">Sekolah</label>

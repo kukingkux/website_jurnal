@@ -39,5 +39,10 @@ class UserController extends Controller
         return redirect('user')->with('status',"Hapus data berhasil!");
     }
 
+    public function user() {
+        $user = User::all();
+        return view('history', ['user' => $user]);
+    }
+
     
 }

@@ -20,9 +20,6 @@ use App\Http\Controllers\LeavesController;
 |
 */
 
-Route::get('/', function () {
-
-})->middleware('auth');
 
 // Middleware
 // Route::middleware(['auth', 'isAdmin'])->group(function() {
@@ -35,7 +32,7 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['auth','ceklevel:1']], function() {
     // Route::get('/dashboard', 'App\Http\Controllers\HomeController@index');
-    Route::get('/admin', 'App\Http\Controllers\HomeController@adminpage');
+    Route::get('/admin', 'App\Http\Controllers\HomeController@adminpage')->middleware('auth');;
     Route::get('/user', 'App\Http\Controllers\UserController@users');
     Route::get('/user', function() {
         return view('admin.users');
@@ -43,11 +40,13 @@ Route::group(['middleware' => ['auth','ceklevel:1']], function() {
     Route::get('/attendance', [LeavesController::class, 'attendanceDate'])->name('attendance.date');
     
     
+
+    
     Auth::routes(['register' => true]);
 });
 Route::group(['middleware' => ['auth','ceklevel:0,1']], function() {
     Route::get('/dashboard', 'App\Http\Controllers\HomeController@index');
-    Route::get('/history', 'App\Http\Controllers\AgendaController@history');
+    Route::get('/history', 'App\Http\Controllers\AgendaController@agenda');
     Route::resource('/agenda', AgendaController::class);
     Route::get('/agenda', 'App\Http\Controllers\GroupsController@group');
     
@@ -68,6 +67,8 @@ Route::post('create', 'App\Http\Controllers\UserController@create');
 
 Route::get('deleteuser/{id}','App\Http\Controllers\UserController@deleteuser');
 
+
+
 // VIEW
 
 view()->composer(['*'], function ($view) {
@@ -80,4 +81,9 @@ view()->composer(['*'], function ($view) {
     ->with('count_user', $count_user)
     ->with('count_member', $count_member)
     ->with('count_admin', $count_admin);
+
+    $userId = Auth::id();
+    $currentuser = User::find($userId);
+    $view->with('currentuser', $currentuser);
+
 });

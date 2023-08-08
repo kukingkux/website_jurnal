@@ -82,62 +82,57 @@
 </head>
 
 <body>
+    <style>
+        /* CSS untuk tombol aktif */
+        .nav-item .nav-link {
+            color: #46157A;
+        }
+
+        .nav-item .nav-link.active {
+            background-color: #6F61C0;
+            color: white;
+        }
+    </style>
 
     <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px; height:100vh;">
-        <a href="/dashboard" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+        <a href="/admin" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
             <svg class="bi me-2" width="40" height="32">
 
             </svg>
-            <span class="fs-4">Jurnal</span>
+            <span class="fs-4">Dashboard</span>
         </a>
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
 
-            {{-- <li>
-                <a href="#" class="nav-link ">
-                    <svg class="bi me-2" width="16" height="16">
-                        <use xlink:href="#grid"></use>
-                    </svg>
-                    Products
-                </a>
-            </li>
-            <li>
-                <a href="#" class="nav-link">
-                    <svg class="bi me-2" width="16" height="16">
-                        <use xlink:href="#people-circle"></use>
-                    </svg>
-                    Customers
-                </a>
-            </li> --}}
 
             {{-- @foreach (getMenus() as $menu) --}}
-            <li class="nav-item" style="background-color: #ae9fec;">
+            <li class="nav-item">
+                <!-- /admin -->
                 <a href="/dashboard" class="nav-link {{ request()->is('dashboard') ? 'active' : 'nav-link' }}"
                     aria-current="page">
                     <i class="fa-solid fa-gauge" href="#"></i>&nbsp;
                     Dashboard
                 </a>
             </li>
-            <li>
+            <li class="nav-item">
+                <!-- /admin -->
                 <a href="/agenda" class="nav-link {{ request()->is('agenda') ? 'active' : 'nav-link' }}"
                     aria-current="page">
                     <i class="fa-solid fa-clipboard-user"></i>&nbsp;
-                    Attendance
+                    Absen
                 </a>
             </li>
-            <li>
+            <li class="nav-item">
+                <!-- /admin -->
                 <a href="/history" class="nav-link {{ request()->is('history') ? 'active' : 'nav-link' }} "
                     aria-current="page">
                     <i class="fa-solid fa-clock-rotate-left"></i>&nbsp;
-                    History
+                    Riwayat
                 </a>
             </li>
 
             {{-- @endforeach --}}
         </ul>
-        <!-- Default dropup button -->
-
-
         <!-- Split dropup button -->
         <button id="dropBtn" class="text-center"><i class="fa-solid fa-gear"></i>&nbsp; Opsi Pengguna</button>
         <div class="dropup-content" id="myDropup">
@@ -164,21 +159,16 @@
             }
         });
     </script>
-    <script type="text/javascript">
-        $('li a').on('click', function() {
-            $('li a.active').removeClass('active');
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-            $(this).addClass('active');
-
-        });
-    </script>
-
-    <script type="text/javascript">
-        $(function() {
-            //$(".dropdown-toggle").dropdown('toggle'); // this works
-            $('#click').click(function(e) {
-                e.stopPropagation();
-                $(".dropdown-toggle").dropdown('toggle'); // this doesn't
+    <script>
+        $(document).ready(function() {
+            // Memilih semua elemen <a> dengan class "nav-link"
+            $("a.nav-link").on("click", function() {
+                // Menghapus kelas "active" dari semua elemen dengan class "nav-link"
+                $("a.nav-link").removeClass("active");
+                // Menambahkan kelas "active" ke elemen yang sedang dipencet
+                $(this).addClass("active");
             });
         });
     </script>

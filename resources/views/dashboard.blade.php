@@ -4,19 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halaman Depan</title>
+    <title>Dashboard || User</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
 
 <body style=" background-color: #f4f4f4;">
+    <style>
+        .btn.btn-outline-secondary.mb-4.mt-2 {
+            color: black;
+            border-color: #6F61C0;
+        }
+
+        .btn.btn-outline-secondary.mb-4.mt-2:hover {
+            color: white;
+            background-color: #6F61C0;
+            border-color: #6F61C0;
+        }
+    </style>
     <div class="d-flex">
         @include('layouts.nav')
         <div class="container">
             <div class="row">
                 <!-- dashboard title -->
                 <h5 class="mt-4">
-                    Dashboard
+                    {{ $currentuser->name }}
                     <h6>
                         <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);"
                             aria-label="breadcrumb">

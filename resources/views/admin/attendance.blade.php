@@ -4,25 +4,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Riwayat Absensi</title>
+    <title>Admin || Attendance</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 
 <body style="background-color: #D9D9D9;">
+    <style>
+        .btn.btn-success {
+            color: black;
+            background-color: white;
+            border-style: none;
+        }
+
+        .btn.btn-success:hover {
+            color: white;
+            background-color: #A18AFF;
+            border-style: none;
+        }
+    </style>
     <div class="container-fluid d-flex p-2">
         @include('admin.layouts.nav')
         <div class="m-2" style="width: 100%">
             <div class="container">
 
                 <div class="row">
-                    <h1>Attendance</h1>
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Attendance</li>
-                        </ol>
-                    </nav>
+                    <h5 class="mt-4">
+                        Attendance
+                        <h6>
+                            <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);"
+                                aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Attendance</li>
+                                </ol>
+                            </nav>
+                        </h6>
+                    </h5>
                     <div class="d-flex" style="box-shadow: 0px 10px 20px -10px #A18AFF;">
                         <div class="col">
                             <input class="form-control" type="text" placeholder="Employee Name"
