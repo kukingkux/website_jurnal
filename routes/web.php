@@ -28,17 +28,21 @@ use App\Http\Controllers\LeavesController;
 //     })->name('dashboard');
 // });
 
+Route::get('/', function () {
+    return redirect('admin');
+    // Only authenticated users may enter...
+})->middleware('auth');
 
 
 Route::group(['middleware' => ['auth','ceklevel:1']], function() {
     // Route::get('/dashboard', 'App\Http\Controllers\HomeController@index');
-    Route::get('/admin', 'App\Http\Controllers\HomeController@adminpage')->middleware('auth');;
+    Route::get('/admin', 'App\Http\Controllers\HomeController@adminpage')->middleware('auth');
     Route::get('/user', 'App\Http\Controllers\UserController@users');
     Route::get('/user', function() {
         return view('admin.users');
     });
-    Route::get('/attendance', [LeavesController::class, 'attendanceDate'])->name('attendance.date');
-    
+    Route::get('/attendance', [LeavesController::class, 'attendanceDate'])->name('attendance');
+    // Route::get('/attendance', 'App\Http\Controllers\LeavesController@filterAttendance');
     
 
     
@@ -49,6 +53,8 @@ Route::group(['middleware' => ['auth','ceklevel:0,1']], function() {
     Route::get('/history', 'App\Http\Controllers\AgendaController@history');
     Route::resource('/agenda', AgendaController::class);
     Route::get('/agenda', 'App\Http\Controllers\GroupsController@group');
+
+    
     
 });
 

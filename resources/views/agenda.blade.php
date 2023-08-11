@@ -36,8 +36,10 @@
                                 {{ csrf_field() }}
                                 <div class="mb-3 me-4 ms-4 col">
                                     <label class="form-label">Nama Lengkap</label>
-                                    <input type="text" class="form-control" name="nama" placeholder="Nama"
-                                        value="{{ $currentuser->name }}">
+                                    <input type="text" class="form-control" name="name" placeholder="Nama"
+                                        value="{{ $currentuser->name }}" readonly="readonly">
+                                    <input type="text" class="form-control d-none" name="user_id" placeholder="Nama"
+                                        value="{{ $currentuser->id }}" readonly="readonly">
                                     <div class="mb-3 col">
 
                                         <label for="disabledSelect" class="form-label">Sekolah</label>

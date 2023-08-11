@@ -12,12 +12,21 @@ class LeavesController extends Controller
 
     public function attendanceDate() {
         
-        $month = Date::select('month')->distinct()->get();
-        $year = Date::select('year')->distinct()->get();
-        $day = Date::select('day')->where('month', '1')->distinct()->get();
-
-        return view('admin.attendance', compact('year', 'month', 'day'));
+         $attendance = DB::table('agenda')
+        ->join('users', 'users.id', '=', 'agenda.user_id')->get()
+        ->where('id', $userId);
+        
+        return view('history', ['agendas' => $agendas]);
     }
+
+    // public function filterAttendance(Request $request)
+    // {
+    //     $month = $request->input('month');
+    //     $year = $request->input('year');
+    //     $day = $request->input('day');
+
+    //     $filteredDates = Date::select($month, $year)->where('day', $day)->get();
+    // }
 
     // public function index() {
     //     $date = Date::all();

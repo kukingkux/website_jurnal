@@ -164,24 +164,8 @@
             }
         });
     </script>
-    <script type="text/javascript">
-        $('li a').on('click', function() {
-            $('li a.active').removeClass('active');
 
-            $(this).addClass('active');
 
-        });
-    </script>
-
-    <script type="text/javascript">
-        $(function() {
-            //$(".dropdown-toggle").dropdown('toggle'); // this works
-            $('#click').click(function(e) {
-                e.stopPropagation();
-                $(".dropdown-toggle").dropdown('toggle'); // this doesn't
-            });
-        });
-    </script>
 
     <script src="https://kit.fontawesome.com/056e6cea98.js" crossorigin="anonymous"></script>
 </body>

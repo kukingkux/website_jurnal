@@ -26,7 +26,9 @@ class AgendaController extends Controller
 
      public function store(Request $request)
     {
+
         $agenda = Agenda::create($request->all());
+        
         $agenda -> save();
 
         return redirect('agenda');
@@ -45,7 +47,7 @@ class AgendaController extends Controller
 
     public function update(Request $request, $id) {
         $agendas = Agenda::where('id', $id)->firstOrFail();
-            $agendas->nama = $request->nama;
+            $agendas->name = $request->name;
             $agendas->sekolah = $request->sekolah;
             $agendas->waktu = $request->waktu;
             $agendas->tanggal = $request->tanggal;
