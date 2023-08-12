@@ -57,18 +57,18 @@
                         <div class="col input-group">
                             <select class="form-select form-control-sm filter-select" id="inputGroupSelect01">
                                 <option selected>Select Month</option>
-                                @foreach ($month as $m)
+                                {{-- @foreach ($month as $m)
                                     <option>{{ $m->month }}</option>
-                                @endforeach
-                                z
+                                @endforeach --}}
+
                             </select>
                         </div>
                         <div class="col input-group">
                             <select class="form-select form-control-sm" id="inputGroupSelect01">
                                 <option selected>Select Year</option>
-                                @foreach ($year as $y)
+                                {{-- @foreach ($year as $y)
                                     <option value="1">{{ $y->year }}</option>
-                                @endforeach
+                                @endforeach --}}
                             </select>
                         </div>
                         <div class="col">
@@ -87,9 +87,9 @@
                             <thead style="background-color: #f4f4f4;">
                                 <tr>
                                     <th>Nama</th>
-                                    @foreach ($day as $d)
+                                    {{-- @foreach ($day as $d)
                                         <th>{{ $d->day }}</th>
-                                    @endforeach
+                                    @endforeach --}}
 
 
                                 </tr>

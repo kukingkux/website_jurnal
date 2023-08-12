@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Date;
+use DB;
 
 class LeavesController extends Controller
 {
@@ -14,9 +15,9 @@ class LeavesController extends Controller
         
          $attendance = DB::table('agenda')
         ->join('users', 'users.id', '=', 'agenda.user_id')->get()
-        ->where('id', $userId);
+        ->where('id', '1');
         
-        return view('history', ['agendas' => $agendas]);
+        return view('admin.attendance', ['attendance' => $attendance]);
     }
 
     // public function filterAttendance(Request $request)

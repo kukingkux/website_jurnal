@@ -17,9 +17,11 @@ class AgendaController extends Controller
         
         $userId = Auth::id();
         
-        $agendas = DB::table('agenda')
-        ->join('users', 'users.id', '=', 'agenda.user_id')->get()
-        ->where('id', $userId);
+        $agendas = DB::table('users')
+        ->join('agenda', 'agenda.user_id', '=', 'users.id')->get()
+        ->where('user_id', $userId);
+
+        
         
         return view('history', ['agendas' => $agendas]);
     }
