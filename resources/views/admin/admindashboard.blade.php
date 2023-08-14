@@ -91,6 +91,7 @@
                     </div>
                 </div>
                 <!-- end btn button -->
+                @include('../layouts.kalender')
             </div>
         </div>
     </div>
