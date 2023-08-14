@@ -23,7 +23,7 @@ Route::get('/history', function() {
 });
 
 
-Route::get('/', function () {
+Route::get('/home', function () {
 
 })->middleware('auth');
 
@@ -55,6 +55,4 @@ Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])-
 
 // Q U E R Y
 
-Route::get('delete/{id}','App\Http\Controllers\AgendaController@delete');
-Route::get('{id}/edit','App\Http\Controllers\AgendaController@edit');
-Route::post('update/{id}', 'App\Http\Controllers\AgendaController@update');
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
