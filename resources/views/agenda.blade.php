@@ -21,7 +21,7 @@
                             <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);"
                                 aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">Absensi</li>
                                 </ol>
                             </nav>
@@ -68,10 +68,10 @@
                                         <textarea class="form-control" id="floatingTextarea2" style="height: 100px" name="kegiatan" maxlength="256"
                                             placeholder="Kegiatan (max. 256 karakter)" required></textarea>
                                     </div>
-                                    <button id="register-button" type="submit"
-                                        class="btn btn-primary register">Kirim</button>
-                                    <a href="/"><button class="btn btn-primary register"
-                                            type="button">Kembali</button></a>
+                                    <button id="register-button" type="submit" class="btn btn-primary register"
+                                        style="background: #6f42c1">Kirim</button>
+                                    <a href="/dashboard"><button class="btn btn-primary register"
+                                            style="background: #6f42c1" type="button">Kembali</button></a>
                             </form>
                         </div>
                     </div>

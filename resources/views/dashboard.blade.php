@@ -42,13 +42,7 @@
                 <!-- end dashboard title -->
                 <!-- card -->
                 <div class="d-flex justify-content-between">
-                    <div class="card"
-                        style="
-                width: 20rem;
-                border-radius: 10px;
-                border-style: none;
-                box-shadow: 0px 10px 20px -10px #a18aff;
-              ">
+                    <div class="card">
                         <div class="card-body">
                             <div class="text-center">
                                 <h6 class="card-subtitle mb-4">Total Users</h6>
@@ -56,13 +50,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card"
-                        style="
-                width: 20rem;
-                border-radius: 10px;
-                border-style: none;
-                box-shadow: 0px 10px 20px -10px #a18aff;
-              ">
+                    <div class="card">
                         <div class="card-body">
                             <div class="text-center">
                                 <h6 class="card-subtitle mb-4">Member</h6>
@@ -70,13 +58,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card"
-                        style="
-                width: 20rem;
-                border-radius: 10px;
-                border-style: none;
-                box-shadow: 0px 10px 20px -10px #a18aff;
-              ">
+                    <div class="card">
                         <div class="card-body">
                             <div class="text-center">
                                 <h6 class="card-subtitle mb-4">Admin</h6>
@@ -88,8 +70,9 @@
                 <!-- end card -->
                 <!-- btn button -->
                 <div>
-                    <div class="container mt-4" style="box-shadow: 0px 10px 20px -10px #a18aff">
-                        <div class="row align-items-center" style="background-color: #fff; border-radius: 20px">
+                    <div class="container mt-4"
+                        style="box-shadow: 0px -5px 20px -10px #a18aff; background-color: #fff; border-radius: 12px;">
+                        <div class="row align-items-center">
                             <div class="col-lg-4">
                                 <img src="https://img.freepik.com/free-vector/confirmed-attendance-concept-illustration_114360-7745.jpg?w=740&t=st=1691032445~exp=1691033045~hmac=70e11368e7d6b65288d8fa3bd34515850ca6e0a524e592a979ae638fad26a3f1"
                                     alt="customer-support" class="img-fluid" />
@@ -101,7 +84,7 @@
                                     </button></a>
                                 <a href="/history"><button type="button" class="btn btn-outline-secondary mb-4 mt-2"
                                         style="width: 100%">
-                                        History
+                                        Riwayat
                                     </button></a>
                                 <a href="/logout"><button type="button" class="btn btn-outline-secondary mb-4 mt-2"
                                         style="width: 100%">
@@ -119,14 +102,28 @@
     </div>
     <style>
         .btn.btn-outline-secondary.mb-4.mt-2 {
-            color: black;
-            border-color: #6f61c0;
-        }
-
-        .btn.btn-outline-secondary.mb-4.mt-2:hover {
             color: white;
             background-color: #6f61c0;
             border-color: #6f61c0;
+            border-radius: 12px;
+            border-style: none;
+            box-shadow: 0px 10px 20px -10px #a18aff;
+        }
+
+        .btn.btn-outline-secondary.mb-4.mt-2:hover {
+
+            background-color: #6f61c0df;
+            border-color: #6f61c0df;
+            box-shadow: 0px 5px 25px -5px #8f75f6;
+        }
+
+        .card {
+
+            width: 20rem;
+            border-radius: 12px;
+            border-style: none;
+            box-shadow: 0px 10px 20px -10px #a18aff;
+
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
