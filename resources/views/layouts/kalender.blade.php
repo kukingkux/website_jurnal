@@ -1,12 +1,12 @@
 <head>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="css/dashboard.css" />
+    <link rel="stylesheet" href="css/kalender.css" />
 </head>
 
 <body>
     <div>
-        <div class="container mt-4 mb-2 container-calendar p-2" style="box-shadow: 0px 10px 20px -10px #a18aff">
+        <div class="container mt-4 mb-2 container-calendar p-2" style="box-shadow: 0px -5px 20px -10px #a18aff">
             <header>
                 <p class="current-date">Agustus 2023</p>
                 <div class="icons">
@@ -34,5 +34,5 @@
         </div>
     </div>
 
-    <script src="js/dashboard.js"></script>
+    <script src="js/kalender.js"></script>
 </body>
