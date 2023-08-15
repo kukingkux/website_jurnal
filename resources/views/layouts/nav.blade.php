@@ -28,7 +28,83 @@
     <meta name="theme-color" content="#7952b3">
 
 
+
+
+
+    <!-- Custom styles for this template -->
+    <link href="sidebars.css" rel="stylesheet">
+</head>
+
+<body>
+
+
+    <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px; height:100vh;">
+        <a href="/admin" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+            <svg class="bi me-2" width="40" height="32">
+
+            </svg>
+            <span class="fs-4">Dashboard</span>
+        </a>
+        <hr>
+        <div class="wrapper">
+            <ul class="nav nav-pills flex-column mb-auto">
+
+
+                {{-- @foreach (getMenus() as $menu) --}}
+                <li class="nav-item">
+                    <!-- /admin -->
+                    <a href="/dashboard" class="nav-link {{ request()->is('dashboard') ? 'active' : 'nav-link' }}"
+                        aria-current="page">
+                        <i class="fa-solid fa-gauge" href="#"></i>&nbsp;
+                        Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <!-- /admin -->
+                    <a href="/agenda" class="nav-link {{ request()->is('agenda') ? 'active' : 'nav-link' }}"
+                        aria-current="page">
+                        <i class="fa-solid fa-clipboard-user"></i>&nbsp;
+                        Absen
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <!-- /admin -->
+                    <a href="/history" class="nav-link {{ request()->is('history') ? 'active' : 'nav-link' }} "
+                        aria-current="page">
+                        <i class="fa-solid fa-clock-rotate-left"></i>&nbsp;
+                        Riwayat
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <button id="dropBtn" class="text-center nav-link"><i class="fa-solid fa-gear"></i>&nbsp; Opsi
+                        Pengguna</button>
+                </li>
+                <div class="dropup-content" id="myDropup">
+                    <a href="#">
+                        <p style="text-decoration: none"><i class="fa-solid fa-arrow-up-from-bracket"></i>&nbsp; Sign
+                            Out</p>
+                    </a>
+                </div>
+                {{-- @endforeach --}}
+            </ul>
+        </div>
+        <!-- Split dropup button -->
+
+    </div>
+
     <style>
+        .wrapper {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            border-radius: 8px;
+            background-color: #ededed;
+        }
+
+        ul {
+            margin: 10px;
+        }
+
         .bd-placeholder-img {
             font-size: 1.125rem;
             text-anchor: middle;
@@ -43,18 +119,6 @@
             }
         }
 
-        button {
-            background-color: #b1a2f0;
-            color: white;
-            padding: 10px;
-            border: none;
-            cursor: pointer;
-            border-radius: 10px;
-        }
-
-        button:hover {
-            background-color: #6E56CF;
-        }
 
         .dropup-content {
             display: none;
@@ -76,71 +140,23 @@
         }
     </style>
 
-
-    <!-- Custom styles for this template -->
-    <link href="sidebars.css" rel="stylesheet">
-</head>
-
-<body>
     <style>
         /* CSS untuk tombol aktif */
         .nav-item .nav-link {
+            margin-bottom: 8px;
             color: #46157A;
+            border: 2px solid #dddddd;
+            border-bottom: 6px solid #dddddd;
+            background-color: #fff;
         }
 
         .nav-item .nav-link.active {
             background-color: #6F61C0;
             color: white;
+            border: 2px solid #6F61C0;
+            border-bottom: 6px solid #6558a9;
         }
     </style>
-
-    <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px; height:100vh;">
-        <a href="/admin" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-            <svg class="bi me-2" width="40" height="32">
-
-            </svg>
-            <span class="fs-4">Dashboard</span>
-        </a>
-        <hr>
-        <ul class="nav nav-pills flex-column mb-auto">
-
-
-            {{-- @foreach (getMenus() as $menu) --}}
-            <li class="nav-item">
-                <!-- /admin -->
-                <a href="/dashboard" class="nav-link {{ request()->is('dashboard') ? 'active' : 'nav-link' }}"
-                    aria-current="page">
-                    <i class="fa-solid fa-gauge" href="#"></i>&nbsp;
-                    Dashboard
-                </a>
-            </li>
-            <li class="nav-item">
-                <!-- /admin -->
-                <a href="/agenda" class="nav-link {{ request()->is('agenda') ? 'active' : 'nav-link' }}"
-                    aria-current="page">
-                    <i class="fa-solid fa-clipboard-user"></i>&nbsp;
-                    Absen
-                </a>
-            </li>
-            <li class="nav-item">
-                <!-- /admin -->
-                <a href="/history" class="nav-link {{ request()->is('history') ? 'active' : 'nav-link' }} "
-                    aria-current="page">
-                    <i class="fa-solid fa-clock-rotate-left"></i>&nbsp;
-                    Riwayat
-                </a>
-            </li>
-
-            {{-- @endforeach --}}
-        </ul>
-        <!-- Split dropup button -->
-        <button id="dropBtn" class="text-center"><i class="fa-solid fa-gear"></i>&nbsp; Opsi Pengguna</button>
-        <div class="dropup-content" id="myDropup">
-            <a href="#">
-                <p style="text-decoration: none"><i class="fa-solid fa-arrow-up-from-bracket"></i>&nbsp; Sign Out</p>
-            </a>
-        </div>
-    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
