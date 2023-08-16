@@ -33,7 +33,7 @@
                 <!-- card -->
                 <div>
                     <div class="container mt-4"
-                        style="background-color: rgb(255, 255, 255); border-radius: 10px; box-shadow: 0px 10px 20px -10px #A18AFF;">
+                        style="background-color: rgb(255, 255, 255); border-radius: 10px; box-shadow: 0px 10px 20px -10px #0D6EFD;">
                         <div class="row text-center">
 
                             <table class="table table-striped mt-2">

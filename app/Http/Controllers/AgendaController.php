@@ -6,23 +6,25 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Agenda;
 use App\Models\User;
-use DB;
-use Auth;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use App\title;
+
 
 
 class AgendaController extends Controller
 {
     public function history()
     {
-        
+
         $userId = Auth::id();
-        
+
         $agendas = DB::table('users')
         ->join('agenda', 'agenda.user_id', '=', 'users.id')->get()
         ->where('user_id', $userId);
 
-        
-        
+
+
         return view('history', ['agendas' => $agendas]);
     }
 
@@ -30,7 +32,7 @@ class AgendaController extends Controller
     {
 
         $agenda = Agenda::create($request->all());
-        
+
         $agenda -> save();
 
         return redirect('agenda');
@@ -44,7 +46,7 @@ class AgendaController extends Controller
 
     public function edit(Request $request, $id) {
         $agendas = Agenda::where('id',$id)->firstOrFail();
-        
+
     }
 
     public function update(Request $request, $id) {
@@ -55,23 +57,23 @@ class AgendaController extends Controller
             $agendas->tanggal = $request->tanggal;
             $agendas->kegiatan = $request->kegiatan;
         $agendas->save();
-       
+
         return redirect('history');
     }
 
     public function delete($id) {
         $agendas = Agenda::where('id',$id)->firstOrFail();
         $agendas->delete();
-        return redirect('history')->with('status',"Hapus data berhasil!");
+        return back();
     }
-    
 
-    
+
+
 
     public function index(Request $request) {
-        
-        
 
-        return view('agenda', [title => 'Agenda']);
+
+
+        return view('agenda');
     }
 }

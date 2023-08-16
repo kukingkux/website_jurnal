@@ -27,7 +27,7 @@
 
         .btn.btn-success:hover {
             color: white;
-            background-color: #A18AFF;
+            background-color: #0D6EFD;
             border-style: none;
         }
     </style>
@@ -49,7 +49,7 @@
                             </nav>
                         </h6>
                     </h5>
-                    <div class="d-flex" style="box-shadow: 0px 10px 20px -10px #A18AFF;">
+                    <div class="d-flex" style="box-shadow: 0px 10px 20px -10px #0D6EFD;">
                         <div class="col">
                             <input class="form-control" type="text" placeholder="Employee Name"
                                 aria-label="default input example">
@@ -79,54 +79,56 @@
                 </div>
                 <!-- table -->
                 <div class="container mt-2"
-                    style="background-color: rgb(255, 255, 255); border-radius: 10px; overflow-x: scroll; box-shadow: 0px 10px 20px -10px #A18AFF;">
+                    style="background-color: rgb(255, 255, 255); border-radius: 10px; overflow-x: scroll; box-shadow: 0px 10px 20px -10px #0D6EFD;">
                     <div class="row">
 
                         <table id="datatable" class="table table-striped table-sm"
                             style="overflow-x: scroll; width: 100%;">
-                            <thead style="background-color: #f4f4f4;">
+
+                            <thead>
                                 <tr>
-                                    <th>Nama</th>
-                                    {{-- @foreach ($day as $d)
-                                        <th>{{ $d->day }}</th>
-                                    @endforeach --}}
-
-
+                                    <th>Name</th>
+                                    <th>Sekolah</th>
+                                    <th>Waktu</th>
+                                    <th>Tanggal</th>
+                                    <th>Kegiatan</th>
+                                    <th>Opsi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($user as $data)
+                                @foreach ($attend as $data)
                                     <tr>
+                                        <td>{{ $data->name }}</td>
+                                        <td>{{ $data->sekolah }}</td>
+                                        <td>{{ $data->waktu }}</td>
+                                        <td>{{ $data->tanggal }}</td>
+                                        <td class="text-truncate" style="max-width: 150px;">{{ $data->kegiatan }}</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <button data-bs-toggle="modal"
+                                                    data-bs-target="#ModalView-{{ $data->id }}"
+                                                    class="btn btn-sm "><i class="fa fa-eye"></i></button>
 
-                                        <th scope="row">{{ $data->name }}</th>
-
-
-                                        @foreach ($user as $data)
-                                            <td><i class="fa-regular fa-circle-check" style="color: green;"
-                                                    onclick=""></i>
-                                            </td>
-                                            <td><i class="fa-regular fa-circle-check" style="color: green;"
-                                                    onclick=""></i>
-                                            </td>
-                                            <td><i class="fa-regular fa-circle-check" style="color: green;"
-                                                    onclick=""></i>
-                                            </td>
-                                            <td><i class="fa-regular fa-circle-check" style="color: green;"
-                                                    onclick=""></i>
-                                            </td>
-                                        @endforeach
-
+                                                <button class="btn btn-sm btn-delete" data-bs-toggle="modal"
+                                                    data-bs-target="#ModalDelete-{{ $data->id }}"><i
+                                                        class="fa-regular fa-trash-can"></i></button>
+                                            </div>
+                                        </td>
                                     </tr>
+                                    @include('admin.modal.view2')
+                                    @include('admin.modal.modaldelete')
                                 @endforeach
 
                             </tbody>
                         </table>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
     </div>
+
     <!-- end tabel -->
     <script src="js/jquery.js"></script>
 
@@ -142,23 +144,23 @@
     <script>
         $(document).ready(function() {
             var table = $('#datatable').DataTable({
-                'processing': true,
-                'serverSide': true,
-                'ajax': "{{ route('attendance') }}",
-                'columns': [{
-                        'data': 'day'
-                    },
-                    {
-                        'data': 'month'
-                    },
-                    {
-                        'data': 'year'
-                    }
-                ],
-                'searching': false,
-                'paging': false,
-                'info': false,
-                'sort': false,
+                //'processing': true,
+                //'serverSide': true,
+                //'ajax': "{{ route('attendance') }}",
+                // 'columns': [{
+                //         'data': 'day'
+                //     },
+                //     {
+                //         'data': 'month'
+                //     },
+                //     {
+                //         'data': 'year'
+                //     }
+                // ],
+                // 'searching': false,
+                // 'paging': false,
+                // 'info': false,
+                // 'sort': false,
             })
         })
 

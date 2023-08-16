@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.84.0">
-    <title>Sidebar</title>
+    <title>Admin Sidebar</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sidebars/">
@@ -28,7 +28,83 @@
     <meta name="theme-color" content="#7952b3">
 
 
+
+
+
+    <!-- Custom styles for this template -->
+    <link href="sidebars.css" rel="stylesheet">
+</head>
+
+<body>
+
+
+    <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px; height:100vh;">
+        <a href="/admin" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+            <svg class="bi me-2" width="40" height="32">
+
+            </svg>
+            <span class="fs-4">Dashboard</span>
+        </a>
+        <hr>
+        <div class="wrapper">
+            <ul class="nav nav-pills flex-column mb-auto">
+
+
+                {{-- @foreach (getMenus() as $menu) --}}
+                <li class="nav-item">
+                    <!-- /admin -->
+                    <a href="/admin" class="nav-link {{ request()->is('admin') ? 'active' : 'nav-link' }}"
+                        aria-current="page">
+                        <i class="fa-solid fa-gauge" href="#"></i>&nbsp;
+                        Dashboard (Admin)
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <!-- /admin -->
+                    <a href="/user" class="nav-link {{ request()->is('user') ? 'active' : 'nav-link' }}"
+                        aria-current="page">
+                        <i class="fa-solid fa-clipboard-user"></i>&nbsp;
+                        Users
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <!-- /admin -->
+                    <a href="/attendance" class="nav-link {{ request()->is('attendance') ? 'active' : 'nav-link' }} "
+                        aria-current="page">
+                        <i class="fa-solid fa-clock-rotate-left"></i>&nbsp;
+                        Attendance
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <button id="dropBtn" class="nav-link"><i class="fa-solid fa-gear"></i>&nbsp; Opsi
+                        Pengguna</button>
+                </li>
+                <div class="dropup-content" id="myDropup">
+                    <a href="#">
+                        <p style="text-decoration: none"><i class="fa-solid fa-arrow-up-from-bracket"></i>&nbsp; Sign
+                            Out</p>
+                    </a>
+                </div>
+                {{-- @endforeach --}}
+            </ul>
+        </div>
+        <!-- Split dropup button -->
+
+    </div>
+
     <style>
+        .wrapper {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            border-radius: 8px;
+            background-color: #ededed;
+        }
+
+        ul {
+            margin: 10px;
+        }
+
         .bd-placeholder-img {
             font-size: 1.125rem;
             text-anchor: middle;
@@ -43,18 +119,6 @@
             }
         }
 
-        button {
-            background-color: #b1a2f0;
-            color: white;
-            padding: 10px;
-            border: none;
-            cursor: pointer;
-            border-radius: 10px;
-        }
-
-        button:hover {
-            background-color: #6E56CF;
-        }
 
         .dropup-content {
             display: none;
@@ -76,76 +140,23 @@
         }
     </style>
 
+    <style>
+        /* CSS untuk tombol aktif */
+        .nav-item .nav-link {
+            margin-bottom: 8px;
+            color: #0D6EFD;
+            border: 2px solid #dddddd;
+            border-bottom: 6px solid #dddddd;
+            background-color: #fff;
+        }
 
-    <!-- Custom styles for this template -->
-    <link href="sidebars.css" rel="stylesheet">
-</head>
-
-<body>
-
-    <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px; height:100vh;">
-        <a href="/admin" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-            <svg class="bi me-2" width="40" height="32">
-
-            </svg>
-            <span class="fs-4">Admin</span>
-        </a>
-        <hr>
-        <ul class="nav nav-pills flex-column mb-auto">
-
-            {{-- <li>
-                <a href="#" class="nav-link ">
-                    <svg class="bi me-2" width="16" height="16">
-                        <use xlink:href="#grid"></use>
-                    </svg>
-                    Products
-                </a>
-            </li>
-            <li>
-                <a href="#" class="nav-link">
-                    <svg class="bi me-2" width="16" height="16">
-                        <use xlink:href="#people-circle"></use>
-                    </svg>
-                    Customers
-                </a>
-            </li> --}}
-
-            {{-- @foreach (getMenus() as $menu) --}}
-            <li class="nav-item">
-                <a href="/admin" class="nav-link {{ request()->is('admin') ? 'active' : 'nav-link' }}"
-                    aria-current="page">
-                    <i class="fa-solid fa-gauge" href="#"></i>&nbsp;
-                    Dashboard (Admin)
-                </a>
-            </li>
-            <li>
-                <a href="/user" class="nav-link {{ request()->is('user') ? 'active' : 'nav-link' }}"
-                    aria-current="page">
-                    <i class="fa-solid fa-clipboard-user"></i>&nbsp;
-                    Users
-                </a>
-            </li>
-            <li>
-                <a href="/attendance" class="nav-link {{ request()->is('attendance') ? 'active' : 'nav-link' }} "
-                    aria-current="page">
-                    <i class="fa-solid fa-clock-rotate-left"></i>&nbsp;
-                    Attendance
-                </a>
-            </li>
-
-            {{-- @endforeach --}}
-        </ul>
-        <!-- Default dropup button -->
-
-
-        <!-- Split dropup button -->
-        <button id="dropBtn" class="text-center"><i class="fa-solid fa-gear"></i>&nbsp; Opsi Pengguna</button>
-        <div class="dropup-content" id="myDropup">
-            <a href="#">
-                <p style="text-decoration: none"><i class="fa-solid fa-arrow-up-from-bracket"></i>&nbsp; Sign Out</p>
-            </a>
-        </div>
-    </div>
+        .nav-item .nav-link.active {
+            background-color: #0D6EFD;
+            color: white;
+            border: 2px solid #0D6EFD;
+            border-bottom: 6px solid #0D6EFD;
+        }
+    </style>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
@@ -164,8 +175,19 @@
             }
         });
     </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-
+    <script>
+        $(document).ready(function() {
+            // Memilih semua elemen <a> dengan class "nav-link"
+            $("a.nav-link").on("click", function() {
+                // Menghapus kelas "active" dari semua elemen dengan class "nav-link"
+                $("a.nav-link").removeClass("active");
+                // Menambahkan kelas "active" ke elemen yang sedang dipencet
+                $(this).addClass("active");
+            });
+        });
+    </script>
 
     <script src="https://kit.fontawesome.com/056e6cea98.js" crossorigin="anonymous"></script>
 </body>

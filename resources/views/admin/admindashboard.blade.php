@@ -11,7 +11,7 @@
 
 <body style=" background-color: #f4f4f4;">
     <style>
-        .btn.btn-outline-secondary.mb-4.mt-2 {
+        /* .btn.btn-outline-secondary.mb-4.mt-2 {
             color: black;
             border-color: #6F61C0;
         }
@@ -20,7 +20,7 @@
             color: white;
             background-color: #6F61C0;
             border-color: #6F61C0;
-        }
+        } */
     </style>
     <div class="d-flex">
         @include('admin.layouts.nav')
@@ -43,7 +43,7 @@
                 <!-- card -->
                 <div class="d-flex justify-content-between">
                     <div class="card"
-                        style="width: 20rem; border-radius: 10px; border-style: none; border-style: none; box-shadow: 0px 10px 20px -10px #A18AFF;">
+                        style="width: 20rem; border-radius: 10px; border-style: none; border-style: none; box-shadow: 0px 10px 20px -10px #0D6EFD;">
                         <div class="card-body">
                             <div class="text-center">
                                 <h6 class="card-subtitle mb-4">Total Users</h6>
@@ -52,7 +52,7 @@
                         </div>
                     </div>
                     <div class="card"
-                        style="width: 20rem; border-radius: 10px; border-style: none; border-style: none; box-shadow: 0px 10px 20px -10px #A18AFF;">
+                        style="width: 20rem; border-radius: 10px; border-style: none; border-style: none; box-shadow: 0px 10px 20px -10px #0D6EFD;">
                         <div class="card-body">
                             <div class="text-center">
                                 <h6 class="card-subtitle mb-4">Member</h6>
@@ -61,7 +61,7 @@
                         </div>
                     </div>
                     <div class="card"
-                        style="width: 20rem; border-radius: 10px; border-style: none; border-style: none; box-shadow: 0px 10px 20px -10px #A18AFF;">
+                        style="width: 20rem; border-radius: 10px; border-style: none; border-style: none; box-shadow: 0px 10px 20px -10px #0D6EFD;">
                         <div class="card-body">
                             <div class="text-center">
                                 <h6 class="card-subtitle mb-4">Admin</h6>
@@ -73,18 +73,18 @@
                 <!-- end card -->
                 <!-- btn button -->
                 <div>
-                    <div class="container mt-4" style="border-style: none; box-shadow: 0px 10px 20px -10px #A18AFF;">
+                    <div class="container mt-4" style="border-style: none; box-shadow: 0px 10px 20px -10px #0D6EFD;">
                         <div class="row align-items-center" style="background-color: #fff; border-radius: 20px;">
                             <div class="col-lg-4">
                                 <img src="https://img.freepik.com/free-vector/confirmed-attendance-concept-illustration_114360-7745.jpg?w=740&t=st=1691032445~exp=1691033045~hmac=70e11368e7d6b65288d8fa3bd34515850ca6e0a524e592a979ae638fad26a3f1"
                                     alt="customer-support" class="img-fluid">
                             </div>
                             <div class="col-lg-8">
-                                <a href="/user"><button type="button" class="btn btn-outline-secondary mb-4 mt-2"
+                                <a href="/user"><button type="button" class="btn btn-primary mb-4 mt-2"
                                         style="width: 100%;">Member List</button></a>
-                                <a href="/attendance"><button type="button" class="btn btn-outline-secondary mb-4 mt-2"
+                                <a href="/attendance"><button type="button" class="btn btn-primary mb-4 mt-2"
                                         style="width: 100%;">Attendance</button></a>
-                                <a href="/logout"><button type="button" class="btn btn-outline-secondary mb-4 mt-2"
+                                <a href="/logout"><button type="button" class="btn btn-primary mb-4 mt-2"
                                         style="width: 100%;">Logout</button></a>
                             </div>
                         </div>

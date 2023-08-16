@@ -31,7 +31,7 @@
                         </h6>
                     </h5>
                     <div class="card me-4"
-                        style="width: 25rem; border-radius: 10px; box-shadow: 0px 10px 20px -10px #A18AFF;"">
+                        style="width: 25rem; border-radius: 10px; box-shadow: 0px 10px 20px -10px #0D6EFD;">
                         <div class="card-body">
                             <div class="d-flex justify-content-between">
                                 <h6 class="card-subtitle mb-4">Current User</h6>
@@ -54,7 +54,7 @@
                         </div>
                     </div>
                     <div class="card me-4"
-                        style="width: 25rem; border-radius: 10px; box-shadow: 0px 10px 20px -10px #A18AFF;"">
+                        style="width: 25rem; border-radius: 10px; box-shadow: 0px 10px 20px -10px #0D6EFD;"">
                         <div class="card-body">
                             <div class="d-flex justify-content-between">
                                 <h6 class="card-subtitle mb-4">New User</h6>
@@ -76,7 +76,7 @@
                 <div class="row">
                     <h4>User</h4>
                     <div class="d-flex justify-content-between">
-                        <div class="d-flex" style="box-shadow: 0px 10px 20px -10px #A18AFF;"">
+                        <div class="d-flex" style="box-shadow: 0px 10px 20px -10px #0D6EFD;"">
                             <div class="px-1" style="background-color: #fff; border-radius: 20px 0px 0px 20px;">
                                 <button type="button" class="btn btn-sm"><i
                                         class="fa-solid fa-magnifying-glass"></i></button>
@@ -87,7 +87,7 @@
                                     style="border-style: none; border-radius: 0px 20px 20px 0px ;">
                             </div>
                         </div>
-                        <div style="box-shadow: 0px 10px 20px -10px #A18AFF;">
+                        <div style="box-shadow: 0px 10px 20px -10px #0D6EFD;">
                             <button data-bs-target="#ModalCreate" data-bs-toggle="modal" type="button"
                                 class="btn btn-sm"
                                 style="background-color: #6E56CF; color: #fff; border-radius: 20px">Create User</button>
@@ -96,7 +96,7 @@
                 </div>
             </div>
             <div class="container mt-5"
-                style="background-color: rgb(255, 255, 255); border-radius: 10px; box-shadow: 0px 10px 20px -10px #A18AFF;"">
+                style="background-color: rgb(255, 255, 255); border-radius: 10px; box-shadow: 0px 10px 20px -10px #0D6EFD;"">
                 <div class="row">
                     <table class="table table-striped mt-3 text-center">
                         <thead>

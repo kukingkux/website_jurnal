@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\HomeController;
@@ -41,11 +42,11 @@ Route::group(['middleware' => ['auth','ceklevel:1']], function() {
     Route::get('/user', function() {
         return view('admin.users');
     });
-    Route::get('/attendance', [LeavesController::class, 'attendanceDate'])->name('attendance');
+    Route::get('/attendance', [LeavesController::class, 'attendance'])->name('attendance');
     // Route::get('/attendance', 'App\Http\Controllers\LeavesController@filterAttendance');
-    
 
-    
+
+
     Auth::routes(['register' => true]);
 });
 Route::group(['middleware' => ['auth','ceklevel:0,1']], function() {
@@ -54,8 +55,8 @@ Route::group(['middleware' => ['auth','ceklevel:0,1']], function() {
     Route::resource('/agenda', AgendaController::class);
     Route::get('/agenda', 'App\Http\Controllers\GroupsController@group');
 
-    
-    
+
+
 });
 
 Auth::routes(['register' => false]);
