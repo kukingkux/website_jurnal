@@ -72,7 +72,7 @@
                 </div>
             </div>
             <!-- searchbar -->
-            <div class="container mt-5">
+            <div class="container mt-3 p-2">
                 <div class="row">
                     <h4>User</h4>
                     <div class="d-flex justify-content-between">
@@ -95,10 +95,10 @@
                     </div>
                 </div>
             </div>
-            <div class="container mt-5"
+            <div class="container mt-3 p-2"
                 style="background-color: rgb(255, 255, 255); border-radius: 10px; box-shadow: 0px 10px 20px -10px #0D6EFD;"">
                 <div class="row">
-                    <table class="table table-striped mt-3 text-center">
+                    <table class="table table-striped mt-1 text-center">
                         <thead>
                             <tr>
                                 <th scope="col">Name</th>
@@ -118,16 +118,16 @@
                             @foreach ($user as $data)
                                 <tr>
                                     <th scope="row">{{ $data->name }}</th>
-                                    <td>-</td>
+                                    <td>{{ $data->username }}</td>
                                     <td class=" text-truncate" style="max-width: 150px;">
                                         {{ $data->password }}</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
+                                    <td>{{ $data->address }}</td>
+                                    <td>{{ $data->gender }}</td>
+                                    <td>{{ $data->status }}</td>
+                                    <td>{{ $data->role_id }}</td>
+                                    <td>{{ $data->group_id }}</td>
+                                    <td>{{ $data->office_id }}</td>
+                                    <td>{{ $data->position_id }}</td>
                                     <td>
                                         <div class="btn-group">
                                             <button data-bs-toggle="modal"

@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\View;
 
 class UserController extends Controller
 {
-    
+
 
     // public function users()
     // {
@@ -20,7 +20,7 @@ class UserController extends Controller
 
     //     View::share('user', $user);
     //     View::share('count', $count);
-        
+
     // }
 
     protected function create(Request $data)
@@ -28,8 +28,21 @@ class UserController extends Controller
 
         return User::create([
             'name' => $data['name'],
+            'username' => $data['username'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'role_id' => $data['role_id'],
+            'group_id' => $data['group_id'],
+            'office_id' => $data['office_id'],
+            'position_id' => $data['position_id'],
+            'birthdate' => $data['birthdate'],
+            'gender' => $data['gender'],
+            'phone_number' => $data['phone_number'],
+            'address' => $data['address'],
+            'latest_education' => $data['latest_education'],
+            'identity_number' => $data['identity_number'],
+            'start_date' => $data['start_date'],
+            'end_date' => $data['end_date'],
         ]);
     }
 
@@ -44,5 +57,5 @@ class UserController extends Controller
         return view('history', ['user' => $user]);
     }
 
-    
+
 }
