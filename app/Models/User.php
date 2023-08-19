@@ -37,7 +37,7 @@ class User extends Authenticatable
         'latest_education',
         'identity_number',
         'start_date',
-        'end_date,'
+        'end_date',
     ];
 
     /**

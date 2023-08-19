@@ -51,24 +51,24 @@
                     </h5>
                     <div class="d-flex" style="box-shadow: 0px 10px 20px -10px #0D6EFD;">
                         <div class="col">
-                            <input class="form-control" type="text" placeholder="Employee Name"
+                            <input class="form-control" type="text" placeholder="Employee Name" id="filter-search"
                                 aria-label="default input example">
                         </div>
                         <div class="col input-group">
-                            <select class="form-select form-control-sm filter-select" id="inputGroupSelect01">
+                            <select class="form-select form-control-sm filter-select" id="month">
                                 <option selected>Select Month</option>
-                                {{-- @foreach ($month as $m)
+                                @foreach ($month as $m)
                                     <option>{{ $m->month }}</option>
-                                @endforeach --}}
+                                @endforeach
 
                             </select>
                         </div>
                         <div class="col input-group">
-                            <select class="form-select form-control-sm" id="inputGroupSelect01">
+                            <select class="form-select form-control-sm" id="year">
                                 <option selected>Select Year</option>
-                                {{-- @foreach ($year as $y)
-                                    <option value="1">{{ $y->year }}</option>
-                                @endforeach --}}
+                                @foreach ($year as $y)
+                                    <option>{{ $y->year }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="col">
@@ -137,39 +137,9 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
 
-    <script src="js/jquerydatatable"></script>
+    <script src="js/jquerydatatable.js"></script>
+    <script src="js/date-filter.js"></script>
 
-
-
-    <script>
-        $(document).ready(function() {
-            var table = $('#datatable').DataTable({
-                //'processing': true,
-                //'serverSide': true,
-                //'ajax': "{{ route('attendance') }}",
-                // 'columns': [{
-                //         'data': 'day'
-                //     },
-                //     {
-                //         'data': 'month'
-                //     },
-                //     {
-                //         'data': 'year'
-                //     }
-                // ],
-                // 'searching': false,
-                // 'paging': false,
-                // 'info': false,
-                // 'sort': false,
-            })
-        })
-
-        $('.filter-select').change(function() {
-            table.column($(this).data())
-                .search($(this).val())
-                .draw();
-        })
-    </script>
 </body>
 
 </html>

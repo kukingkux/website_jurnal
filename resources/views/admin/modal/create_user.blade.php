@@ -66,8 +66,8 @@
                             <select class="form-select form-control @error('role_id') is-invalid @enderror"
                                 value="{{ old('role_id') }}" id="role_id" name="role_id"
                                 style="border-radius: 10px; margin-top: 10px; background-color: #F4F4F4; border-style: none;">
-                                <option value="1" selected>0</option>
-                                <option value="2">1</option>
+                                <option value="0" selected>0</option>
+                                <option value="1">1</option>
                                 @if ($errors->has('role_id'))
                                     <span class="text-danger">{{ $errors->first('role_id') }}</span>
                                 @endif
@@ -125,8 +125,8 @@
                             <select class="form-select form-control @error('gender') is-invalid @enderror"
                                 id="gender" name="gender"
                                 style="border-radius: 10px; margin-top: 10px; background-color: #F4F4F4; border-style: none;">
-                                <option value="1" selected>Laki-laki</option>
-                                <option value="2">Perempuan</option>
+                                <option selected>Laki-laki</option>
+                                <option>Perempuan</option>
                                 @if ($errors->has('gender'))
                                     <span class="text-danger">{{ $errors->first('gender') }}</span>
                                 @endif
@@ -136,7 +136,7 @@
                         <div class="col">
                             <label for="">Phone Number</label>
                             <input type="text" class="form-control @error('phone_number') is-invalid @enderror"
-                                value="{{ old('phone_number') }}" id="phone_number" name="role_id"
+                                value="{{ old('phone_number') }}" id="phone_number" name="phone_number"
                                 style="border-radius: 10px; margin-top: 10px; background-color: #F4F4F4; border-style: none;">
                             @if ($errors->has('phone_number'))
                                 <span class="text-danger">{{ $errors->first('phone_number') }}</span>

@@ -7,6 +7,10 @@
     <title>Riwayat Absensi || User</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+
+    <script defer src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script defer src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
 </head>
 
 <body style="background-color: #D9D9D9;">
@@ -30,35 +34,24 @@
                     <div>
                         <div class="d-flex" style="box-shadow: 0px 10px 20px -10px #A18AFF;">
                             <div class="col">
-                                <input class="form-control" type="text" placeholder="Employee Name"
+                                <input class="form-control" type="text" placeholder="Employee Name" disabled
                                     aria-label="default input example" value="{{ $currentuser->name }}">
                             </div>
                             <div class="col input-group">
-                                <select class="form-select form-control-sm filter-select" id="inputGroupSelect01">
+                                <select class="form-select form-control-sm filter-select" id="month">
                                     <option selected>Select Month</option>
-                                    {{-- @foreach ($month as $m)
+                                    @foreach ($month as $m)
                                         <option>{{ $m->month }}</option>
-                                    @endforeach --}}
-                                    {{-- <option value="1">January</option>
-                                    <option value="2">February</option>
-                                    <option value="3">March</option>
-                                    <option value="1">April</option>
-                                    <option value="2">May</option>
-                                    <option value="3">June</option>
-                                    <option value="1">July</option>
-                                    <option value="2">August</option>
-                                    <option value="3">September</option>
-                                    <option value="1">October</option>
-                                    <option value="2">November</option>
-                                    <option value="3">Desember</option> --}}
+                                    @endforeach
+
                                 </select>
                             </div>
                             <div class="col input-group">
-                                <select class="form-select form-control-sm" id="inputGroupSelect01">
+                                <select class="form-select form-control-sm filter-select" id="year">
                                     <option selected>Select Year</option>
-                                    {{-- @foreach ($year as $y)
-                                        <option value="1">{{ $y->year }}</option>
-                                    @endforeach --}}
+                                    @foreach ($year as $y)
+                                        <option>{{ $y->year }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="col">
@@ -71,7 +64,7 @@
                             style="background-color: rgb(255, 255, 255); border-radius: 10px; overflow-x: scroll; box-shadow: 0px 10px 20px -10px #A18AFF;">
                             <div class="row text-center">
 
-                                <table class="table table-striped mt-3">
+                                <table class="table table-striped mt-3" id="datatable">
                                     <thead>
                                         <tr>
 
@@ -128,6 +121,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
+    <script src="js/jquery.js"></script>
+    <script src="js/jquerydatatable.js"></script>
+    <script src="js/date-filter.js"></script>
 </body>
 
 </html>

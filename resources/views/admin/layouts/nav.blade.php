@@ -76,8 +76,16 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <button id="dropBtn" class="nav-link"><i class="fa-solid fa-gear"></i>&nbsp; Opsi
-                        Pengguna</button>
+                    <!-- /admin -->
+                    <a href="/groups" class="nav-link {{ request()->is('groups') ? 'active' : 'nav-link' }} "
+                        aria-current="page">
+                        <i class="fa-solid fa-building"></i>&nbsp;
+                        Groups
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <button id="dropBtn" class="nav-link"><i class="fa-solid fa-gear"></i>
+                        &nbsp; Opsi Pengguna</button>
                 </li>
                 <div class="dropup-content" id="myDropup">
                     <a href="#">

@@ -7,6 +7,12 @@
     <title>Data User || Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+    <!-- script -->
+    <script defer src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script defer src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
 </head>
 
 <body style="background-color: #D9D9D9;">
@@ -81,9 +87,10 @@
                                 <button type="button" class="btn btn-sm"><i
                                         class="fa-solid fa-magnifying-glass"></i></button>
                             </div>
-                            <div class="input-group input-group-sm" style="width: 100%;">
-                                <input type="text"class="form-control" aria-label="Sizing example input"
-                                    aria-describedby="inputGroup-sizing-sm" placeholder="Search User"
+                            <div class="input-group input-group-sm " style="width: 100%;">
+                                <input type="text"class="form-control " id="filter-search"
+                                    aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"
+                                    placeholder="Search User"
                                     style="border-style: none; border-radius: 0px 20px 20px 0px ;">
                             </div>
                         </div>
@@ -98,7 +105,7 @@
             <div class="container mt-3 p-2"
                 style="background-color: rgb(255, 255, 255); border-radius: 10px; box-shadow: 0px 10px 20px -10px #0D6EFD;"">
                 <div class="row">
-                    <table class="table table-striped mt-1 text-center">
+                    <table id="datatable" class="table table-striped mt-1 text-center">
                         <thead>
                             <tr>
                                 <th scope="col">Name</th>
@@ -117,7 +124,7 @@
                         <tbody>
                             @foreach ($user as $data)
                                 <tr>
-                                    <th scope="row">{{ $data->name }}</th>
+                                    <td scope="row">{{ $data->name }}</th>
                                     <td>{{ $data->username }}</td>
                                     <td class=" text-truncate" style="max-width: 150px;">
                                         {{ $data->password }}</td>
@@ -150,12 +157,14 @@
             </div>
         </div>
     </div>
+    <script src="js/jquery.js"></script>
     <script src="https://kit.fontawesome.com/056e6cea98.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
 
-
+    <script src="js/jquerydatatable"></script>
+    <script src="js/date-filter.js"></script>
 </body>
 
 </html>

@@ -15,12 +15,12 @@ class LeavesController extends Controller
 
     public function attendanceDate() {
 
-         $attendance = DB::table('agenda')
-        ->join('users', 'users.id', '=', 'agenda.user_id')->get()
-        ->where('id', '1');
+        $month = Date::select('month')->distinct()->get();
+        $year = Date::select('year')->distinct()->get();
 
-        return view('admin.attendance', ['attendance' => $attendance]);
+        // return view('admin.attendance', compact('year', 'month'));
     }
+
 
     public function attendance() {
         $attend = Agenda::all();

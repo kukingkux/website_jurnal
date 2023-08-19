@@ -8,37 +8,36 @@
             </div>
             <div class="modal-body">
                 <form>
-                    <div class="row d-flex justify-content-center">
-                        <div class="mb-3 col ">
-                            <label class="form-label"><strong>ID</strong></label>
+                    <div class="row">
+                        <div class="mb-3 col-4">
+                            <label class="form-label"><strong>ID</strong></label><br>
                             <p>
                                 {{ $data->id }}
                             </p>
                         </div>
-                        <div class="mb-3 col">
-                            <label for="disabledSelect" class="form-label"><strong>Role ID</strong></label>
+                        <div class="mb-3 col-4">
+                            <label for="disabledSelect" class="form-label"><strong>Role ID</strong></label><br>
                             <p>
                                 {{ $data->role_id }}
                             </p>
                         </div>
-                        <div class="mb-3 col >
-                            <label for="disabledSelect"
-                            class="form-label"><strong>Group ID</strong></label>
+                        <div class="mb-3 col-4">
+                            <label for="disabledSelect" class="form-label"><strong>Group ID</strong></label><br>
                             <p>
                                 {{ $data->group_id }}
                             </p>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="mb-3 col d-flex justify-content-center">
-                            <label class="form-label"><strong>Office ID</strong></label>
+                        <div class="mb-3 col-4">
+                            <label class="form-label"><strong>Office ID</strong></label><br>
                             <p>
                                 {{ $data->office_id }}
                             </p>
                         </div>
 
-                        <div class="mb-3 col d-flex justify-content-center">
-                            <label class="form-label"><strong>Position ID</strong></label>
+                        <div class="mb-3 col-4">
+                            <label class="form-label"><strong>Position ID</strong></label><br>
                             <p>
                                 {{ $data->position_id }}
                             </p>

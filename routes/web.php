@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Date;
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -93,4 +94,9 @@ view()->composer(['*'], function ($view) {
     $currentuser = User::find($userId);
     $view->with('currentuser', $currentuser);
 
+
+    $month = Date::select('month')->distinct()->get();
+    $year = Date::select('year')->distinct()->get();
+    $view->with('month', $month)
+    ->with('year', $year);
 });
