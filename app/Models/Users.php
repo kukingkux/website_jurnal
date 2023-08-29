@@ -9,23 +9,30 @@ class Users extends Model
 {
     protected $table = 'users';
 
-    protected $primarykey = null;
 
-        protected $fillable = [
+    protected $fillable = [
         'name',
+        'username',
         'email',
         'password',
+        'role_id',
+        'group_id',
+        'office_id',
+        'position_id',
+        'birthdate',
+        'gender',
+        'phone_number',
+        'address',
+        'latest_education',
+        'identity_number',
+        'start_date',
+        'end_date',
     ];
 
-    
+    public function groups()
+    {
+        return $this->belongsTo(Groups::class);
+    }
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
 }
+

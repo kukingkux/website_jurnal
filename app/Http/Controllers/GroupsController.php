@@ -11,7 +11,7 @@ class GroupsController extends Controller
 {
     public function group()
     {
-        $groups = Groups ::all();
+        $groups = Groups::all();
         return view('agenda', compact('groups'));
     }
 }

@@ -80,7 +80,7 @@
                         Pengguna</button>
                 </li>
                 <div class="dropup-content" id="myDropup">
-                    <a href="#">
+                    <a href="logout">
                         <p style="text-decoration: none"><i class="fa-solid fa-arrow-up-from-bracket"></i>&nbsp; Sign
                             Out</p>
                     </a>

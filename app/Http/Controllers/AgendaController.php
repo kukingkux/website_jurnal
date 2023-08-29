@@ -22,9 +22,6 @@ class AgendaController extends Controller
         $agendas = DB::table('users')
         ->join('agenda', 'agenda.user_id', '=', 'users.id')->get()
         ->where('user_id', $userId);
-
-
-
         return view('history', ['agendas' => $agendas]);
     }
 
@@ -52,7 +49,7 @@ class AgendaController extends Controller
     public function update(Request $request, $id) {
         $agendas = Agenda::where('id', $id)->firstOrFail();
             $agendas->name = $request->name;
-            $agendas->sekolah = $request->sekolah;
+            $agendas->group_name = $request->group_name;
             $agendas->waktu = $request->waktu;
             $agendas->tanggal = $request->tanggal;
             $agendas->kegiatan = $request->kegiatan;
@@ -67,13 +64,8 @@ class AgendaController extends Controller
         return back();
     }
 
-
-
-
     public function index(Request $request) {
 
 
-
-        return view('agenda');
     }
 }

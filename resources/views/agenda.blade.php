@@ -38,40 +38,43 @@
                                     <label class="form-label">Nama Lengkap</label>
                                     <input type="text" class="form-control" name="name" placeholder="Nama"
                                         value="{{ $currentuser->name }}" readonly="readonly">
-                                    <input type="text" class="form-control d-none" name="user_id" placeholder="Nama"
+                                    <input type="text" class="form-control d-none" name="user_id"
                                         value="{{ $currentuser->id }}" readonly="readonly">
-                                    <div class="mb-3 col">
 
-                                        <label for="disabledSelect" class="form-label">Sekolah</label>
-                                        <select id="disabledSelect" class="form-select" name="sekolah" required>
-                                            <option>--Pilih Sekolah--</option>
-                                            @foreach ($groups as $g)
-                                                <option>{{ $g->name }}</option>
-                                            @endforeach
-                                        </select>
 
-                                    </div>
-                                    <div class="mb-3 col">
-                                        <label for="disabledSelect" class="form-label">Waktu Kerja</label>
-                                        <select id="disabledSelect" class="form-select" name="waktu" required>
-                                            <option>--Pilih Waktu--</option>
-                                            <option>08.00 - 16.00</option>
-                                            <option>08.00 - 13.00</option>
-                                        </select>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">Tanggal</label>
-                                        <input type="date" class="form-control" name="tanggal" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">Kegiatan</label>
-                                        <textarea class="form-control" id="floatingTextarea2" style="height: 100px" name="kegiatan" maxlength="256"
-                                            placeholder="Kegiatan (max. 256 karakter)" required></textarea>
-                                    </div>
-                                    <button id="register-button" type="submit" class="btn btn-primary register"
-                                        style="background: #6f42c1">Kirim</button>
-                                    <a href="/dashboard"><button class="btn btn-primary register"
-                                            style="background: #6f42c1" type="button">Kembali</button></a>
+                                    <label for="disabledSelect" class="form-label">Sekolah</label>
+                                    <select id="disabledSelect" class="form-select" name="groups" required>
+                                        <option>--Pilih Group--</option>
+                                        @foreach ($groups as $g)
+                                            <option>{{ $g->group_name }}</option>
+                                        @endforeach
+
+
+                                    </select>
+
+
+                                </div>
+                                <div class="mb-3 col">
+                                    <label for="disabledSelect" class="form-label">Waktu Kerja</label>
+                                    <select id="disabledSelect" class="form-select" name="waktu" required>
+                                        <option>--Pilih Waktu--</option>
+                                        <option>08.00 - 16.00</option>
+                                        <option>08.00 - 13.00</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Tanggal</label>
+                                    <input type="date" class="form-control" name="tanggal" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Kegiatan</label>
+                                    <textarea class="form-control" id="floatingTextarea2" style="height: 100px" name="kegiatan" maxlength="256"
+                                        placeholder="Kegiatan (max. 256 karakter)" required></textarea>
+                                </div>
+                                <button id="register-button" type="submit" class="btn btn-primary register"
+                                    style="background: #6f42c1">Kirim</button>
+                                <a href="/dashboard"><button class="btn btn-primary register"
+                                        style="background: #6f42c1" type="button">Kembali</button></a>
                             </form>
                         </div>
                     </div>
@@ -79,9 +82,12 @@
             </div>
         </section>
     </div>
+
+    <script src="js/jquery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
+
 
 
 </body>

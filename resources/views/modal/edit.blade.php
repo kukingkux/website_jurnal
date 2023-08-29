@@ -18,9 +18,8 @@
                         <label for="disabledSelect" class="form-label">Sekolah</label>
                         <select id="disabledSelect" name="sekolah" class="form-select">
 
-                            @foreach ($agendas as $g)
-                                <option>{{ $g->sekolah }}</option>
-                                <option>{{ $g->sekolah }}</option>
+                            @foreach ($groups as $g)
+                                <option>{{ $g->group_name }}</option>
                             @endforeach
                         </select>
                     </div>

@@ -82,7 +82,7 @@
                 <div class="row">
                     <h4>User</h4>
                     <div class="d-flex justify-content-between">
-                        <div class="d-flex" style="box-shadow: 0px 10px 20px -10px #0D6EFD;"">
+                        <div class="d-flex" style="box-shadow: 0px 10px 20px -10px #0D6EFD;">
                             <div class="px-1" style="background-color: #fff; border-radius: 20px 0px 0px 20px;">
                                 <button type="button" class="btn btn-sm"><i
                                         class="fa-solid fa-magnifying-glass"></i></button>
@@ -121,18 +121,19 @@
                                 <th scope="col">Opsi</th>
                             </tr>
                         </thead>
+
                         <tbody>
                             @foreach ($user as $data)
                                 <tr>
                                     <td scope="row">{{ $data->name }}</th>
                                     <td>{{ $data->username }}</td>
-                                    <td class=" text-truncate" style="max-width: 150px;">
+                                    <td class="text-truncate" style="max-width: 150px;">
                                         {{ $data->password }}</td>
                                     <td>{{ $data->address }}</td>
                                     <td>{{ $data->gender }}</td>
-                                    <td>{{ $data->status }}</td>
+                                    <td>{{ $data->status ?? 'None' }}</td>
                                     <td>{{ $data->role_id }}</td>
-                                    <td>{{ $data->group_id }}</td>
+                                    <td><i>{{ $data->groups->group_name }}</i></td>
                                     <td>{{ $data->office_id }}</td>
                                     <td>{{ $data->position_id }}</td>
                                     <td>

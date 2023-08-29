@@ -82,7 +82,7 @@
                                             <tr>
 
                                                 <td tdscope="col">{{ $data->name }}</td>
-                                                <td scope="col">{{ $data->sekolah }}</td>
+                                                <td scope="col">{{ $data->group_name }}</td>
                                                 <td scope="col">{{ $data->waktu }}</td>
                                                 <td scope="col">{{ $data->tanggal }}</td>
                                                 <td scope="col" class="text-truncate" style="max-width: 150px;">

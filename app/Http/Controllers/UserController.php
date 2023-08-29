@@ -53,8 +53,15 @@ class UserController extends Controller
     }
 
     public function user() {
+
         $user = User::all();
-        return view('history', ['user' => $user]);
+        return view('admin.users', compact( 'user'));
+    }
+
+    public function index(){
+
+
+        return view('admin.users', compact('groups'));
     }
 
 

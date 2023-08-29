@@ -4,12 +4,16 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Date;
+use App\Models\Groups;
+use App\Models\Agenda;
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\GroupsController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LeavesController;
+
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,10 +43,8 @@ Route::get('/', function () {
 Route::group(['middleware' => ['auth','ceklevel:1']], function() {
     // Route::get('/dashboard', 'App\Http\Controllers\HomeController@index');
     Route::get('/admin', 'App\Http\Controllers\HomeController@adminpage')->middleware('auth');
-    Route::get('/user', 'App\Http\Controllers\UserController@users');
-    Route::get('/user', function() {
-        return view('admin.users');
-    });
+    Route::get('/user', 'App\Http\Controllers\UserController@user');
+
     Route::get('/attendance', [LeavesController::class, 'attendance'])->name('attendance');
     // Route::get('/attendance', 'App\Http\Controllers\LeavesController@filterAttendance');
 
@@ -53,11 +55,9 @@ Route::group(['middleware' => ['auth','ceklevel:1']], function() {
 Route::group(['middleware' => ['auth','ceklevel:0,1']], function() {
     Route::get('/dashboard', 'App\Http\Controllers\HomeController@index');
     Route::get('/history', 'App\Http\Controllers\AgendaController@history');
+    Route::get('/agenda', 'App\Http\Controllers\AgendaController@index');
     Route::resource('/agenda', AgendaController::class);
     Route::get('/agenda', 'App\Http\Controllers\GroupsController@group');
-
-
-
 });
 
 Auth::routes(['register' => false]);
@@ -80,12 +80,16 @@ Route::get('deleteuser/{id}','App\Http\Controllers\UserController@deleteuser');
 // VIEW
 
 view()->composer(['*'], function ($view) {
-    $user = User::all();
+    $users = User::all();
     $count_user = User::count();
     $count_member = User::where('role_id', '0')->count();
     $count_admin = User::where('role_id', '1')->count();
+    $groups = Groups::all();
+    $agend = Agenda::all();
 
-    $view->with('user', $user)
+    $view->with('users', $users)
+    ->with('agend', $agend)
+    ->with('groups', $groups)
     ->with('count_user', $count_user)
     ->with('count_member', $count_member)
     ->with('count_admin', $count_admin);
@@ -94,9 +98,9 @@ view()->composer(['*'], function ($view) {
     $currentuser = User::find($userId);
     $view->with('currentuser', $currentuser);
 
-
     $month = Date::select('month')->distinct()->get();
     $year = Date::select('year')->distinct()->get();
     $view->with('month', $month)
     ->with('year', $year);
+
 });

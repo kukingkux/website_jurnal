@@ -17,7 +17,7 @@
                     <div class="mb-3">
                         <label for="disabledSelect" class="form-label"><strong>Sekolah</strong></label>
                         <p>
-                            {{ $data->sekolah }}
+                            {{ $data->group_name }}
                         </p>
                     </div>
                     <div class="mb-3">

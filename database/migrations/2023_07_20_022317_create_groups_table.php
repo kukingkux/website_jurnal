@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('groups', function (Blueprint $table) {
             $table->id('id');
-            $table->string('name', 255);
+            $table->string('group_name', 255);
             $table->integer('period_start');
             $table->integer('period_end');
             $table->timestamp('created_at')->nullable();

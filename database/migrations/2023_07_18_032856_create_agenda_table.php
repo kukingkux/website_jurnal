@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::dropIfExists('agenda');
         Schema::create('agenda', function (Blueprint $table) {
-            $table->string('nama');
-            $table->string('sekolah');
+            $table->id('id');
+            $table->string('name');
+            $table->integer('group_id');
+            $table->string('group_name');
             $table->string('waktu');
             $table->string('tanggal');
             $table->string('kegiatan');
