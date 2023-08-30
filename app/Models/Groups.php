@@ -11,8 +11,13 @@ class Groups extends Model
     protected $primaryKey = 'id';
     protected $receive = ['id', 'group_name'];
 
-    public function users() {
-        return $this->hasMany(Users::class);
+    public function user() {
+        return $this->hasMany(User::class);
+
+    }
+
+    public function agenda() {
+        return $this->hasMany(Agenda::class);
 
     }
 

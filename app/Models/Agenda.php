@@ -16,6 +16,9 @@ class Agenda extends Model
     {
         return $this->belongsTo(User::class);
     }
-
+    public function groups()
+    {
+        return $this->belongsTo(Groups::class);
+    }
 
 }

@@ -40,13 +40,15 @@
                                         value="{{ $currentuser->name }}" readonly="readonly">
                                     <input type="text" class="form-control d-none" name="user_id"
                                         value="{{ $currentuser->id }}" readonly="readonly">
+                                    <input type="text" class="form-control d-none" name="groups_id"
+                                        value="{{ $currentuser->groups_id }}" readonly="readonly">
 
 
                                     <label for="disabledSelect" class="form-label">Sekolah</label>
                                     <select id="disabledSelect" class="form-select" name="groups" required>
-                                        <option>--Pilih Group--</option>
-                                        @foreach ($groups as $g)
-                                            <option>{{ $g->group_name }}</option>
+
+                                        @foreach ($agenda as $g)
+                                            <option>{{ $g->groups->group_name }}</option>
                                         @endforeach
 
 

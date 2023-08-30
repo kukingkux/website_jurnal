@@ -29,10 +29,7 @@ class Users extends Model
         'end_date',
     ];
 
-    public function groups()
-    {
-        return $this->belongsTo(Groups::class);
-    }
+
 
 }
 

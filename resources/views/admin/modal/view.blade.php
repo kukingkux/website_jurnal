@@ -24,7 +24,8 @@
                         <div class="mb-3 col-4">
                             <label for="disabledSelect" class="form-label"><strong>Group ID</strong></label><br>
                             <p>
-                                {{ $data->group_id }}
+                                {{ $data->groups->group_name }}
+                            <p>({{ $data->groups_id }})</p>
                             </p>
                         </div>
                     </div>
@@ -55,12 +56,7 @@
                             {{ $data->username }}
                         </p>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label"><strong>Kegiatan</strong></label>
-                        <p>
-                            {{ $data->kegiatan }}
-                        </p>
-                    </div>
+
                     <div class="mb-3">
                         <label class="form-label"><strong>Email</strong></label>
                         <p>
@@ -82,7 +78,7 @@
                     <div class="mb-3">
                         <label class="form-label"><strong>Avatar</strong></label>
                         <p>
-                            {{ $data->avatar }}
+                            {{ $data->avatar ?? 'None' }}
                         </p>
                     </div>
                     <div class="mb-3">
@@ -94,7 +90,7 @@
                     <div class="mb-3">
                         <label class="form-label"><strong>Birthdate</strong></label>
                         <p>
-                            {{ $data->birthdate }}
+                            {{ $data->birthdate ?? 'None' }}
                         </p>
                     </div>
                     <div class="mb-3">
@@ -106,55 +102,55 @@
                     <div class="mb-3">
                         <label class="form-label"><strong>Phone Number</strong></label>
                         <p>
-                            {{ $data->phone_number }}
+                            {{ $data->phone_number ?? 'None' }}
                         </p>
                     </div>
                     <div class="mb-3">
                         <label class="form-label"><strong>Address</strong></label>
                         <p>
-                            {{ $data->address }}
+                            {{ $data->address ?? 'None' }}
                         </p>
                     </div>
                     <div class="mb-3">
                         <label class="form-label"><strong>Latest Education</strong></label>
                         <p>
-                            {{ $data->latest_education }}
+                            {{ $data->latest_education ?? 'None' }}
                         </p>
                     </div>
                     <div class="mb-3">
                         <label class="form-label"><strong>Identity number</strong></label>
                         <p>
-                            {{ $data->identity_number }}
+                            {{ $data->identity_number ?? 'None' }}
                         </p>
                     </div>
                     <div class="mb-3">
                         <label class="form-label"><strong>Start Date</strong></label>
                         <p>
-                            {{ $data->start_date }}
+                            {{ $data->start_date ?? 'None' }}
                         </p>
                     </div>
                     <div class="mb-3">
                         <label class="form-label"><strong>End Date</strong></label>
                         <p>
-                            {{ $data->end_date }}
+                            {{ $data->end_date ?? 'None' }}
                         </p>
                     </div>
                     <div class="mb-3">
                         <label class="form-label"><strong>Status</strong></label>
                         <p>
-                            {{ $data->status }}
+                            {{ $data->status ?? 'None' }}
                         </p>
                     </div>
                     <div class="mb-3">
                         <label class="form-label"><strong>Created At</strong></label>
                         <p>
-                            {{ $data->created_at }}
+                            {{ $data->created_at ?? 'None' }}
                         </p>
                     </div>
                     <div class="mb-3">
                         <label class="form-label"><strong>Updated At</strong></label>
                         <p>
-                            {{ $data->updated_at }}
+                            {{ $data->updated_at ?? 'None' }}
                         </p>
                     </div>
                 </form>

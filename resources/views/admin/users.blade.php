@@ -133,7 +133,7 @@
                                     <td>{{ $data->gender }}</td>
                                     <td>{{ $data->status ?? 'None' }}</td>
                                     <td>{{ $data->role_id }}</td>
-                                    <td><i>{{ $data->groups->group_name }}</i></td>
+                                    <td><i>{{ $data->groups->group_name }} <p>({{ $data->groups_id }})</p></i></td>
                                     <td>{{ $data->office_id }}</td>
                                     <td>{{ $data->position_id }}</td>
                                     <td>

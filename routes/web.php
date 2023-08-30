@@ -85,10 +85,8 @@ view()->composer(['*'], function ($view) {
     $count_member = User::where('role_id', '0')->count();
     $count_admin = User::where('role_id', '1')->count();
     $groups = Groups::all();
-    $agend = Agenda::all();
 
     $view->with('users', $users)
-    ->with('agend', $agend)
     ->with('groups', $groups)
     ->with('count_user', $count_user)
     ->with('count_member', $count_member)
@@ -102,5 +100,12 @@ view()->composer(['*'], function ($view) {
     $year = Date::select('year')->distinct()->get();
     $view->with('month', $month)
     ->with('year', $year);
+
+    $agendagroup = Groups::with('user')->get();
+    $agenda= Agenda::all()->where('user_id', $userId);
+
+    $view->with('agenda', $agenda)
+    ->with('agendagroup', $agendagroup);
+
 
 });

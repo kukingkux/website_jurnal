@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Agenda;
 use App\Models\User;
+use App\Models\Groups;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\title;
@@ -35,10 +36,12 @@ class AgendaController extends Controller
         return redirect('agenda');
     }
 
-    public function create(Request $request) {
-        return view('agenda', [
-            "title" => "Agenda"
-        ]);
+    public function agenda(Request $request) {
+        $agendagroup = Groups::with('user')->get();
+
+        $agenda= User::all();
+        dd($agendagroup);
+        return view('agenda', compact( 'agenda', 'agendagroup'));
     }
 
     public function edit(Request $request, $id) {

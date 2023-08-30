@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Models\Groups;
 use Illuminate\Support\Facades\View;
 
 
@@ -53,15 +54,16 @@ class UserController extends Controller
     }
 
     public function user() {
+        $usergroup = Groups::with('user')->get();
 
         $user = User::all();
-        return view('admin.users', compact( 'user'));
+        return view('admin.users', compact( 'user', 'usergroup'));
     }
 
     public function index(){
 
 
-        return view('admin.users', compact('groups'));
+
     }
 
 

@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.84.0">
-    <title>Sidebar</title>
+    <title>User Sidebar</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sidebars/">
@@ -18,14 +18,6 @@
     <link href="/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <!-- Favicons -->
-    <link rel="apple-touch-icon" href="/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
-    <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
-    <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-    <link rel="manifest" href="/docs/5.0/assets/img/favicons/manifest.json">
-    <link rel="mask-icon" href="/docs/5.0/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
-    <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon.ico">
-    <meta name="theme-color" content="#7952b3">
 
 
 
@@ -37,62 +29,149 @@
 
 <body>
 
+    <nav>
+        <div class="sidebar close">
+            <div>
+                <a href="/admin" style="text-decoration: none; color: #000;">
+                    Dashboard
+                </a>
+            </div>
+            <hr>
+            <div class="wrapper">
+                <ul class="nav nav-pills flex-column mb-auto">
 
-    <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px; height:100vh;">
-        <a href="/admin" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-            <svg class="bi me-2" width="40" height="32">
 
-            </svg>
-            <span class="fs-4">Dashboard</span>
-        </a>
-        <hr>
-        <div class="wrapper">
-            <ul class="nav nav-pills flex-column mb-auto">
-
-
-                {{-- @foreach (getMenus() as $menu) --}}
-                <li class="nav-item">
-                    <!-- /admin -->
-                    <a href="/dashboard" class="nav-link {{ request()->is('dashboard') ? 'active' : 'nav-link' }}"
-                        aria-current="page">
-                        <i class="fa-solid fa-gauge" href="#"></i>&nbsp;
-                        Dashboard
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <!-- /admin -->
-                    <a href="/agenda" class="nav-link {{ request()->is('agenda') ? 'active' : 'nav-link' }}"
-                        aria-current="page">
-                        <i class="fa-solid fa-clipboard-user"></i>&nbsp;
-                        Absen
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <!-- /admin -->
-                    <a href="/history" class="nav-link {{ request()->is('history') ? 'active' : 'nav-link' }} "
-                        aria-current="page">
-                        <i class="fa-solid fa-clock-rotate-left"></i>&nbsp;
-                        Riwayat
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <button id="dropBtn" class="text-center nav-link"><i class="fa-solid fa-gear"></i>&nbsp; Opsi
-                        Pengguna</button>
-                </li>
-                <div class="dropup-content" id="myDropup">
-                    <a href="logout">
-                        <p style="text-decoration: none"><i class="fa-solid fa-arrow-up-from-bracket"></i>&nbsp; Sign
-                            Out</p>
-                    </a>
-                </div>
-                {{-- @endforeach --}}
-            </ul>
+                    {{-- @foreach (getMenus() as $menu) --}}
+                    <li class="nav-item-1">
+                        <!-- /dashboard -->
+                        <a href="/dashboard" class="nav-link {{ request()->is('dashboard') ? 'active' : 'nav-link' }}"
+                            aria-current="page">
+                            <i class="fa-solid fa-gauge" href="#"></i>&nbsp;
+                            Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item-1">
+                        <!-- /agenda -->
+                        <a href="/agenda" class="nav-link {{ request()->is('agenda') ? 'active' : 'nav-link' }}"
+                            aria-current="page">
+                            <i class="fa-solid fa-clipboard-user"></i>&nbsp;
+                            <span class="sdtext">Absen</span>
+                        </a>
+                    </li>
+                    <li class="nav-item-1">
+                        <!-- /history -->
+                        <a href="/history" class="nav-link {{ request()->is('history') ? 'active' : 'nav-link' }} "
+                            aria-current="page">
+                            <i class="fa-solid fa-clock-rotate-left"></i>&nbsp;
+                            <span class="sdtext">Riwayat</span>
+                        </a>
+                    </li>
+                    <li class="nav-item-1">
+                        <button id="dropBtn" class="nav-link"><i class="fa-solid fa-gear"></i>&nbsp; <span
+                                class="sdtext">Opsi
+                                Pengguna</span></button>
+                    </li>
+                    <div class="dropup-content" id="myDropup">
+                        <a href="#">
+                            <p style="text-decoration: none"><i class="fa-solid fa-arrow-up-from-bracket"></i>&nbsp;
+                                Sign
+                                Out</p>
+                        </a>
+                    </div>
+                    {{-- @endforeach --}}
+                </ul>
+            </div>
+            <!-- Split dropup button -->
         </div>
-        <!-- Split dropup button -->
+    </nav>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container nav-2 sticky-top">
+            <a href="/admin" class="btn dashboard">Dashboard</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar"
+                aria-controls="sidebar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="sidebar">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-    </div>
+                    {{-- @foreach (getMenus() as $menu) --}}
+                    <li class="nav-item-1">
+                        <!-- /dashboard -->
+                        <a href="/dashboard" class="nav-link {{ request()->is('dashboard') ? 'active' : 'nav-link' }}"
+                            aria-current="page">
+                            <i class="fa-solid fa-gauge" href="#"></i>&nbsp;
+                            <span class="sdtext">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item-1">
+                        <!-- /agenda -->
+                        <a href="/agenda" class="nav-link {{ request()->is('agenda') ? 'active' : 'nav-link' }}"
+                            aria-current="page">
+                            <i class="fa-solid fa-clipboard-user"></i>&nbsp;
+                            <span class="sdtext">Absen</span>
+                        </a>
+                    </li>
+                    <li class="nav-item-1">
+                        <!-- /history -->
+                        <a href="/history" class="nav-link {{ request()->is('history') ? 'active' : 'nav-link' }} "
+                            aria-current="page">
+                            <i class="fa-solid fa-clock-rotate-left"></i>&nbsp;
+                            <span class="sdtext">Riwayat</span>
+                        </a>
+                    </li>
+                    <li class="nav-item-1">
+                        <button style="width: 100%;" id="dropBtn" class="nav-link dropdown-toggle" type="button"
+                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><i
+                                class="fa-solid fa-gear"></i>&nbsp; <span class="sdtext">Opsi
+                                Pengguna</span></button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li class="text-center"><a href="logout">
+                                    <p style="text-decoration: none"><i
+                                            class="fa-solid fa-arrow-up-from-bracket"></i>&nbsp; Sign
+                                        Out</p>
+                                </a></li>
+                        </ul>
+
+                    </li>
+                    {{-- @endforeach --}}
+                </ul>
+            </div>
+        </div>
+    </nav>
 
     <style>
+        @media(max-width:680px) {
+            nav .sidebar.close {
+                visibility: hidden;
+                display: none
+            }
+
+            .navbar {
+                align-items: flex-start;
+            }
+        }
+
+        @media(min-width:679px) {
+            .container.nav-2 {
+                visibility: hidden;
+                display: none;
+            }
+
+
+        }
+
+        .btn.hamburger {
+            display: none;
+        }
+
+        .sidebar.close {
+            display: block;
+            width: 280px;
+            height: 100vh;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+
         .wrapper {
             display: flex;
             justify-content: center;
@@ -125,7 +204,7 @@
             position: absolute;
             top: auto;
             /* Mengubah 'top' menjadi 'auto' */
-            bottom: 7.5%;
+            bottom: 10%;
             /* Mengubah 'bottom' menjadi '100%' */
             left: 50px;
             background-color: #f9f9f9;
@@ -138,11 +217,9 @@
             display: block;
 
         }
-    </style>
 
-    <style>
         /* CSS untuk tombol aktif */
-        .nav-item .nav-link {
+        .nav-item-1 .nav-link {
             margin-bottom: 8px;
             color: #46157A;
             border: 2px solid #dddddd;
@@ -150,13 +227,31 @@
             background-color: #fff;
         }
 
-        .nav-item .nav-link.active {
+        .nav-item-1 .nav-link.active {
+            background-color: #6F61C0;
+            color: white;
+            border: 2px solid #6F61C0;
+            border-bottom: 6px solid #6558a9;
+        }
+
+        .collapse .nav-item-1 .nav-link {
+            text-align: center;
+            margin-bottom: 8px;
+            color: #46157A;
+            border: 2px solid #dddddd;
+            border-bottom: 6px solid #dddddd;
+            background-color: #fff;
+        }
+
+        .collapse .nav-item-1 .nav-link.active {
+            text-align: center;
             background-color: #6F61C0;
             color: white;
             border: 2px solid #6F61C0;
             border-bottom: 6px solid #6558a9;
         }
     </style>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">

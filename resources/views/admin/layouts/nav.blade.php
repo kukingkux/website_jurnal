@@ -37,70 +37,76 @@
 
 <body>
 
-
-    <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px; height:100vh;">
-        <a href="/admin" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-            <svg class="bi me-2" width="40" height="32">
-
-            </svg>
-            <span class="fs-4">Dashboard</span>
-        </a>
-        <hr>
-        <div class="wrapper">
-            <ul class="nav nav-pills flex-column mb-auto">
+    <div class="container-fluid">
+        <div class="row flex-nowrap">
+            <div class="d-flex flex-column flex-shrink-0 p-2 col bg-light" style="height: 100vh;">
+                <a href="/admin" class="text-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                    <p class="text-center">Dashboard</p>
+                </a>
+                <hr>
+                <div class="wrapper">
+                    <ul class="nav nav-pills flex-column mb-auto">
 
 
-                {{-- @foreach (getMenus() as $menu) --}}
-                <li class="nav-item">
-                    <!-- /admin -->
-                    <a href="/admin" class="nav-link {{ request()->is('admin') ? 'active' : 'nav-link' }}"
-                        aria-current="page">
-                        <i class="fa-solid fa-gauge" href="#"></i>&nbsp;
-                        Dashboard (Admin)
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <!-- /admin -->
-                    <a href="/user" class="nav-link {{ request()->is('user') ? 'active' : 'nav-link' }}"
-                        aria-current="page">
-                        <i class="fa-solid fa-clipboard-user"></i>&nbsp;
-                        Users
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <!-- /admin -->
-                    <a href="/attendance" class="nav-link {{ request()->is('attendance') ? 'active' : 'nav-link' }} "
-                        aria-current="page">
-                        <i class="fa-solid fa-clock-rotate-left"></i>&nbsp;
-                        Attendance
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <!-- /admin -->
-                    <a href="/groups" class="nav-link {{ request()->is('groups') ? 'active' : 'nav-link' }} "
-                        aria-current="page">
-                        <i class="fa-solid fa-building"></i>&nbsp;
-                        Groups
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <button id="dropBtn" class="nav-link"><i class="fa-solid fa-gear"></i>
-                        &nbsp; Opsi Pengguna</button>
-                </li>
-                <div class="dropup-content" id="myDropup">
-                    <a href="#">
-                        <p style="text-decoration: none"><i class="fa-solid fa-arrow-up-from-bracket"></i>&nbsp; Sign
-                            Out</p>
-                    </a>
+                        <!-- {{-- @foreach (getMenus() as $menu) --}} -->
+                        <li class="nav-item">
+                            <!-- /admin -->
+                            <a href="#" class="nav-link {{ request()->is('admin') ? 'active' : 'nav-link' }}"
+                                aria-current="page">
+                                <i class="fa-solid fa-gauge" href="#"></i>&nbsp;
+                                <span class="sdtext">Dashboard (Admin)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <!-- /admin -->
+                            <a href="#" class="nav-link {{ request()->is('user') ? 'active' : 'nav-link' }}"
+                                aria-current="page">
+                                <i class="fa-solid fa-clipboard-user"></i>&nbsp;
+                                <span class="sdtext">Users</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <!-- /admin -->
+                            <a href="#"
+                                class="nav-link {{ request()->is('attendance') ? 'active' : 'nav-link' }} "
+                                aria-current="page">
+                                <i class="fa-solid fa-clock-rotate-left"></i>&nbsp;
+                                <span class="sdtext">Attendance</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <button id="dropBtn" class="nav-link"><i class="fa-solid fa-gear"></i>&nbsp; <span
+                                    class="sdtext">Opsi Pengguna</span></button>
+                        </li>
+                        <div class="dropup-content" id="myDropup">
+                            <a href="#">
+                                <p style="text-decoration: none"><i class="fa-solid fa-arrow-up-from-bracket"></i>&nbsp;
+                                    Sign
+                                    Out</p>
+                            </a>
+                        </div>
+                        <!-- {{-- @endforeach --}} -->
+                    </ul>
                 </div>
-                {{-- @endforeach --}}
-            </ul>
-        </div>
-        <!-- Split dropup button -->
+                <!-- Split dropup button -->
 
+            </div>
+        </div>
     </div>
 
     <style>
+        @media(max-width:680px) {
+            .d-flex.flex-column .sdtext {
+                visibility: hidden;
+                display: none;
+            }
+
+            .text-center.mb-3.mb-md-0 {
+                width: 20px;
+            }
+
+        }
+
         .wrapper {
             display: flex;
             justify-content: center;
