@@ -101,11 +101,12 @@ view()->composer(['*'], function ($view) {
     $view->with('month', $month)
     ->with('year', $year);
 
-    $agendagroup = Groups::with('user')->get();
+    $agendagroup = Groups::with('agenda')->get();
     $agenda= Agenda::all()->where('user_id', $userId);
 
     $view->with('agenda', $agenda)
     ->with('agendagroup', $agendagroup);
+
 
 
 });

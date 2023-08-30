@@ -45,7 +45,8 @@
 
 
                                     <label for="disabledSelect" class="form-label">Sekolah</label>
-                                    <select id="disabledSelect" class="form-select" name="groups" required>
+                                    <select id="disabledSelect" class="form-select" name="group_name" tabindex="-1"
+                                        readonly required>
 
                                         @foreach ($agenda as $g)
                                             <option>{{ $g->groups->group_name }}</option>
@@ -56,7 +57,7 @@
 
 
                                 </div>
-                                <div class="mb-3 col">
+                                <div class="mb-3 me-4 ms-4 col">
                                     <label for="disabledSelect" class="form-label">Waktu Kerja</label>
                                     <select id="disabledSelect" class="form-select" name="waktu" required>
                                         <option>--Pilih Waktu--</option>
@@ -64,19 +65,22 @@
                                         <option>08.00 - 13.00</option>
                                     </select>
                                 </div>
-                                <div class="mb-3">
+                                <div class="mb-3  me-4 ms-4">
                                     <label class="form-label">Tanggal</label>
                                     <input type="date" class="form-control" name="tanggal" required>
                                 </div>
-                                <div class="mb-3">
+                                <div class="mb-3 me-4 ms-4">
                                     <label class="form-label">Kegiatan</label>
                                     <textarea class="form-control" id="floatingTextarea2" style="height: 100px" name="kegiatan" maxlength="256"
                                         placeholder="Kegiatan (max. 256 karakter)" required></textarea>
                                 </div>
-                                <button id="register-button" type="submit" class="btn btn-primary register"
-                                    style="background: #6f42c1">Kirim</button>
-                                <a href="/dashboard"><button class="btn btn-primary register"
-                                        style="background: #6f42c1" type="button">Kembali</button></a>
+                                <div class="mb-3 me-4 ms-4 d-flex flex-row-reverse gap-2">
+
+                                    <a href="/dashboard"><button class="btn btn-primary register"
+                                            style="background: #6f42c1" type="button">Kembali</button></a>
+                                    <button id="register-button" type="submit" class="btn btn-primary register"
+                                        style="background: #6f42c1">Kirim</button>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -84,6 +88,13 @@
             </div>
         </section>
     </div>
+
+    <style>
+        select[readonly] {
+            background-color: #e9ecef;
+            pointer-events: none;
+        }
+    </style>
 
     <script src="js/jquery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

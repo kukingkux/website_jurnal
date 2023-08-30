@@ -16,10 +16,10 @@
                     </div>
                     <div class="mb-3">
                         <label for="disabledSelect" class="form-label">Sekolah</label>
-                        <select id="disabledSelect" name="sekolah" class="form-select">
-
-                            @foreach ($groups as $g)
-                                <option>{{ $g->group_name }}</option>
+                        <select id="disabledSelect" class="form-select" name="group_name" tabindex="-1" readonly
+                            required>
+                            @foreach ($agenda as $g)
+                                <option>{{ $g->groups->group_name }}</option>
                             @endforeach
                         </select>
                     </div>

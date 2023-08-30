@@ -37,7 +37,7 @@
 
 <body>
 
-    <div class="container-fluid">
+    <div class="container">
         <div class="row flex-nowrap">
             <div class="d-flex flex-column flex-shrink-0 p-2 col bg-light" style="height: 100vh;">
                 <a href="/admin" class="text-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
@@ -51,7 +51,7 @@
                         <!-- {{-- @foreach (getMenus() as $menu) --}} -->
                         <li class="nav-item">
                             <!-- /admin -->
-                            <a href="#" class="nav-link {{ request()->is('admin') ? 'active' : 'nav-link' }}"
+                            <a href="admin" class="nav-link {{ request()->is('admin') ? 'active' : 'nav-link' }}"
                                 aria-current="page">
                                 <i class="fa-solid fa-gauge" href="#"></i>&nbsp;
                                 <span class="sdtext">Dashboard (Admin)</span>
@@ -59,7 +59,7 @@
                         </li>
                         <li class="nav-item">
                             <!-- /admin -->
-                            <a href="#" class="nav-link {{ request()->is('user') ? 'active' : 'nav-link' }}"
+                            <a href="user" class="nav-link {{ request()->is('user') ? 'active' : 'nav-link' }}"
                                 aria-current="page">
                                 <i class="fa-solid fa-clipboard-user"></i>&nbsp;
                                 <span class="sdtext">Users</span>
@@ -67,7 +67,7 @@
                         </li>
                         <li class="nav-item">
                             <!-- /admin -->
-                            <a href="#"
+                            <a href="attendance"
                                 class="nav-link {{ request()->is('attendance') ? 'active' : 'nav-link' }} "
                                 aria-current="page">
                                 <i class="fa-solid fa-clock-rotate-left"></i>&nbsp;
