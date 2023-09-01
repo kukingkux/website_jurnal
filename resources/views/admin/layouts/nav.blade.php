@@ -39,7 +39,7 @@
 
     <div class="container">
         <div class="row flex-nowrap">
-            <div class="d-flex flex-column flex-shrink-0 p-2 col bg-light" style="height: 100vh;">
+            <div class="d-flex flex-column flex-shrink-0 p-2 bg-light" style="height: 100vh; width: 260px;">
                 <a href="/admin" class="text-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
                     <p class="text-center">Dashboard</p>
                 </a>
@@ -95,18 +95,6 @@
     </div>
 
     <style>
-        @media(max-width:680px) {
-            .d-flex.flex-column .sdtext {
-                visibility: hidden;
-                display: none;
-            }
-
-            .text-center.mb-3.mb-md-0 {
-                width: 20px;
-            }
-
-        }
-
         .wrapper {
             display: flex;
             justify-content: center;

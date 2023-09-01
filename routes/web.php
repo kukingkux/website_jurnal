@@ -12,6 +12,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\GroupsController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LeavesController;
+use App\Http\Controllers\API\AuthController;
 
 use Illuminate\Support\Facades\DB;
 
@@ -34,10 +35,17 @@ use Illuminate\Support\Facades\DB;
 //     })->name('dashboard');
 // });
 
-Route::get('/', function () {
+
+Route::middleware('auth:sanctum')->group(function() {
+    Route::post('register', [AuthController::class, 'register']);
+    Route::post('login', [AuthController::class, 'login']);
+    Route::get('login', [AuthController::class, 'login']);
+    Route::get('logout', [AuthController::class, 'logout']);
+    Route::get('/', function () {
     return redirect('admin');
     // Only authenticated users may enter...
-})->middleware('auth');
+});
+});
 
 
 Route::group(['middleware' => ['auth','ceklevel:1']], function() {
@@ -60,10 +68,10 @@ Route::group(['middleware' => ['auth','ceklevel:0,1']], function() {
     Route::get('/agenda', 'App\Http\Controllers\GroupsController@group');
 });
 
-Auth::routes(['register' => false]);
+Auth::routes(['register' => true]);
 
-Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
-
+ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+//Route::get('logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
 
 // Q U E R Y
 
