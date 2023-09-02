@@ -24,7 +24,7 @@
                         <div class="mb-3 col-4">
                             <label for="disabledSelect" class="form-label"><strong>Group ID</strong></label><br>
                             <p>
-                                {{ $data->groups->group_name }}
+                                {{ $data->groups->group_name ?? 'None' }}
                             <p>({{ $data->groups_id }})</p>
                             </p>
                         </div>

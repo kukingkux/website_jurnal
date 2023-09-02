@@ -99,7 +99,7 @@
                                 @foreach ($attend as $data)
                                     <tr>
                                         <td>{{ $data->name }}</td>
-                                        <td>{{ $data->sekolah }}</td>
+                                        <td>{{ $data->groups_id }}</td>
                                         <td>{{ $data->waktu }}</td>
                                         <td>{{ $data->tanggal }}</td>
                                         <td class="text-truncate" style="max-width: 150px;">{{ $data->kegiatan }}</td>

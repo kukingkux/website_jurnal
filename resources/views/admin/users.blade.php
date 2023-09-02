@@ -123,7 +123,7 @@
                         </thead>
 
                         <tbody>
-                            @foreach ($user as $data)
+                            @foreach ($users as $data)
                                 <tr>
                                     <td scope="row">{{ $data->name }}</th>
                                     <td>{{ $data->username }}</td>
@@ -133,7 +133,8 @@
                                     <td>{{ $data->gender }}</td>
                                     <td>{{ $data->status ?? 'None' }}</td>
                                     <td>{{ $data->role_id }}</td>
-                                    <td><i>{{ $data->groups->group_name }} <p>({{ $data->groups_id }})</p></i></td>
+                                    <td><i>{{ $data->groups->group_name ?? 'None' }} <p>({{ $data->groups_id }})</p></i>
+                                    </td>
                                     <td>{{ $data->office_id }}</td>
                                     <td>{{ $data->position_id }}</td>
                                     <td>

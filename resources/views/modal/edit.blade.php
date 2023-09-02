@@ -18,10 +18,14 @@
                         <label for="disabledSelect" class="form-label">Sekolah</label>
                         <select id="disabledSelect" class="form-select" name="group_name" tabindex="-1" readonly
                             required>
-                            @foreach ($agenda as $g)
+
+                            @foreach ($usergroup as $g)
                                 <option>{{ $g->groups->group_name }}</option>
                             @endforeach
+
+
                         </select>
+
                     </div>
                     <div class="mb-3">
                         <label for="disabledSelect" class="form-label">Waktu Kerja</label>
@@ -51,3 +55,10 @@
         </div>
     </div>
 </div>
+
+<style>
+    select[readonly] {
+        background-color: #e9ecef;
+        pointer-events: none;
+    }
+</style>

@@ -54,15 +54,14 @@ class UserController extends Controller
     }
 
     public function user() {
-        $usergroup = Groups::with('user')->get();
-
+        $userlistgroup = Groups::with('user')->get();
         $user = User::all();
-        return view('admin.users', compact( 'user', 'usergroup'));
+
+        return view('admin.users', compact( 'user', 'userlistgroup'));
     }
 
     public function agenda(Request $request) {
         $usergroups = Groups::with('user')->get();
-
         $usergroup = User::all();
 
         return view('agenda', compact( 'agenda', 'agendagroup'));
