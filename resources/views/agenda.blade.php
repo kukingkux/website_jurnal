@@ -48,7 +48,7 @@
                                     <select id="disabledSelect" class="form-select" name="group_name" tabindex="-1"
                                         readonly required>
 
-                                        @foreach ($agenda as $g)
+                                        @foreach ($usergroup as $g)
                                             <option>{{ $g->groups->group_name }}</option>
                                         @endforeach
 

@@ -36,13 +36,13 @@ class AgendaController extends Controller
         return redirect('agenda');
     }
 
-    public function agenda(Request $request) {
-        $agendagroup = Groups::with('user')->get();
+    // public function agenda(Request $request) {
+    //     $agendagroup = Groups::with('user')->get();
 
-        $agenda= User::all();
-        dd($agendagroup);
-        return view('agenda', compact( 'agenda', 'agendagroup'));
-    }
+    //     $agenda= User::all();
+    //     dd($agendagroup);
+    //     return view('agenda', compact( 'agenda', 'agendagroup'));
+    // }
 
     public function edit(Request $request, $id) {
         $agendas = Agenda::where('id',$id)->firstOrFail();

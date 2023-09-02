@@ -69,6 +69,10 @@
                                         </span>
                                     @enderror
                                 </div>
+                                <div>
+                                    <input type="checkbox" name="remember" id="remember">
+                                    <label for="remember">Remember me</label>
+                                </div>
 
                                 <div class="row">
                                     <div class="text-center">

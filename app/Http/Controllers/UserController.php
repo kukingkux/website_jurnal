@@ -60,6 +60,14 @@ class UserController extends Controller
         return view('admin.users', compact( 'user', 'usergroup'));
     }
 
+    public function agenda(Request $request) {
+        $usergroups = Groups::with('user')->get();
+
+        $usergroup = User::all();
+
+        return view('agenda', compact( 'agenda', 'agendagroup'));
+    }
+
     public function index(){
 
 

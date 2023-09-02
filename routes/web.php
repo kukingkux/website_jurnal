@@ -1,20 +1,23 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
-use App\Models\User;
 use App\Models\Date;
-use App\Models\Groups;
+use App\Models\User;
 use App\Models\Agenda;
-use App\Http\Controllers\AgendaController;
+use App\Models\Groups;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\GroupsController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AgendaController;
+
+use App\Http\Controllers\GroupsController;
 use App\Http\Controllers\LeavesController;
 use App\Http\Controllers\API\AuthController;
 
-use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,17 +39,21 @@ use Illuminate\Support\Facades\DB;
 // });
 
 
-Route::middleware('auth:sanctum')->group(function() {
-    Route::post('register', [AuthController::class, 'register']);
-    Route::post('login', [AuthController::class, 'login']);
-    Route::get('login', [AuthController::class, 'login']);
-    Route::get('logout', [AuthController::class, 'logout']);
-    Route::get('/', function () {
-    return redirect('admin');
-    // Only authenticated users may enter...
-});
-});
+// Route::middleware('auth:sanctum')->group(function() {
+//     Route::post('register', [AuthController::class, 'register']);
+//     Route::post('login', [AuthController::class, 'login']);
+//     Route::get('logout', [AuthController::class, 'logout']);
 
+//     // Only authenticated users may enter...
+// });
+
+
+Route::get('/', function () {
+    return redirect('admin');
+})->middleware(['auth:sanctum']);
+
+Route::post('/login', [LoginController::class, 'login'])->middleware('auth:sanctum')->name('login');
+Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth:sanctum')->name('logout');
 
 Route::group(['middleware' => ['auth','ceklevel:1']], function() {
     // Route::get('/dashboard', 'App\Http\Controllers\HomeController@index');
@@ -109,12 +116,13 @@ view()->composer(['*'], function ($view) {
     $view->with('month', $month)
     ->with('year', $year);
 
-    $agendagroup = Groups::with('agenda')->get();
-    $agenda= Agenda::all()->where('user_id', $userId);
+    $usergroups = Groups::with('user')->get();
+    $usergroup = User::all()->where('id', $userId);
 
-    $view->with('agenda', $agenda)
-    ->with('agendagroup', $agendagroup);
 
+
+    $view->with('usergroup', $usergroup)
+    ->with('agendagroup', $usergroups);
 
 
 });

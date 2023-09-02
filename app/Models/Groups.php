@@ -18,7 +18,6 @@ class Groups extends Model
 
     public function agenda() {
         return $this->hasMany(Agenda::class);
-
     }
 
 
