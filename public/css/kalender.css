@@ -64,6 +64,19 @@ header .icons span:last-child {
     transform: translate(-50%, -50%);
     z-index: -1;
 }
+@media (max-width: 768px) {
+    .calendar .days li::before {
+        position: absolute;
+        content: "";
+        height: 20px;
+        width: 50px;
+        top: 50%;
+        left: 50%;
+        border-radius: 24px;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+    }
+}
 
 .days li:hover::before {
     background: #ededed;

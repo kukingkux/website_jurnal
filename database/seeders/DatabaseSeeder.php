@@ -21,7 +21,11 @@ class DatabaseSeeder extends Seeder
         $this->call(
             // NavigationSeeder::class,
             UserSeeder::class,
+
         );
-        
+        $this->call(AdminSeeder::class);
+        $this->call(RoleSeeder::class);
+
+
     }
 }

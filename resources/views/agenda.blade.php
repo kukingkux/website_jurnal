@@ -10,7 +10,7 @@
 </head>
 
 <body style="background-color: #D9D9D9;">
-    <div class="container-fluid d-flex p-2" style="box-shadow: 0px 10px 20px -10px #A18AFF;">
+    <div class="container-fluid d-flex justify-content-between p-2" style="box-shadow: 0px 10px 20px -10px #A18AFF;">
         @include('layouts.nav')
         <section style="flex-basis: 100%">
             <div class="container">
@@ -90,6 +90,12 @@
     </div>
 
     <style>
+        @media(max-width:768px) {
+            .container {
+                margin-top: 20px;
+            }
+        }
+
         select[readonly] {
             background-color: #e9ecef;
             pointer-events: none;

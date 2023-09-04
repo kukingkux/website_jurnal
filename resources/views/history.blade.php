@@ -14,7 +14,25 @@
 </head>
 
 <body style="background-color: #D9D9D9;">
-    <div class="container-fluid d-flex p-2">
+    <style>
+        .d-flex.coll {
+            gap: 10px;
+        }
+
+        @media(max-width:500px) {
+            .d-flex.coll {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        @media(max-width:768px) {
+            .container {
+                margin-top: 20px;
+            }
+        }
+    </style>
+    <div class="container-fluid d-flex justify-content-between p-2">
         @include('layouts.nav')
         <div class="m-2" style="width: 100%">
             <div class="container">
@@ -32,12 +50,12 @@
                         </h6>
                     </h5>
                     <div>
-                        <div class="d-flex" style="box-shadow: 0px 10px 20px -10px #A18AFF;">
-                            <div class="col">
+                        <div class="d-flex coll">
+                            <div class="col" style="box-shadow: 0px 10px 20px -10px #A18AFF;">
                                 <input class="form-control" type="text" placeholder="Employee Name" disabled
                                     aria-label="default input example" value="{{ $currentuser->name }}">
                             </div>
-                            <div class="col input-group">
+                            <div class="col input-group" style="box-shadow: 0px 10px 20px -10px #A18AFF;">
                                 <select class="form-select form-control-sm filter-select" id="month">
                                     <option selected>Select Month</option>
                                     @foreach ($month as $m)
@@ -46,16 +64,13 @@
 
                                 </select>
                             </div>
-                            <div class="col input-group">
+                            <div class="col input-group" style="box-shadow: 0px 10px 20px -10px #A18AFF;">
                                 <select class="form-select form-control-sm filter-select" id="year">
                                     <option selected>Select Year</option>
                                     @foreach ($year as $y)
                                         <option>{{ $y->year }}</option>
                                     @endforeach
                                 </select>
-                            </div>
-                            <div class="col">
-                                <button type="button" class="btn btn-success" style="width: 100%;">Search</button>
                             </div>
                         </div>
                     </div>

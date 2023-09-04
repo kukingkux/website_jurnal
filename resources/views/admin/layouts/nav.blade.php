@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <link rel="icon" href="{!! asset('images/gcm_ico.ico') !!}" />
     <title>Sidebar</title>
 </head>
 
 <body>
     <!-- offcanvas -->
-    <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
-        aria-labelledby="offcanvasWithBothOptionsLabel">
+    <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+        id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -34,7 +35,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/agenda" class="nav-link {{ request()->is('user') ? 'active' : 'nav-link' }}"
+                        <a href="/user" class="nav-link {{ request()->is('user') ? 'active' : 'nav-link' }}"
                             aria-current="page">
                             <i class="fa-solid fa-clipboard-user"></i>&nbsp;
                             <span class="sdtext">Users</span>
@@ -46,6 +47,13 @@
                             aria-current="page">
                             <i class="fa-solid fa-clock-rotate-left"></i>&nbsp;
                             <span class="sdtext">Attendance</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/groups" class="nav-link {{ request()->is('groups') ? 'active' : 'nav-link' }} "
+                            aria-current="page">
+                            <i class="fa-solid fa-building"></i></i>&nbsp;
+                            <span class="sdtext">Groups</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -84,16 +92,15 @@
             <hr>
             <div class="wrapper">
                 <ul class="nav nav-pills flex-column">
-                    <li class="navsd mb-2 text-center">
+                    <li class="navsd mb-2 text-center nav-item">
                         <a href="/admin"
-                            class="btn btn-primary mainsd {{ request()->is('admin') ? 'active' : 'nav-link' }}"
-                            style="text-decoration: none; color: #000;">
+                            class="btn btn-primary mainsd nav-link {{ request()->is('admin') ? 'active' : 'nav-link' }}">
                             <i class="fa-solid fa-gauge" href="#"></i>
                         </a>
                     </li>
                     <li class="navsd mb-2 text-center">
-                        <a href="/agenda"
-                            class="btn btn-primary mainsd {{ request()->is('user') ? 'active' : 'nav-link' }}"
+                        <a href="/user"
+                            class="btn btn-primary mainsd nav-link {{ request()->is('user') ? 'active' : 'nav-link' }}"
                             aria-current="page">
                             <i class="fa-solid fa-clipboard-user"></i>
                         </a>
@@ -101,9 +108,16 @@
                     </li>
                     <li class="navsd mb-2 text-center">
                         <a href="/attendance"
-                            class="btn btn-primary mainsd {{ request()->is('attendance') ? 'active' : 'nav-link' }} "
+                            class="btn btn-primary mainsd nav-link {{ request()->is('attendance') ? 'active' : 'nav-link' }} "
                             aria-current="page">
                             <i class="fa-solid fa-clock-rotate-left"></i>
+                        </a>
+                    </li>
+                    <li class="navsd mb-2 text-center">
+                        <a href="/groups"
+                            class="btn btn-primary mainsd nav-link {{ request()->is('groups') ? 'active' : 'nav-link' }} "
+                            aria-current="page">
+                            <i class="fa-solid fa-building"></i>
                         </a>
                     </li>
                 </ul>
@@ -221,9 +235,68 @@
             padding: 10px;
             background-color: #f9f9f9;
         }
+
+        .offcanvas-body .wrapp .nav-item .nav-link.active {
+            background-color: #6F61C0;
+            color: white;
+            border: 2px solid #6F61C0;
+            border-bottom: 6px solid #6558a9;
+        }
     </style>
+    <style>
+        /* CSS untuk tombol aktif */
+        .navsd .nav-link {
+            margin-bottom: 8px;
+            color: #337CCF;
+            border: 2px solid #dddddd;
+            border-bottom: 6px solid #dddddd;
+            background-color: #fff;
+        }
+
+        .navsd .nav-link:hover {
+            background-color: #337CCF;
+            color: white;
+            border: 2px solid #337CCF;
+            border-bottom: 6px solid #1450A3;
+        }
+
+        .navsd .nav-link.active {
+            background-color: #337CCF;
+            color: white;
+            border: 2px solid #337CCF;
+            border-bottom: 6px solid #1450A3;
+        }
+
+        .nav-item .nav-link {
+            margin-bottom: 8px;
+            color: #337CCF;
+            border: 2px solid #dddddd;
+            border-bottom: 6px solid #dddddd;
+            background-color: #fff;
+        }
+
+        .nav-item .nav-link.active {
+            background-color: #337CCF;
+            color: white;
+            border: 2px solid #337CCF;
+            border-bottom: 6px solid #1450A3;
+        }
+    </style>
+    <script src="js/jquery.js"></script>
     <script src="https://kit.fontawesome.com/056e6cea98.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $(".nav-link").click(function() {
+                // Remove active class from all tabs
+                $(".nav-link").removeClass("active");
+
+                // Add active class to the clicked tab
+                $(this).addClass("active");
+            });
+        });
+    </script>
 </body>
 
 </html>

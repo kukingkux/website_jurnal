@@ -1,43 +1,73 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data User || Admin</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
     <!-- script -->
     <script defer src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script defer src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-
+    <title>User</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 
 <body style="background-color: #D9D9D9;">
-    <!-- user -->
-    <!-- user -->
-    <div class="container-fluid d-flex p-2">
-        @include('admin.layouts.nav')
-        <div class="m-2">
-            <div class="container">
+    <style>
+        @media(max-width:768px) {
+            .container {
+                margin-top: 20px;
+            }
+        }
 
-                <div class="row d-flex">
-                    <h5 class="mt-4">
-                        Users
-                        <h6>
-                            <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);"
-                                aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Users</li>
-                                </ol>
-                            </nav>
-                        </h6>
-                    </h5>
-                    <div class="card me-4"
-                        style="width: 25rem; border-radius: 10px; box-shadow: 0px 10px 20px -10px #0D6EFD;">
+        .cardflex {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+        }
+
+        .icon {
+            display: flex;
+            gap: 20px;
+        }
+
+        .iconchart {
+            padding: 20px;
+            background-color: #6E56CF;
+            color: #fff;
+            border-radius: 10px;
+        }
+
+        @media(max-width:768px) {
+            .cardflex {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+
+        /*6E56CF*/
+    </style>
+    <div class="d-flex justify-content-between">
+        @include('admin.layouts.nav')
+        <div class="container">
+            <div class="row">
+                <h5 class="mt-4">
+                    Users
+                    <h6>
+                        <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);"
+                            aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Users</li>
+                            </ol>
+                        </nav>
+                    </h6>
+                </h5>
+                <div class="cardflex">
+                    <div class="card"
+                        style="width: 100%; border-radius: 10px; box-shadow: 0px 10px 20px -10px #0D6EFD; border-style: none;">
                         <div class="card-body">
                             <div class="d-flex justify-content-between">
                                 <h6 class="card-subtitle mb-4">Current User</h6>
@@ -50,123 +80,119 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="d-flex">
-                                <i class="col fa-solid fa-chart-simple fa-spin-pulse p-4 me-3"
-                                    style="background-color: #6E56CF; color: #fff; border-radius: 10px;"></i>
-                                <h1 class="col-lg-10">
+                            <div class="icon">
+                                <i class="iconchart fa-solid fa-chart-simple"></i>
+                                <h1 class="countuser">
                                     {{ $count_user }}
                                 </h1>
                             </div>
                         </div>
                     </div>
-                    <div class="card me-4"
-                        style="width: 25rem; border-radius: 10px; box-shadow: 0px 10px 20px -10px #0D6EFD;"">
+                    <div class="card"
+                        style="width: 100%; border-radius: 10px; box-shadow: 0px 10px 20px -10px #0D6EFD; border-style: none;">
                         <div class="card-body">
                             <div class="d-flex justify-content-between">
-                                <h6 class="card-subtitle mb-4">New User</h6>
-                            </div>
-                            <div>
-                                <h1 class="mb-3">75%</h1>
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar"
-                                        style="width: 75%; background-color:#6E56CF;" aria-valuenow="25"
-                                        aria-valuemin="0" aria-valuemax="100">75%</div>
+                                <h6 class="card-subtitle mb-4">Current User</h6>
+                                <div class="input-group input-group-sm mb-3" style="width: 35%; height: 30%;">
+                                    <select class="form-select form-control-sm" id="inputGroupSelect01">
+                                        <option selected>30 days</option>
+                                        <option value="1">7 days</option>
+                                        <option value="2">1 days</option>
+                                        <option value="3">Three</option>
+                                    </select>
                                 </div>
                             </div>
+                            <div class="icon">
+                                <i class="iconchart fa-solid fa-chart-simple"></i>
+                                <h1 class="countuser">
+                                    {{ $count_user }}
+                                </h1>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- searchbar -->
-            <div class="container mt-3 p-2">
-                <div class="row">
-                    <h4>User</h4>
-                    <div class="d-flex justify-content-between">
-                        <div class="d-flex" style="box-shadow: 0px 10px 20px -10px #0D6EFD;">
-                            <div class="px-1" style="background-color: #fff; border-radius: 20px 0px 0px 20px;">
-                                <button type="button" class="btn btn-sm"><i
-                                        class="fa-solid fa-magnifying-glass"></i></button>
-                            </div>
-                            <div class="input-group input-group-sm " style="width: 100%;">
-                                <input type="text"class="form-control " id="filter-search"
-                                    aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"
-                                    placeholder="Search User"
-                                    style="border-style: none; border-radius: 0px 20px 20px 0px ;">
-                            </div>
-                        </div>
-                        <div style="box-shadow: 0px 10px 20px -10px #0D6EFD;">
-                            <button data-bs-target="#ModalCreate" data-bs-toggle="modal" type="button"
-                                class="btn btn-sm"
-                                style="background-color: #6E56CF; color: #fff; border-radius: 20px">Create User</button>
-                        </div>
+                <div class="searchbar mt-4 d-flex justify-content-between">
+                    <div class="input-group mb-3" style="width: 300px;">
+                        <span
+                            style="border-style: none;  border-radius: 20px 0px 0px 20px; background-color: #fff; box-shadow: 0px 10px 20px -10px #0D6EFD;"
+                            class="input-group-text" id="basic-addon1"><i
+                                class="fa-solid fa-magnifying-glass"></i></span>
+                        <input
+                            style="border-style: none; border-radius: 0px 20px 20px 0px; box-shadow: 0px 10px 20px -10px #0D6EFD;"
+                            id="filter-search" type="text" class="form-control" placeholder="Search User"
+                            aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                    <div>
+                        <button data-bs-target="#ModalCreate" data-bs-toggle="modal" type="button" class="btn btn-sm"
+                            style="background-color: #6E56CF; color: #fff; border-radius: 20px; box-shadow: 0px 10px 20px -10px #0D6EFD;">Create
+                            User</button>
                     </div>
                 </div>
-            </div>
-            <div class="container mt-3 p-2"
-                style="background-color: rgb(255, 255, 255); border-radius: 10px; box-shadow: 0px 10px 20px -10px #0D6EFD;"">
-                <div class="row">
-                    <table id="datatable" class="table table-striped mt-1 text-center">
-                        <thead>
-                            <tr>
-                                <th scope="col">Name</th>
-                                <th scope="col">Username</th>
-                                <th scope="col">Password</th>
-                                <th scope="col">Address</th>
-                                <th scope="col">Gender</th>
-                                <th scope="col">Status</th>
-                                <th scope="col">Role_id</th>
-                                <th scope="col">Group_id</th>
-                                <th scope="col">Office_id</th>
-                                <th scope="col">Position_id</th>
-                                <th scope="col">Opsi</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            @foreach ($users as $data)
+                <div class="tableuser">
+                    <div class="usertable pb-1"
+                        style="background-color: rgb(255, 255, 255); border-radius: 10px; box-shadow: 0px 10px 20px -10px #0D6EFD; overflow-x: scroll;">
+                        <table id="datatable" class="table table-striped mt-1 text-center">
+                            <thead>
                                 <tr>
-                                    <td scope="row">{{ $data->name }}</th>
-                                    <td>{{ $data->username }}</td>
-                                    <td class="text-truncate" style="max-width: 150px;">
-                                        {{ $data->password }}</td>
-                                    <td>{{ $data->address }}</td>
-                                    <td>{{ $data->gender }}</td>
-                                    <td>{{ $data->status ?? 'None' }}</td>
-                                    <td>{{ $data->role_id }}</td>
-                                    <td><i>{{ $data->groups->group_name ?? 'None' }} <p>({{ $data->groups_id }})</p></i>
-                                    </td>
-                                    <td>{{ $data->office_id }}</td>
-                                    <td>{{ $data->position_id }}</td>
-                                    <td>
-                                        <div class="btn-group">
-                                            <button data-bs-toggle="modal"
-                                                data-bs-target="#ModalView-{{ $data->id }}" title="View"
-                                                class="btn btn-sm"><i class="fa fa-eye"></i></button>
-                                            <button data-bs-toggle="modal"
-                                                data-bs-target="#ModalUbah-{{ $data->id }}" title="Edit"
-                                                class="btn btn-sm"><i class="fa fa-edit"></i></button>
-                                            <a href="{{ url('deleteuser/' . $data->id) }}" title="Hapus"
-                                                class="btn btn-sm btn-delete"><i class="fa fa-trash"></i></a>
-                                        </div>
-                                    </td>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Username</th>
+                                    <th scope="col">Password</th>
+                                    <th scope="col">Address</th>
+                                    <th scope="col">Gender</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Role_id</th>
+                                    <th scope="col">Group_id</th>
+                                    <th scope="col">Office_id</th>
+                                    <th scope="col">Position_id</th>
+                                    <th scope="col">Opsi</th>
                                 </tr>
-                                @include('admin.modal.view')
-                                @include('admin.modal.create_user')
-                            @endforeach
-                        </tbody>
-                    </table>
+                            </thead>
+
+                            <tbody>
+                                @foreach ($users as $data)
+                                    <tr>
+                                        <td scope="row">{{ $data->name }}</th>
+                                        <td>{{ $data->username }}</td>
+                                        <td class="text-truncate" style="max-width: 150px;">
+                                            {{ $data->password }}</td>
+                                        <td>{{ $data->address }}</td>
+                                        <td>{{ $data->gender }}</td>
+                                        <td>{{ $data->status ?? 'None' }}</td>
+                                        <td>{{ $data->role_id }}</td>
+                                        <td><i>{{ $data->groups->group_name ?? 'None' }} <p>({{ $data->groups_id }})
+                                                </p></i>
+                                        </td>
+                                        <td>{{ $data->office_id }}</td>
+                                        <td>{{ $data->position_id }}</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <button data-bs-toggle="modal"
+                                                    data-bs-target="#ModalView-{{ $data->id }}" title="View"
+                                                    class="btn btn-sm"><i class="fa fa-eye"></i></button>
+                                                <button data-bs-toggle="modal"
+                                                    data-bs-target="#ModalUbah-{{ $data->id }}" title="Edit"
+                                                    class="btn btn-sm"><i class="fa fa-edit"></i></button>
+                                                <a href="{{ url('deleteuser/' . $data->id) }}" title="Hapus"
+                                                    class="btn btn-sm btn-delete"><i class="fa fa-trash"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    @include('admin.modal.view')
+                                    @include('admin.modal.create_user')
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="js/jquery.js"></script>
-    <script src="https://kit.fontawesome.com/056e6cea98.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
-
     <script src="js/jquerydatatable"></script>
     <script src="js/date-filter.js"></script>
+    <script src="https://kit.fontawesome.com/056e6cea98.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>

@@ -19,6 +19,12 @@
 
 <body style="background-color: #D9D9D9;">
     <style>
+        @media(max-width:768px) {
+            .container {
+                margin-top: 20px;
+            }
+        }
+
         .btn.btn-success {
             color: black;
             background-color: white;
@@ -30,8 +36,19 @@
             background-color: #0D6EFD;
             border-style: none;
         }
+
+        .d-flex.coll {
+            gap: 10px;
+        }
+
+        @media(max-width:500px) {
+            .d-flex.coll {
+                display: flex;
+                flex-direction: column;
+            }
+        }
     </style>
-    <div class="container-fluid d-flex p-2">
+    <div class="container-fluid d-flex justify-content-between p-2">
         @include('admin.layouts.nav')
         <div class="m-2" style="width: 100%">
             <div class="container">
@@ -49,12 +66,12 @@
                             </nav>
                         </h6>
                     </h5>
-                    <div class="d-flex" style="box-shadow: 0px 10px 20px -10px #0D6EFD;">
-                        <div class="col">
+                    <div class="d-flex coll">
+                        <div class="col"style="box-shadow: 0px 10px 20px -10px #0D6EFD;">
                             <input class="form-control" type="text" placeholder="Employee Name" id="filter-search"
                                 aria-label="default input example">
                         </div>
-                        <div class="col input-group">
+                        <div class="col input-group" style="box-shadow: 0px 10px 20px -10px #0D6EFD;">
                             <select class="form-select form-control-sm filter-select" id="month">
                                 <option selected>Select Month</option>
                                 @foreach ($month as $m)
@@ -63,16 +80,13 @@
 
                             </select>
                         </div>
-                        <div class="col input-group">
+                        <div class="col input-group" style="box-shadow: 0px 10px 20px -10px #0D6EFD;">
                             <select class="form-select form-control-sm" id="year">
                                 <option selected>Select Year</option>
                                 @foreach ($year as $y)
                                     <option>{{ $y->year }}</option>
                                 @endforeach
                             </select>
-                        </div>
-                        <div class="col">
-                            <button type="button" class="btn btn-success" style="width: 100%;">Search</button>
                         </div>
                     </div>
 
@@ -82,8 +96,7 @@
                     style="background-color: rgb(255, 255, 255); border-radius: 10px; overflow-x: scroll; box-shadow: 0px 10px 20px -10px #0D6EFD;">
                     <div class="row">
 
-                        <table id="datatable" class="table table-striped table-sm"
-                            style="overflow-x: scroll; width: 100%;">
+                        <table id="datatable" class="table table-striped table-sm" style="width: 100%;">
 
                             <thead>
                                 <tr>
@@ -99,7 +112,7 @@
                                 @foreach ($attend as $data)
                                     <tr>
                                         <td>{{ $data->name }}</td>
-                                        <td>{{ $data->groups_id }}</td>
+                                        <td>{{ $data->groups->group_name }} ({{ $data->groups_id }})</td>
                                         <td>{{ $data->waktu }}</td>
                                         <td>{{ $data->tanggal }}</td>
                                         <td class="text-truncate" style="max-width: 150px;">{{ $data->kegiatan }}</td>

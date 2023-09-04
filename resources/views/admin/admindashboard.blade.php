@@ -11,6 +11,12 @@
 
 <body style=" background-color: #f4f4f4;">
     <style>
+        @media(max-width:768px) {
+            .container {
+                margin-top: 20px;
+            }
+        }
+
         .btn.btn-outline-secondary.mb-4.mt-2 {
             color: black;
             border-color: #6F61C0;
@@ -121,7 +127,7 @@
             }
         }
     </style>
-    <div class="d-flex">
+    <div class="d-flex justify-content-between">
         @include('admin.layouts.nav')
         <div class="container">
             <div class="row">
@@ -169,14 +175,13 @@
                 <!-- end card -->
                 <!-- btn button -->
                 <div>
-                    <div class="container mt-4"
-                        style="border-style: none; box-shadow: 0px 10px 20px -10px #4891ff; background-color: #fff; border-radius: 20px;">
-                        <div class="row align-items-center">
-                            <div class="col-4">
+                    <div class="container mt-4" style="border-style: none; box-shadow: 0px 10px 20px -10px #4891ff;">
+                        <div class="row align-items-center" style="background-color: #fff; border-radius: 20px;">
+                            <div class="col-lg-4">
                                 <img src="https://img.freepik.com/free-vector/confirmed-attendance-concept-illustration_114360-7745.jpg?w=740&t=st=1691032445~exp=1691033045~hmac=70e11368e7d6b65288d8fa3bd34515850ca6e0a524e592a979ae638fad26a3f1"
                                     alt="customer-support" class="img-fluid">
                             </div>
-                            <div class="col-8">
+                            <div class="col-lg-8">
                                 <a href="#"><button type="button" class="btn btn-outline-secondary mb-2 mt-2"
                                         style="width: 100%;">Member List</button></a>
                                 <a href="#"><button type="button" class="btn btn-outline-secondary mb-2 mt-2"
@@ -188,7 +193,13 @@
                     </div>
                 </div>
                 <!-- end btn button -->
-                @include('../layouts.kalender')
+                <div>
+                    <div class="container">
+                        <div class="row mt-4">
+                            @include('../layouts.kalender')
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

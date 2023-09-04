@@ -15,7 +15,7 @@
 </head>
 
 <body style="background-color: #f4f4f4">
-    <div class="d-flex">
+    <div class="d-flex justify-content-between">
         @include('layouts.nav')
         <div class="container">
             <div class="row">
@@ -41,12 +41,12 @@
                 </h5>
                 <!-- end dashboard title -->
                 <!-- card -->
-                <div class="d-flex justify-content-between">
+                <div class="carduser">
                     <div class="card">
                         <div class="card-body">
                             <div class="text-center">
                                 <h6 class="card-subtitle mb-4">Total Users</h6>
-                                <h1>{{ $count_user }}</h1>
+                                <h2 class="card-subtitle2">{{ $count_user }}</h>
                             </div>
                         </div>
                     </div>
@@ -54,7 +54,7 @@
                         <div class="card-body">
                             <div class="text-center">
                                 <h6 class="card-subtitle mb-4">Member</h6>
-                                <h1>{{ $count_member }}</h1>
+                                <h2 class="card-subtitle2">{{ $count_member }}</h2>
                             </div>
                         </div>
                     </div>
@@ -62,7 +62,7 @@
                         <div class="card-body">
                             <div class="text-center">
                                 <h6 class="card-subtitle mb-4">Admin</h6>
-                                <h1>{{ $count_admin }}</h1>
+                                <h2 class="card-subtitle2">{{ $count_admin }}</h2>
                             </div>
                         </div>
                     </div>
@@ -101,6 +101,12 @@
         </div>
     </div>
     <style>
+        @media(max-width:768px) {
+            .container {
+                margin-top: 20px;
+            }
+        }
+
         .btn.btn-outline-secondary.mb-4.mt-2 {
             color: white;
             background-color: #6f61c0;
@@ -117,13 +123,32 @@
             box-shadow: 0px 5px 25px -5px #8f75f6;
         }
 
-        .card {
+        .carduser {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+        }
 
-            width: 20rem;
+        .card {
+            width: 100%;
             border-radius: 12px;
             border-style: none;
             box-shadow: 0px 10px 20px -10px #a18aff;
 
+        }
+
+        @media(max-width:768px) {
+            .carduser {
+                flex-direction: column;
+            }
+
+            .card-subtitle {
+                font-size: 16px;
+            }
+
+            .card-subtitle2 {
+                font-size: 20px;
+            }
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
