@@ -53,7 +53,7 @@ class UserController extends Controller
         return redirect('user')->with('status',"Hapus data berhasil!");
     }
 
-    public function user() {
+    public function index() {
         $userlistgroup = Groups::with('user')->get();
         $user = User::all();
 
@@ -66,12 +66,4 @@ class UserController extends Controller
 
         return view('agenda', compact( 'agenda', 'agendagroup'));
     }
-
-    public function index(){
-
-
-
-    }
-
-
 }

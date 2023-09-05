@@ -1,54 +1,7 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
-    <!-- script -->
-    <script defer src="https://code.jquery.com/jquery-3.7.0.js"></script>
-    <script defer src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-    <title>User</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-</head>
+@include('admin.partials.users_head')
 
 <body style="background-color: #D9D9D9;">
-    <style>
-        @media(max-width:768px) {
-            .container {
-                margin-top: 20px;
-            }
-        }
 
-        .cardflex {
-            display: flex;
-            flex-direction: row;
-            gap: 20px;
-        }
-
-        .icon {
-            display: flex;
-            gap: 20px;
-        }
-
-        .iconchart {
-            padding: 20px;
-            background-color: #6E56CF;
-            color: #fff;
-            border-radius: 10px;
-        }
-
-        @media(max-width:768px) {
-            .cardflex {
-                display: flex;
-                flex-direction: column;
-                gap: 20px;
-            }
-        }
-
-        /*6E56CF*/
-    </style>
     <div class="d-flex justify-content-between">
         @include('admin.layouts.nav')
         <div class="container">
@@ -88,28 +41,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card"
-                        style="width: 100%; border-radius: 10px; box-shadow: 0px 10px 20px -10px #0D6EFD; border-style: none;">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between">
-                                <h6 class="card-subtitle mb-4">Current User</h6>
-                                <div class="input-group input-group-sm mb-3" style="width: 35%; height: 30%;">
-                                    <select class="form-select form-control-sm" id="inputGroupSelect01">
-                                        <option selected>30 days</option>
-                                        <option value="1">7 days</option>
-                                        <option value="2">1 days</option>
-                                        <option value="3">Three</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="icon">
-                                <i class="iconchart fa-solid fa-chart-simple"></i>
-                                <h1 class="countuser">
-                                    {{ $count_user }}
-                                </h1>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
                 <div class="searchbar mt-4 d-flex justify-content-between">
                     <div class="input-group mb-3" style="width: 300px;">
@@ -187,12 +119,8 @@
             </div>
         </div>
     </div>
-    <script src="js/jquerydatatable"></script>
-    <script src="js/date-filter.js"></script>
-    <script src="https://kit.fontawesome.com/056e6cea98.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
-    </script>
+
+    @include('admin.partials.users_script')
 </body>
 
 </html>

@@ -17,7 +17,8 @@ use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\GroupsController;
 use App\Http\Controllers\LeavesController;
 use App\Http\Controllers\API\AuthController;
-
+use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\RolesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,24 +56,35 @@ Route::get('/', function () {
 Route::post('/login', [LoginController::class, 'login'])->middleware('auth:sanctum')->name('login');
 Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth:sanctum')->name('logout');
 
-Route::group(['middleware' => ['auth','ceklevel:1']], function() {
-    // Route::get('/dashboard', 'App\Http\Controllers\HomeController@index');
-    Route::get('/admin', 'App\Http\Controllers\HomeController@adminpage')->middleware('auth');
-    Route::get('/user', 'App\Http\Controllers\UserController@user');
+// Route::group(['middleware' => ['auth','ceklevel:1']], function() {
+//     // Route::get('/dashboard', 'App\Http\Controllers\HomeController@index');
+//     // Route::get('/admin', 'App\Http\Controllers\HomeController@adminpage');
+//     Route::get('/user', 'App\Http\Controllers\UserController@user');
 
-    Route::get('/attendance', [LeavesController::class, 'attendance'])->name('attendance');
-    // Route::get('/attendance', 'App\Http\Controllers\LeavesController@filterAttendance');
+//     Route::get('/attendance', [LeavesController::class, 'attendance'])->name('attendance');
+//     // Route::get('/attendance', 'App\Http\Controllers\LeavesController@filterAttendance');
+//     Auth::routes(['register' => true]);
+// });
 
-
-
-    Auth::routes(['register' => true]);
-});
-Route::group(['middleware' => ['auth','ceklevel:0,1']], function() {
+Route::group(['middleware' => ['auth','ceklevel:0']], function() {
     Route::get('/dashboard', 'App\Http\Controllers\HomeController@index');
     Route::get('/history', 'App\Http\Controllers\AgendaController@history');
     Route::get('/agenda', 'App\Http\Controllers\AgendaController@index');
     Route::resource('/agenda', AgendaController::class);
     Route::get('/agenda', 'App\Http\Controllers\GroupsController@group');
+});
+
+Route::group(['middleware' => ['auth', 'role:admin'], 'prefix' => 'admin', 'as' => 'admin.'], function(){
+    Route::get('/', 'App\Http\Controllers\HomeController@adminpage')->name('index');
+    Route::get('/user', 'App\Http\Controllers\UserController@user');
+
+    Route::get('/attendance', [LeavesController::class, 'attendance'])->name('attendance');
+
+    Auth::routes(['register' => true]);
+    Route::resource('/user', UserController::class);
+    Route::resource('/attendance', LeavesController::class);
+    Route::resource('/roles', RolesController::class);
+    Route::resource('/permission', PermissionController::class);
 });
 
 Auth::routes(['register' => true]);

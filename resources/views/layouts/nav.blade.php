@@ -8,7 +8,7 @@
     <title>Sidebar</title>
 </head>
 
-<body>
+<body style="background-color: #d9d9d9;">
     <!-- offcanvas -->
     <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
         aria-labelledby="offcanvasWithBothOptionsLabel">
@@ -85,14 +85,14 @@
                 <ul class="nav nav-pills flex-column">
                     <li class="navsd mb-2 text-center">
                         <a href="/dashboard"
-                            class="btn btn-primary mainsd {{ request()->is('dashboard') ? 'active' : 'mainsd' }}"
+                            class="btn btn-primary mainsd {{ request()->is('dashboard') ? 'active' : 'nav-link' }}"
                             style="text-decoration: none; color: #000;">
                             <i class="fa-solid fa-gauge" href="#"></i>
                         </a>
                     </li>
                     <li class="navsd mb-2 text-center">
                         <a href="/agenda"
-                            class="btn btn-primary mainsd {{ request()->is('agenda') ? 'active' : 'mainsd' }}"
+                            class="btn btn-primary mainsd {{ request()->is('agenda') ? 'active' : 'nav-link' }}"
                             aria-current="page">
                             <i class="fa-solid fa-clipboard-user"></i>
                         </a>
@@ -100,20 +100,23 @@
                     </li>
                     <li class="navsd mb-2 text-center">
                         <a href="/history"
-                            class="btn btn-primary mainsd {{ request()->is('history') ? 'active' : 'mainsd' }} "
+                            class="btn btn-primary mainsd {{ request()->is('history') ? 'active' : 'nav-link' }} "
                             aria-current="page">
                             <i class="fa-solid fa-clock-rotate-left"></i>
                         </a>
                     </li>
-                </ul>
-            </div>
-            <div class="btn-group dropup">
-                <button type="button" class="btn btn-primary mainsd2 dropdown-toggle" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    <i class="fa-solid fa-circle-user"></i>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Sign Out</a></li>
+                    <li class="navsd mb-2 text-center">
+                        <div class="btn-group dropend">
+                            <button type="button" class="btn btn-primary mainsd2 dropdown-toggle"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-circle-user"></i>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#"><i
+                                            class="fa-solid fa-arrow-up-from-bracket"></i>&nbsp;Sign Out</a></li>
+                            </ul>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -127,6 +130,8 @@
             }
 
             .sidebar.open {
+                background-color: #fff;
+                border-radius: 10px;
                 display: block;
                 visibility: visible;
             }
@@ -147,7 +152,7 @@
         /*sidebar*/
         .sidebar.close {
             display: block;
-            width: 80px;
+            width: 90px;
             height: 100vh;
             position: fixed;
             padding: 10px;

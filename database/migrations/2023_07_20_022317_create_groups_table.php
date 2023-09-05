@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('groups', function (Blueprint $table) {
             $table->id('id');
             $table->string('group_name', 255);
-            $table->integer('period_start');
-            $table->integer('period_end');
+            $table->date('period_start');
+            $table->date('period_end');
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
         });

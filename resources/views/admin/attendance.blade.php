@@ -1,53 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin || Attendance</title>
-    <!-- css -->
-    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css"> --}}
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
-    <!-- script -->
-    <script defer src="https://code.jquery.com/jquery-3.7.0.js"></script>
-    <script defer src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-    <script defer src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
-
-    <link rel="stylesheet" href="css/jquerydatatable.css">
-
-</head>
+@include('admin.partials.attendance_head')
 
 <body style="background-color: #D9D9D9;">
-    <style>
-        @media(max-width:768px) {
-            .container {
-                margin-top: 20px;
-            }
-        }
-
-        .btn.btn-success {
-            color: black;
-            background-color: white;
-            border-style: none;
-        }
-
-        .btn.btn-success:hover {
-            color: white;
-            background-color: #0D6EFD;
-            border-style: none;
-        }
-
-        .d-flex.coll {
-            gap: 10px;
-        }
-
-        @media(max-width:500px) {
-            .d-flex.coll {
-                display: flex;
-                flex-direction: column;
-            }
-        }
-    </style>
     <div class="container-fluid d-flex justify-content-between p-2">
         @include('admin.layouts.nav')
         <div class="m-2" style="width: 100%">
@@ -143,15 +96,7 @@
     </div>
 
     <!-- end tabel -->
-    <script src="js/jquery.js"></script>
-
-    <script src="https://kit.fontawesome.com/056e6cea98.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
-
-    <script src="js/jquerydatatable.js"></script>
-    <script src="js/date-filter.js"></script>
+    @include('admin.partials.attendance_script')
 
 </body>
 

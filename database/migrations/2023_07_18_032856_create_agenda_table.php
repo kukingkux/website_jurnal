@@ -14,10 +14,16 @@ return new class extends Migration
         Schema::dropIfExists('agenda');
         Schema::create('agenda', function (Blueprint $table) {
             $table->id('id');
+            // $table->unsignedBigInteger('user_id');
+            $table->foreignId('user_id')->constrained();
+
+            // $table->unsignedBigInteger('groups_id');
+            $table->foreignId('groups_id')->constrained();
+
             $table->string('name');
-            $table->integer('group_id');
+
             $table->string('group_name');
-            $table->string('waktu');
+            $table->date('waktu');
             $table->string('tanggal');
             $table->string('kegiatan');
             $table->timestamp('created_at')->nullable();

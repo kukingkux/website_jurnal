@@ -14,13 +14,15 @@ return new class extends Migration
         Schema::dropIfExists('users');
         Schema::create('users', function (Blueprint $table) {
             $table->id('id');
-            $table->integer('role_id');
-            $table->integer('group_id');
-            $table->integer('office_id');
-            $table->integer('position_id');
+            $table->unsignedBigInteger('role_id');
+            $table->unsignedBigInteger('groups_id');
+            $table->foreign('groups_id')->references('id')->on('groups');
+
+            $table->unsignedBigInteger('office_id');
+            $table->unsignedBigInteger('position_id');
             $table->string('name');
             $table->string('username');
-            $table->string('email')->nullable();
+            $table->string('email');
             $table->string('password');
             $table->string('rememter_token')->nullable();
             $table->string('avatar')->nullable();

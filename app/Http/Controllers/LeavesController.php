@@ -22,7 +22,7 @@ class LeavesController extends Controller
     }
 
 
-    public function attendance() {
+    public function index() {
         $attend = Agenda::all();
         return view('admin.attendance', compact('attend'));
     }

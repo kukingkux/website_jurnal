@@ -35,22 +35,23 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/user" class="nav-link {{ request()->is('user') ? 'active' : 'nav-link' }}"
+                        <a href="admin/user" class="nav-link {{ request()->is('admin/user') ? 'active' : 'nav-link' }}"
                             aria-current="page">
                             <i class="fa-solid fa-clipboard-user"></i>&nbsp;
                             <span class="sdtext">Users</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/attendance"
-                            class="nav-link {{ request()->is('attendance') ? 'active' : 'nav-link' }} "
+                        <a href="admin/attendance"
+                            class="nav-link {{ request()->is('admin/attendance') ? 'active' : 'nav-link' }} "
                             aria-current="page">
                             <i class="fa-solid fa-clock-rotate-left"></i>&nbsp;
                             <span class="sdtext">Attendance</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/groups" class="nav-link {{ request()->is('groups') ? 'active' : 'nav-link' }} "
+                        <a href="admin/groups"
+                            class="nav-link {{ request()->is('admin/groups') ? 'active' : 'nav-link' }} "
                             aria-current="page">
                             <i class="fa-solid fa-building"></i></i>&nbsp;
                             <span class="sdtext">Groups</span>
@@ -93,33 +94,42 @@
             <div class="wrapper">
                 <ul class="nav nav-pills flex-column">
                     <li class="navsd mb-2 text-center nav-item">
-                        <a href="/admin"
+                        <a href="/"
                             class="btn btn-primary mainsd nav-link {{ request()->is('admin') ? 'active' : 'nav-link' }}">
                             <i class="fa-solid fa-gauge" href="#"></i>
                         </a>
                     </li>
                     <li class="navsd mb-2 text-center">
-                        <a href="/user"
-                            class="btn btn-primary mainsd nav-link {{ request()->is('user') ? 'active' : 'nav-link' }}"
+                        <a href="{{ route('admin.user.index') }}"
+                            class="btn btn-primary mainsd nav-link {{ request()->is('admin/user') ? 'active' : 'nav-link' }}"
                             aria-current="page">
                             <i class="fa-solid fa-clipboard-user"></i>
                         </a>
                     </li>
                     </li>
                     <li class="navsd mb-2 text-center">
-                        <a href="/attendance"
-                            class="btn btn-primary mainsd nav-link {{ request()->is('attendance') ? 'active' : 'nav-link' }} "
+                        <a href="{{ route('admin.attendance.index') }}"
+                            class="btn btn-primary mainsd nav-link {{ request()->is('admin/attendance') ? 'active' : 'nav-link' }} "
                             aria-current="page">
                             <i class="fa-solid fa-clock-rotate-left"></i>
                         </a>
                     </li>
-                    <li class="navsd mb-2 text-center">
-                        <a href="/groups"
-                            class="btn btn-primary mainsd nav-link {{ request()->is('groups') ? 'active' : 'nav-link' }} "
-                            aria-current="page">
-                            <i class="fa-solid fa-building"></i>
-                        </a>
-                    </li>
+                    @role('admin')
+                        <li class="navsd mb-2 text-center">
+                            <a href="/admin/groups"
+                                class="btn btn-primary mainsd nav-link {{ request()->is('admin/groups') ? 'active' : 'nav-link' }} "
+                                aria-current="page">
+                                <i class="fa-solid fa-building"></i>
+                            </a>
+                        </li>
+                        <li class="navsd mb-2 text-center">
+                            <a href="{{ route('admin.roles.index') }}"
+                                class="btn btn-primary mainsd nav-link {{ request()->is('admin/groups') ? 'active' : 'nav-link' }} "
+                                aria-current="page">
+                                <i class="fa-solid fa-building"></i>
+                            </a>
+                        </li>
+                    @endrole
                 </ul>
             </div>
             <div class="btn-group dropup">
@@ -214,17 +224,17 @@
         /*offcanvas*/
         .offcanvas-body .wrapp .nav-item .nav-link {
             margin-bottom: 8px;
-            color: #46157A;
+            color: #1450A3;
             border: 2px solid #dddddd;
             border-bottom: 6px solid #dddddd;
             background-color: #fff;
         }
 
         .offcanvas-body .wrapp .nav-item .nav-link:hover {
-            background-color: #6F61C0;
+            background-color: #337CCF;
             color: white;
-            border: 2px solid #6F61C0;
-            border-bottom: 6px solid #6558a9;
+            border: 2px solid #337CCF;
+            border-bottom: 6px solid #1450A3;
         }
 
         .offcanvas-body {
@@ -237,10 +247,10 @@
         }
 
         .offcanvas-body .wrapp .nav-item .nav-link.active {
-            background-color: #6F61C0;
+            background-color: #337CCF;
             color: white;
-            border: 2px solid #6F61C0;
-            border-bottom: 6px solid #6558a9;
+            border: 2px solid #337CCF;
+            border-bottom: 6px solid #1450A3;
         }
     </style>
     <style>
