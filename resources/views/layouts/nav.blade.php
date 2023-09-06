@@ -83,6 +83,15 @@
             <hr>
             <div class="wrapper">
                 <ul class="nav nav-pills flex-column">
+                    @role('admin')
+                        <li class="navsd mb-2 text-center">
+                            <a href="/history"
+                                class="btn btn-primary mainsd {{ request()->is('history') ? 'active' : 'nav-link' }} "
+                                aria-current="page">
+                                <i class="fa-solid fa-toolbox"></i>
+                            </a>
+                        </li>
+                    @endrole
                     <li class="navsd mb-2 text-center">
                         <a href="/dashboard"
                             class="btn btn-primary mainsd {{ request()->is('dashboard') ? 'active' : 'nav-link' }}"
@@ -90,6 +99,7 @@
                             <i class="fa-solid fa-gauge" href="#"></i>
                         </a>
                     </li>
+
                     <li class="navsd mb-2 text-center">
                         <a href="/agenda"
                             class="btn btn-primary mainsd {{ request()->is('agenda') ? 'active' : 'nav-link' }}"
@@ -105,9 +115,10 @@
                             <i class="fa-solid fa-clock-rotate-left"></i>
                         </a>
                     </li>
+
                     <li class="navsd mb-2 text-center">
                         <div class="btn-group dropend">
-                            <button type="button" class="btn btn-primary mainsd2 dropdown-toggle"
+                            <button type="button" class="nav-list btn btn-primary mainsd dropdown-toggle"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fa-solid fa-circle-user"></i>
                             </button>
@@ -185,7 +196,7 @@
             }
         }
 
-        .btn.btn-primary.mainsd {
+        .navsd .btn.btn-primary.mainsd {
             width: 100%;
             background-color: #f9f9f9;
             border: 2px solid #dddddd;
@@ -193,12 +204,12 @@
             color: #000;
         }
 
-        .btn.btn-primary.mainsd2 {
+        .navsd .btn.btn-primary.mainsd:active {
             width: 100%;
-            background-color: #f9f9f9;
-            border: 2px solid #dddddd;
-            border-bottom: 6px solid #dddddd;
-            color: #000;
+            background-color: #6F61C0;
+            border: 2px solid #6F61C0;
+            border-bottom: 6px solid #6558a9;
+            color: #fff;
         }
 
         /*offcanvas*/

@@ -66,7 +66,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth:san
 //     Auth::routes(['register' => true]);
 // });
 
-Route::group(['middleware' => ['auth','ceklevel:0']], function() {
+Route::group(['middleware' => ['auth','role:admin,user']], function() {
     Route::get('/dashboard', 'App\Http\Controllers\HomeController@index');
     Route::get('/history', 'App\Http\Controllers\AgendaController@history');
     Route::get('/agenda', 'App\Http\Controllers\AgendaController@index');

@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
-    <link rel="icon" href="{!! asset('images/gcm_ico.ico') !!}" />
-    <title>Sidebar</title>
-</head>
-
 <body>
     <!-- offcanvas -->
     <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
@@ -30,7 +19,7 @@
                     <li class="nav-item">
                         <a href="/admin" class="nav-link {{ request()->is('admin') ? 'active' : 'nav-link' }}"
                             aria-current="page">
-                            <i class="fa-solid fa-gauge" href="#"></i>&nbsp;
+                            <i class="fa-solid fa-gauge"></i>&nbsp;
                             <span class="sdtext">Dashboard (Admin)</span>
                         </a>
                     </li>
@@ -92,7 +81,7 @@
             </div>
             <hr>
             <div class="wrapper">
-                <ul class="nav nav-pills flex-column">
+                <ul class="nav nav-item nav-pills flex-column">
                     <li class="navsd mb-2 text-center nav-item">
                         <a href="/"
                             class="btn btn-primary mainsd nav-link {{ request()->is('admin') ? 'active' : 'nav-link' }}">
@@ -124,189 +113,37 @@
                         </li>
                         <li class="navsd mb-2 text-center">
                             <a href="{{ route('admin.roles.index') }}"
-                                class="btn btn-primary mainsd nav-link {{ request()->is('admin/groups') ? 'active' : 'nav-link' }} "
+                                class="btn btn-primary mainsd nav-link {{ request()->is('admin/roles') ? 'active' : 'nav-link' }} "
                                 aria-current="page">
-                                <i class="fa-solid fa-building"></i>
+                                <i class="fa-solid fa-screwdriver-wrench"></i>
                             </a>
                         </li>
+                        <li class="navsd mb-2 text-center">
+                            <div class="btn-group dropend">
+                                <button type="button" class="nav-list btn btn-primary mainsd dropdown-toggle"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa-solid fa-circle-user"></i>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="logout"><i
+                                                class="fa-solid fa-arrow-up-from-bracket"></i>&nbsp;Sign Out</a></li>
+                                </ul>
+                            </div>
+                        </li>
                     @endrole
-                </ul>
-            </div>
-            <div class="btn-group dropup">
-                <button type="button" class="btn btn-primary mainsd2 dropdown-toggle" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    <i class="fa-solid fa-circle-user"></i>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Sign Out</a></li>
                 </ul>
             </div>
         </div>
     </nav>
     <!-- end sidebar -->
-    <style>
-        @media(max-width:768px) {
-            .sidebar.close {
-                visibility: hidden;
-                display: none;
-            }
+    @extends('admin.partials.layout.nav_style')
 
-            .sidebar.open {
-                display: block;
-                visibility: visible;
-            }
-        }
 
-        @media(min-width:769px) {
-            .sidebar.close {
-                visibility: visible;
-                display: block;
-            }
+    @extends('admin.partials.layout.nav_script')
 
-            .sidebar.open {
-                display: none;
-                visibility: hidden;
-            }
-        }
 
-        /*sidebar*/
-        .sidebar.close {
-            display: block;
-            width: 80px;
-            height: 100vh;
-            position: fixed;
-            padding: 10px;
-            background-color: #f9f9f9;
-        }
 
-        .wrapper {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-            border-radius: 8px;
-            background-color: #ededed;
-        }
 
-        ul {
-            margin: 10px;
-        }
-
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
-        }
-
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
-
-        .btn.btn-primary.mainsd {
-            width: 100%;
-            background-color: #f9f9f9;
-            border: 2px solid #dddddd;
-            border-bottom: 6px solid #dddddd;
-            color: #000;
-        }
-
-        .btn.btn-primary.mainsd2 {
-            width: 100%;
-            background-color: #f9f9f9;
-            border: 2px solid #dddddd;
-            border-bottom: 6px solid #dddddd;
-            color: #000;
-        }
-
-        /*offcanvas*/
-        .offcanvas-body .wrapp .nav-item .nav-link {
-            margin-bottom: 8px;
-            color: #1450A3;
-            border: 2px solid #dddddd;
-            border-bottom: 6px solid #dddddd;
-            background-color: #fff;
-        }
-
-        .offcanvas-body .wrapp .nav-item .nav-link:hover {
-            background-color: #337CCF;
-            color: white;
-            border: 2px solid #337CCF;
-            border-bottom: 6px solid #1450A3;
-        }
-
-        .offcanvas-body {
-            display: block;
-            width: 100%;
-            height: 100vh;
-            position: absolute;
-            padding: 10px;
-            background-color: #f9f9f9;
-        }
-
-        .offcanvas-body .wrapp .nav-item .nav-link.active {
-            background-color: #337CCF;
-            color: white;
-            border: 2px solid #337CCF;
-            border-bottom: 6px solid #1450A3;
-        }
-    </style>
-    <style>
-        /* CSS untuk tombol aktif */
-        .navsd .nav-link {
-            margin-bottom: 8px;
-            color: #337CCF;
-            border: 2px solid #dddddd;
-            border-bottom: 6px solid #dddddd;
-            background-color: #fff;
-        }
-
-        .navsd .nav-link:hover {
-            background-color: #337CCF;
-            color: white;
-            border: 2px solid #337CCF;
-            border-bottom: 6px solid #1450A3;
-        }
-
-        .navsd .nav-link.active {
-            background-color: #337CCF;
-            color: white;
-            border: 2px solid #337CCF;
-            border-bottom: 6px solid #1450A3;
-        }
-
-        .nav-item .nav-link {
-            margin-bottom: 8px;
-            color: #337CCF;
-            border: 2px solid #dddddd;
-            border-bottom: 6px solid #dddddd;
-            background-color: #fff;
-        }
-
-        .nav-item .nav-link.active {
-            background-color: #337CCF;
-            color: white;
-            border: 2px solid #337CCF;
-            border-bottom: 6px solid #1450A3;
-        }
-    </style>
-    <script src="js/jquery.js"></script>
-    <script src="https://kit.fontawesome.com/056e6cea98.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            $(".nav-link").click(function() {
-                // Remove active class from all tabs
-                $(".nav-link").removeClass("active");
-
-                // Add active class to the clicked tab
-                $(this).addClass("active");
-            });
-        });
-    </script>
 </body>
 
 </html>

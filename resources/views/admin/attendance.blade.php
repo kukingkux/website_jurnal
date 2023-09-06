@@ -1,8 +1,9 @@
 @include('admin.partials.attendance_head')
 
 <body style="background-color: #D9D9D9;">
+    @include('admin.layouts.nav')
     <div class="container-fluid d-flex justify-content-between p-2">
-        @include('admin.layouts.nav')
+
         <div class="m-2" style="width: 100%">
             <div class="container">
 

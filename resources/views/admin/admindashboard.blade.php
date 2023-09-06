@@ -78,7 +78,7 @@
             </div>
         </div>
     </div>
-    @include('admin.partials.dashboard_head')
+    @include('admin.partials.dashboard_script')
 </body>
 
 </html>
