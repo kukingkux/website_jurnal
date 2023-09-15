@@ -6,7 +6,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="{{ 'create' }}">
+                <form method="POST" action="{{ route('admin.user.store') }}">
                     @csrf
                     <div class="row text-center mt-4">
                         <!-- name username password -->
@@ -20,7 +20,7 @@
                             @endif
                         </div>
                         <div class="col">
-                            <label for="">Username</label>
+                            <label for="username">Username</label>
                             <input type="text" class="form-control @error('username') is-invalid @enderror"
                                 id="username" name="username" value="{{ old('username') }}"
                                 style="border-radius: 10px; margin-top: 10px; background-color: #F4F4F4; border-style: none;">
@@ -33,7 +33,7 @@
 
                         <div class="col">
                             <label for="">Email</label>
-                            <input type="email " id="email" name="email" value="{{ old('email') }}"
+                            <input type="email" id="email" name="email" value="{{ old('email') }}"
                                 class="form-control @error('email') is-invalid @enderror"
                                 style="border-radius: 10px; margin-top: 10px; background-color: #F4F4F4; border-style: none;">
                             @if ($errors->has('email'))
@@ -66,12 +66,13 @@
                             <select class="form-select form-control @error('role_id') is-invalid @enderror"
                                 value="{{ old('role_id') }}" id="role_id" name="role_id"
                                 style="border-radius: 10px; margin-top: 10px; background-color: #F4F4F4; border-style: none;">
-                                <option value="0" selected>0</option>
-                                <option value="1">1</option>
-                                @if ($errors->has('role_id'))
-                                    <span class="text-danger">{{ $errors->first('role_id') }}</span>
-                                @endif
+                                @foreach ($roles as $role)
+                                    <option value="{{ $role->id }}" selected>{{ $role->name }}</option>
 
+                                    @if ($errors->has('role_id'))
+                                        <span class="text-danger">{{ $errors->first('role_id') }}</span>
+                                    @endif
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -80,11 +81,11 @@
                         <!-- group_id office_id position_id -->
                         <div class="col">
                             <label for="">Group_id</label>
-                            <input type="text" class="form-control @error('group_id') is-invalid @enderror"
-                                id="group_id" name="group_id"
+                            <input type="text" class="form-control @error('groups_id') is-invalid @enderror"
+                                id="groups_id" name="groups_id"
                                 style="border-radius: 10px; margin-top: 10px; background-color: #F4F4F4; border-style: none;">
-                            @if ($errors->has('group_id'))
-                                <span class="text-danger">{{ $errors->first('group_id') }}</span>
+                            @if ($errors->has('groups_id'))
+                                <span class="text-danger">{{ $errors->first('groups_id') }}</span>
                             @endif
                         </div>
                         <div class="col">

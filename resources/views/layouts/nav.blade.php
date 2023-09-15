@@ -85,7 +85,7 @@
                 <ul class="nav nav-pills flex-column">
                     @role('admin')
                         <li class="navsd mb-2 text-center">
-                            <a href="/history"
+                            <a href="/admin"
                                 class="btn btn-primary mainsd {{ request()->is('history') ? 'active' : 'nav-link' }} "
                                 aria-current="page">
                                 <i class="fa-solid fa-toolbox"></i>

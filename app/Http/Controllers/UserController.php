@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Groups;
+use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\View;
 
 
@@ -24,16 +25,15 @@ class UserController extends Controller
 
     // }
 
-    protected function create(Request $data)
+    protected function store(Request $data)
     {
-
-        return User::create([
+        $createuser = User::create([
             'name' => $data['name'],
             'username' => $data['username'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'role_id' => $data['role_id'],
-            'group_id' => $data['group_id'],
+            'groups_id' => $data['groups_id'],
             'office_id' => $data['office_id'],
             'position_id' => $data['position_id'],
             'birthdate' => $data['birthdate'],
@@ -45,9 +45,12 @@ class UserController extends Controller
             'start_date' => $data['start_date'],
             'end_date' => $data['end_date'],
         ]);
+        $createuser->assignRole($data['role_id']);
+        return back();
+
     }
 
-    public function deleteuser($id) {
+    public function destroy($id) {
         $user = User::where('id',$id)->firstOrFail();
         $user->delete();
         return redirect('user')->with('status',"Hapus data berhasil!");
@@ -56,8 +59,9 @@ class UserController extends Controller
     public function index() {
         $userlistgroup = Groups::with('user')->get();
         $user = User::all();
+        $roles = Role::all();
 
-        return view('admin.users', compact( 'user', 'userlistgroup'));
+        return view('admin.users', compact( 'user', 'userlistgroup', 'roles'));
     }
 
     public function agenda(Request $request) {

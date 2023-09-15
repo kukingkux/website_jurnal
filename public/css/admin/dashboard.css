@@ -25,10 +25,9 @@
 
 .cardflex .card {
     width: 100%;
-    border-radius: 10px;
+    border-radius: 6px;
     border-style: none;
     border-style: none;
-    box-shadow: 0px 10px 20px -10px #4891ff;
 }
 
 .card-body .text-center .card-subtitle {

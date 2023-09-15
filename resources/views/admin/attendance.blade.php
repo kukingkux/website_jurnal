@@ -1,11 +1,10 @@
 @include('admin.partials.attendance_head')
 
 <body style="background-color: #D9D9D9;">
-    @include('admin.layouts.nav')
-    <div class="container-fluid d-flex justify-content-between p-2">
-
+    <div style="display: flex; gap: 10px;">
+        @include('admin.layouts.nav')
         <div class="m-2" style="width: 100%">
-            <div class="container">
+            <div class="container   ">
 
                 <div class="row">
                     <h5 class="mt-4">
@@ -97,6 +96,7 @@
     </div>
 
     <!-- end tabel -->
+
     @include('admin.partials.attendance_script')
 
 </body>

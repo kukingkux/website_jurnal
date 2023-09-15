@@ -82,13 +82,22 @@
             <hr>
             <div class="wrapper">
                 <ul class="nav nav-item nav-pills flex-column">
-                    <li class="navsd mb-2 text-center nav-item">
+                    <li class="navsd mb-2 text-center nav-item" data-bs-toggle="tooltip" data-bs-placement="right"
+                        title="Dashboard (Admin)">
                         <a href="/"
                             class="btn btn-primary mainsd nav-link {{ request()->is('admin') ? 'active' : 'nav-link' }}">
+                            <i class="fa-solid fa-toolbox"></i>
+                        </a>
+                    </li>
+                    <li class="navsd mb-2 text-center nav-item" data-bs-toggle="tooltip" data-bs-placement="right"
+                        title="Dashboard (User)">
+                        <a href="/dashboard"
+                            class="btn btn-primary mainsd nav-link {{ request()->is('dashboard') ? 'active' : 'nav-link' }}">
                             <i class="fa-solid fa-gauge" href="#"></i>
                         </a>
                     </li>
-                    <li class="navsd mb-2 text-center">
+                    <li class="navsd mb-2 text-center" data-bs-toggle="tooltip" data-bs-placement="right"
+                        title="Users">
                         <a href="{{ route('admin.user.index') }}"
                             class="btn btn-primary mainsd nav-link {{ request()->is('admin/user') ? 'active' : 'nav-link' }}"
                             aria-current="page">
@@ -96,7 +105,8 @@
                         </a>
                     </li>
                     </li>
-                    <li class="navsd mb-2 text-center">
+                    <li class="navsd mb-2 text-center" data-bs-toggle="tooltip" data-bs-placement="right"
+                        title="Attendance">
                         <a href="{{ route('admin.attendance.index') }}"
                             class="btn btn-primary mainsd nav-link {{ request()->is('admin/attendance') ? 'active' : 'nav-link' }} "
                             aria-current="page">
@@ -104,14 +114,16 @@
                         </a>
                     </li>
                     @role('admin')
-                        <li class="navsd mb-2 text-center">
-                            <a href="/admin/groups"
+                        <li class="navsd mb-2 text-center" data-bs-toggle="tooltip" data-bs-placement="right"
+                            title="Offices & Groups">
+                            <a href="{{ route('admin.groups.index') }}"
                                 class="btn btn-primary mainsd nav-link {{ request()->is('admin/groups') ? 'active' : 'nav-link' }} "
                                 aria-current="page">
                                 <i class="fa-solid fa-building"></i>
                             </a>
                         </li>
-                        <li class="navsd mb-2 text-center">
+                        <li class="navsd mb-2 text-center" data-bs-toggle="tooltip" data-bs-placement="right"
+                            title="Roles & Permissions">
                             <a href="{{ route('admin.roles.index') }}"
                                 class="btn btn-primary mainsd nav-link {{ request()->is('admin/roles') ? 'active' : 'nav-link' }} "
                                 aria-current="page">
@@ -142,7 +154,12 @@
     @extends('admin.partials.layout.nav_script')
 
 
-
+    <script src="js/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    </script>
 
 </body>
 

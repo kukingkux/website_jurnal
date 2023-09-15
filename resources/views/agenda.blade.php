@@ -10,7 +10,7 @@
 </head>
 
 <body style="background-color: #D9D9D9;">
-    <div class="container-fluid d-flex justify-content-between p-2" style="box-shadow: 0px 10px 20px -10px #A18AFF;">
+    <div style="display: flex; gap: 10px;">
         @include('layouts.nav')
         <section style="flex-basis: 100%">
             <div class="container">

@@ -2,7 +2,7 @@
 
 <body style="background-color: #D9D9D9;">
 
-    <div class="d-flex justify-content-between">
+    <div style="display: flex; gap: 10px;">
         @include('admin.layouts.nav')
         <div class="container">
             <div class="row">
@@ -90,9 +90,9 @@
                                         <td>{{ $data->address }}</td>
                                         <td>{{ $data->gender }}</td>
                                         <td>{{ $data->status ?? 'None' }}</td>
-                                        <td>{{ $data->role_id }}</td>
-                                        <td><i>{{ $data->groups->group_name ?? 'None' }} <p>({{ $data->groups_id }})
-                                                </p></i>
+                                        <td> {{ $data->role->name }}{{ $data->role_id }}</td>
+                                        <td><i>{{ $data->groups->group_name ?? 'None' }} ({{ $data->groups_id }})
+                                            </i>
                                         </td>
                                         <td>{{ $data->office_id }}</td>
                                         <td>{{ $data->position_id }}</td>

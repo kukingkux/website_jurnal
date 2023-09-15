@@ -32,7 +32,7 @@
             }
         }
     </style>
-    <div class="container-fluid d-flex justify-content-between p-2">
+    <div style="display: flex; gap: 10px;">
         @include('layouts.nav')
         <div class="m-2" style="width: 100%">
             <div class="container">

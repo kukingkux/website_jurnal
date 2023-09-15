@@ -66,7 +66,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth:san
 //     Auth::routes(['register' => true]);
 // });
 
-Route::group(['middleware' => ['auth','role:admin,user']], function() {
+Route::group(['middleware' => ['auth','role:admin|user']], function() {
     Route::get('/dashboard', 'App\Http\Controllers\HomeController@index');
     Route::get('/history', 'App\Http\Controllers\AgendaController@history');
     Route::get('/agenda', 'App\Http\Controllers\AgendaController@index');
@@ -75,16 +75,19 @@ Route::group(['middleware' => ['auth','role:admin,user']], function() {
 });
 
 Route::group(['middleware' => ['auth', 'role:admin'], 'prefix' => 'admin', 'as' => 'admin.'], function(){
+    Auth::routes(['register' => true]);
     Route::get('/', 'App\Http\Controllers\HomeController@adminpage')->name('index');
     Route::get('/user', 'App\Http\Controllers\UserController@user');
 
     Route::get('/attendance', [LeavesController::class, 'attendance'])->name('attendance');
 
-    Auth::routes(['register' => true]);
     Route::resource('/user', UserController::class);
     Route::resource('/attendance', LeavesController::class);
     Route::resource('/roles', RolesController::class);
+    Route::post('/roles/{role}/permission', [RolesController::class, 'givePermission'])->name('roles.permission');
+    Route::delete('/roles/{role}/permission/{permission}', [RolesController::class, 'revokePermission'])->name('roles.permission.revoke');
     Route::resource('/permission', PermissionController::class);
+    Route::resource('/groups', GroupsController::class);
 });
 
 Auth::routes(['register' => true]);
@@ -109,7 +112,7 @@ Route::get('deleteuser/{id}','App\Http\Controllers\UserController@deleteuser');
 view()->composer(['*'], function ($view) {
     $users = User::all();
     $count_user = User::count();
-    $count_member = User::where('role_id', '0')->count();
+    $count_member = User::where('role_id', '2')->count();
     $count_admin = User::where('role_id', '1')->count();
     $groups = Groups::all();
 

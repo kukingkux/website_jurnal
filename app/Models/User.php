@@ -30,7 +30,7 @@ class User extends Authenticatable
         'email',
         'password',
         'role_id',
-        'group_id',
+        'groups_id',
         'office_id',
         'position_id',
         'birthdate',
@@ -65,6 +65,11 @@ class User extends Authenticatable
     public function groups()
     {
         return $this->belongsTo(Groups::class);
+    }
+
+    public function role()
+    {
+        return $this->belongsTo(Roles::class);
     }
 }
 
