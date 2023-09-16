@@ -57,15 +57,15 @@ class LoginController extends Controller
 
     public function login(Request $request) {
 
-        $user = User::where('email', $request->email)->first();
+        $user = User::where('username', $request->username)->first();
         if (! $user || ! Hash::check($request->password, $user->password)) {
         throw ValidationException::withMessages([
-            'email' => ['The provided credentials are incorrect.'],
+            'username' => ['The provided credentials are incorrect.'],
         ]);
     }
         $user->createToken('auth_token')->plainTextToken;
 
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->only('username', 'password');
 
         if (Auth::attempt($credentials)) {
             // Authentication successful

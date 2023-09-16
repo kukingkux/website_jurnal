@@ -6,19 +6,20 @@ use App\Models\Agenda;
 use App\Models\Groups;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Role;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\AgendaController;
 
+use App\Http\Controllers\RolesController;
+use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\GroupsController;
 use App\Http\Controllers\LeavesController;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\PermissionController;
-use App\Http\Controllers\RolesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -115,9 +116,11 @@ view()->composer(['*'], function ($view) {
     $count_member = User::where('role_id', '2')->count();
     $count_admin = User::where('role_id', '1')->count();
     $groups = Groups::all();
+    $roleAll = Role::all();
 
     $view->with('users', $users)
     ->with('groups', $groups)
+    ->with('roleAll', $roleAll)
     ->with('count_user', $count_user)
     ->with('count_member', $count_member)
     ->with('count_admin', $count_admin);

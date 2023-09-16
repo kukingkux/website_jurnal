@@ -39,13 +39,13 @@
                                 @csrf
 
                                 <div class="row mb-1">
-                                    <label for="email"
+                                    <label for="username"
                                         class="col col-form-label text-md-center"><strong>{{ __('USERNAME') }}</strong></label>
                                 </div>
                                 <div class="col mb-3">
-                                    <input id="email" type="email"
-                                        class="form-control @error('email') is-invalid @enderror" name="email"
-                                        value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                    <input id="username" type="text"
+                                        class="form-control @error('username') is-invalid @enderror" name="username"
+                                        value="{{ old('username') }}" required autocomplete="username" autofocus>
 
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">

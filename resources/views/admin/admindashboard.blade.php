@@ -58,7 +58,7 @@
                         <img src="https://img.freepik.com/free-vector/confirmed-attendance-concept-illustration_114360-7745.jpg?w=740&t=st=1691032445~exp=1691033045~hmac=70e11368e7d6b65288d8fa3bd34515850ca6e0a524e592a979ae638fad26a3f1"
                             alt="customer-support" class="img-fluid p-1">
                     </div>
-                    <div class="col-lg-8">
+                    <div class="col-lg-8 p-1">
                         <a href="#"><button type="button" class="btn btn-outline-secondary mb-2 mt-2"
                                 style="width: 100%;">Member List</button></a>
                         <a href="#"><button type="button" class="btn btn-outline-secondary mb-2 mt-2"

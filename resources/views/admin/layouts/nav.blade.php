@@ -3,7 +3,7 @@
     <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
         id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
         <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5>
+
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
@@ -13,14 +13,20 @@
             <hr>
             <div class="wrapp">
                 <ul class="nav nav-pills flex-column mb-auto">
-
+                    <li class="nav-item">
+                        <a href="{{ route('admin.index') }}"
+                            class="nav-link {{ request()->is('admin') ? 'active' : 'nav-link' }}" aria-current="page">
+                            <i class="fa-solid fa-gauge" href="#"></i>&nbsp;
+                            <span class="sdtext">Dashboard (Admin)</span>
+                        </a>
+                    </li>
 
                     <!-- {{-- @foreach (getMenus() as $menu) --}} -->
                     <li class="nav-item">
-                        <a href="/admin" class="nav-link {{ request()->is('admin') ? 'active' : 'nav-link' }}"
+                        <a href="/dashboard" class="nav-link {{ request()->is('dashboard') ? 'active' : 'nav-link' }}"
                             aria-current="page">
                             <i class="fa-solid fa-gauge"></i>&nbsp;
-                            <span class="sdtext">Dashboard (Admin)</span>
+                            <span class="sdtext">Dashboard (User)</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -154,12 +160,7 @@
     @extends('admin.partials.layout.nav_script')
 
 
-    <script src="js/jquery.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
-    </script>
+
 
 </body>
 

@@ -35,7 +35,7 @@
     <div style="display: flex; gap: 10px;">
         @include('layouts.nav')
         <div class="m-2" style="width: 100%">
-            <div class="container">
+            <div class="container pe-5">
                 <div class="row">
                     <h5 class="mt-4">
                         Attendance
@@ -75,7 +75,7 @@
                         </div>
                     </div>
                     <div class="mt-4">
-                        <div class="container"
+                        <div
                             style="background-color: rgb(255, 255, 255); border-radius: 10px; overflow-x: scroll; box-shadow: 0px 10px 20px -10px #A18AFF;">
                             <div class="row text-center">
 
@@ -132,6 +132,8 @@
             </div>
         </div>
     </div>
+    @include('admin.partials.css_container')
+    @include('partials.css_readonly')
     <script src="https://kit.fontawesome.com/056e6cea98.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">

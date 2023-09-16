@@ -15,7 +15,7 @@
                             readonly="readonly">
                     </div>
                     <div class="mb-3">
-                        <label for="disabledSelect" class="form-label">Sekolah</label>
+                        <label for="disabledSelect" class="form-label">Group Name</label>
                         <select id="disabledSelect" class="form-select" name="group_name" tabindex="-1" readonly
                             required>
 
@@ -55,10 +55,3 @@
         </div>
     </div>
 </div>
-
-<style>
-    select[readonly] {
-        background-color: #e9ecef;
-        pointer-events: none;
-    }
-</style>

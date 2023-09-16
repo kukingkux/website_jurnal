@@ -13,7 +13,7 @@
     <div style="display: flex; gap: 10px;">
         @include('layouts.nav')
         <section style="flex-basis: 100%">
-            <div class="container">
+            <div class="container pe-5">
                 <div class="row align-items-center">
                     <h5 class="mt-4">
                         Absensi
@@ -44,7 +44,7 @@
                                         value="{{ $currentuser->groups_id }}" readonly="readonly">
 
 
-                                    <label for="disabledSelect" class="form-label">Sekolah</label>
+                                    <label for="disabledSelect" class="form-label">Group</label>
                                     <select id="disabledSelect" class="form-select" name="group_name" tabindex="-1"
                                         readonly required>
 
@@ -95,12 +95,9 @@
                 margin-top: 20px;
             }
         }
-
-        select[readonly] {
-            background-color: #e9ecef;
-            pointer-events: none;
-        }
     </style>
+    @include('partials.css_readonly')
+    @include('admin.partials.css_container')
 
     <script src="js/jquery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
