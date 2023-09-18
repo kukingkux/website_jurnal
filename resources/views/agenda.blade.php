@@ -32,7 +32,7 @@
                             style="background-color: white; border-radius: 20px; box-shadow: 0px 10px 20px -10px #A18AFF;">
                             <h5 class="ms-4">Form Absensi Magang Campus Digital</h5>
                             <hr>
-                            <form method="post" action="{{ route('agenda.store') }}">
+                            <form method="post" action="{{ route('user.agenda.store') }}">
                                 {{ csrf_field() }}
                                 <div class="mb-3 me-4 ms-4 col">
                                     <label class="form-label">Nama Lengkap</label>

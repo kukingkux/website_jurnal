@@ -71,6 +71,11 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Roles::class);
     }
+
+    public function office()
+    {
+        return $this->belongsTo(Office::class);
+    }
 }
 
 

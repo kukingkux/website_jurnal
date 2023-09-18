@@ -19,6 +19,7 @@ use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\GroupsController;
 use App\Http\Controllers\LeavesController;
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\OfficeController;
 use App\Http\Controllers\PermissionController;
 
 /*
@@ -67,12 +68,18 @@ Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth:san
 //     Auth::routes(['register' => true]);
 // });
 
-Route::group(['middleware' => ['auth','role:admin|user']], function() {
+Route::group(['middleware' => ['auth','role:admin|user'], 'as' => 'user.'], function() {
     Route::get('/dashboard', 'App\Http\Controllers\HomeController@index');
     Route::get('/history', 'App\Http\Controllers\AgendaController@history');
-    Route::get('/agenda', 'App\Http\Controllers\AgendaController@index');
-    Route::resource('/agenda', AgendaController::class);
+
     Route::get('/agenda', 'App\Http\Controllers\GroupsController@group');
+
+    Route::get('delete/{id}','App\Http\Controllers\AgendaController@destroy');
+    Route::get('{id}/edit','App\Http\Controllers\AgendaController@edit');
+    Route::post('update/{id}', 'App\Http\Controllers\AgendaController@update');
+    Route::post('create', 'App\Http\Controllers\UserController@create');
+
+    Route::resource('/agenda', AgendaController::class);
 });
 
 Route::group(['middleware' => ['auth', 'role:admin'], 'prefix' => 'admin', 'as' => 'admin.'], function(){
@@ -84,11 +91,13 @@ Route::group(['middleware' => ['auth', 'role:admin'], 'prefix' => 'admin', 'as' 
 
     Route::resource('/user', UserController::class);
     Route::resource('/attendance', LeavesController::class);
+    Route::resource('/groups', GroupsController::class);
+    Route::resource('/office', OfficeController::class);
     Route::resource('/roles', RolesController::class);
     Route::post('/roles/{role}/permission', [RolesController::class, 'givePermission'])->name('roles.permission');
     Route::delete('/roles/{role}/permission/{permission}', [RolesController::class, 'revokePermission'])->name('roles.permission.revoke');
     Route::resource('/permission', PermissionController::class);
-    Route::resource('/groups', GroupsController::class);
+
 });
 
 Auth::routes(['register' => true]);
@@ -98,11 +107,7 @@ Auth::routes(['register' => true]);
 
 // Q U E R Y
 
-Route::get('delete/{id}','App\Http\Controllers\AgendaController@delete');
 
-Route::get('{id}/edit','App\Http\Controllers\AgendaController@edit');
-Route::post('update/{id}', 'App\Http\Controllers\AgendaController@update');
-Route::post('create', 'App\Http\Controllers\UserController@create');
 
 Route::get('deleteuser/{id}','App\Http\Controllers\UserController@deleteuser');
 
@@ -111,16 +116,16 @@ Route::get('deleteuser/{id}','App\Http\Controllers\UserController@deleteuser');
 // VIEW
 
 view()->composer(['*'], function ($view) {
-    $users = User::all();
+    $global_users = User::all();
     $count_user = User::count();
     $count_member = User::where('role_id', '2')->count();
-    $count_admin = User::where('role_id', '1')->count();
-    $groups = Groups::all();
-    $roleAll = Role::all();
+    $count_admin = User::where('role_id', '1')->orwhere('role_id', '3')->count();
+    $global_groups = Groups::all();
+    $global_role = Role::all();
 
-    $view->with('users', $users)
-    ->with('groups', $groups)
-    ->with('roleAll', $roleAll)
+    $view->with('global_users', $global_users)
+    ->with('global_groups', $global_groups)
+    ->with('global_role', $global_role)
     ->with('count_user', $count_user)
     ->with('count_member', $count_member)
     ->with('count_admin', $count_admin);

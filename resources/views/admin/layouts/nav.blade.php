@@ -16,7 +16,7 @@
                     <li class="nav-item">
                         <a href="{{ route('admin.index') }}"
                             class="nav-link {{ request()->is('admin') ? 'active' : 'nav-link' }}" aria-current="page">
-                            <i class="fa-solid fa-gauge" href="#"></i>&nbsp;
+                            <i class="fa-solid fa-toolbox"></i></i>&nbsp;
                             <span class="sdtext">Dashboard (Admin)</span>
                         </a>
                     </li>
@@ -45,11 +45,19 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="admin/groups"
+                        <a href="{{ route('admin.groups.index') }}"
                             class="nav-link {{ request()->is('admin/groups') ? 'active' : 'nav-link' }} "
                             aria-current="page">
                             <i class="fa-solid fa-building"></i></i>&nbsp;
-                            <span class="sdtext">Groups</span>
+                            <span class="sdtext">Offices & Groups</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.roles.index') }}"
+                            class="nav-link {{ request()->is('admin/roles') ? 'active' : 'nav-link' }} "
+                            aria-current="page">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>&nbsp;
+                            <span class="sdtext">Roles & Permission</span>
                         </a>
                     </li>
                     <li class="nav-item">

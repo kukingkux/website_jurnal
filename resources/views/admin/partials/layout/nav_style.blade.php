@@ -6,6 +6,12 @@
         }
 
         .sidebar.open {
+            width: 100%;
+            display: flex;
+            flex-grow: 1;
+            align-items: stretch;
+            flex: 1;
+            background-color: #fff;
             display: block;
             visibility: visible;
         }
@@ -13,11 +19,13 @@
 
     @media (min-width: 769px) {
         .sidebar.close {
+
             visibility: visible;
             display: block;
         }
 
         .sidebar.open {
+
             display: none;
             visibility: hidden;
         }

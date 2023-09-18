@@ -59,11 +59,17 @@
                             alt="customer-support" class="img-fluid p-1">
                     </div>
                     <div class="col-lg-8 p-1">
-                        <a href="#"><button type="button" class="btn btn-outline-secondary mb-2 mt-2"
+                        <a href="admin/user"><button type="button" class="btn btn-outline-secondary mb-2 mt-2"
                                 style="width: 100%;">Member List</button></a>
-                        <a href="#"><button type="button" class="btn btn-outline-secondary mb-2 mt-2"
+                        <a href="admin/attendance"><button type="button" class="btn btn-outline-secondary mb-2 mt-2"
                                 style="width: 100%;">Attendance</button></a>
-                        <a href="#"><button type="button" class="btn btn-outline-secondary mb-2 mt-2"
+                        <a href="{{ route('admin.groups.index') }}"><button type="button"
+                                class="btn btn-outline-secondary mb-2 mt-2" style="width: 100%;">Offices &
+                                Groups</button></a>
+                        <a href="{{ route('admin.roles.index') }}"><button type="button"
+                                class="btn btn-outline-secondary mb-2 mt-2" style="width: 100%;">Roles &
+                                Permission</button></a>
+                        <a href="/logout"><button type="button" class="btn btn-outline-secondary mb-2 mt-2"
                                 style="width: 100%;">Logout</button></a>
                     </div>
                 </div>

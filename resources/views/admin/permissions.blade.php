@@ -16,11 +16,7 @@
 
                 <div class="card-body">
                     <h5 class="card-title">{{ $data->name }}</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the
-                        bulk
-                        of
-                        the
-                        card's content.</p>
+
                     <button type="button" data-bs-target="#PermissionEdit-{{ $data->id }}" data-bs-toggle="modal"
                         class="btn btn-primary">
                         <i class="fa-solid fa-pen"></i>
@@ -40,3 +36,4 @@
 
         @include('admin.modal.create_permission')
     </div>
+</div>

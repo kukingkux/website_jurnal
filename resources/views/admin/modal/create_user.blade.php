@@ -1,4 +1,4 @@
-<div class="modal fade" id="ModalCreate" tabindex="-1" aria-labelledby="ModalCreateLabel" aria-hidden="true">
+<div class="modal fade" id="CreateUser" tabindex="-1" aria-labelledby="ModalCreateLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-lg">
         <div class="modal-content" style="border-radius: 20px">
             <div class="modal-header" style="background-color: #6E56CF; color: #fff; border-radius: 20px 20px 0px 0px">
@@ -13,7 +13,7 @@
                         <div class="col">
                             <label for="">Nama</label>
                             <input type="text" class="form-control @error('name') is-invalid @enderror"
-                                id="name" name="name" value="{{ old('name') }}"
+                                id="name" name="name""
                                 style="border-radius: 10px; margin-top: 10px; background-color: #F4F4F4; border-style: none;">
                             @if ($errors->has('name'))
                                 <span class="text-danger">{{ $errors->first('name') }}</span>
@@ -22,7 +22,7 @@
                         <div class="col">
                             <label for="username">Username</label>
                             <input type="text" class="form-control @error('username') is-invalid @enderror"
-                                id="username" name="username" value="{{ old('username') }}"
+                                id="username" name="username"
                                 style="border-radius: 10px; margin-top: 10px; background-color: #F4F4F4; border-style: none;">
                             @if ($errors->has('username'))
                                 <span class="text-danger">{{ $errors->first('username') }}</span>
@@ -33,11 +33,11 @@
 
                         <div class="col">
                             <label for="">Email</label>
-                            <input type="email" id="email" name="email" value="{{ old('email') }}"
+                            <input type="email" id="email" name="email" "
                                 class="form-control @error('email') is-invalid @enderror"
                                 style="border-radius: 10px; margin-top: 10px; background-color: #F4F4F4; border-style: none;">
-                            @if ($errors->has('email'))
-                                <span class="text-danger">{{ $errors->first('email') }}</span>
+                              @if ($errors->has('email'))
+                            <span class="text-danger">{{ $errors->first('email') }}</span>
                             @endif
                         </div>
 
@@ -64,7 +64,7 @@
                         <div class="col">
                             <label for="">Role_id</label>
                             <select class="form-select form-control @error('role_id') is-invalid @enderror"
-                                value="{{ old('role_id') }}" id="role_id" name="role_id"
+                                id="role_id" name="role_id"
                                 style="border-radius: 10px; margin-top: 10px; background-color: #F4F4F4; border-style: none;">
                                 @foreach ($roles as $role)
                                     <option value="{{ $role->id }}" selected>{{ $role->name }}</option>
@@ -81,12 +81,19 @@
                         <!-- group_id office_id position_id -->
                         <div class="col">
                             <label for="">Group_id</label>
-                            <input type="text" class="form-control @error('groups_id') is-invalid @enderror"
+                            <select type="text" class="form-control @error('groups_id') is-invalid @enderror"
                                 id="groups_id" name="groups_id"
                                 style="border-radius: 10px; margin-top: 10px; background-color: #F4F4F4; border-style: none;">
-                            @if ($errors->has('groups_id'))
-                                <span class="text-danger">{{ $errors->first('groups_id') }}</span>
-                            @endif
+                                @foreach ($global_groups as $data)
+                                    <option value="{{ $data->id }}" selected>
+                                        <i>({{ $data->id }})</i> {{ $data->group_name }}
+                                    </option>
+
+                                    @if ($errors->has('groups_id'))
+                                        <span class="text-danger">{{ $errors->first('groups_id') }}</span>
+                                    @endif
+                                @endforeach
+                            </select>
                         </div>
                         <div class="col">
                             <label for="">Office_id</label>
@@ -101,7 +108,7 @@
                         <div class="col">
                             <label for="">Position_id</label>
                             <input type="text" class="form-control @error('position_id') is-invalid @enderror"
-                                value="{{ old('position_id') }}" id="position_id" name="position_id"
+                                id="position_id" name="position_id"
                                 style="border-radius: 10px; margin-top: 10px; background-color: #F4F4F4; border-style: none;">
 
                             @if ($errors->has('position_id'))
@@ -137,7 +144,7 @@
                         <div class="col">
                             <label for="">Phone Number</label>
                             <input type="text" class="form-control @error('phone_number') is-invalid @enderror"
-                                value="{{ old('phone_number') }}" id="phone_number" name="phone_number"
+                                id="phone_number" name="phone_number"
                                 style="border-radius: 10px; margin-top: 10px; background-color: #F4F4F4; border-style: none;">
                             @if ($errors->has('phone_number'))
                                 <span class="text-danger">{{ $errors->first('phone_number') }}</span>
@@ -161,7 +168,7 @@
                             <label for="">Latest Education</label>
                             <input type="text"
                                 class="form-control @error('latest_education') is-invalid @enderror"
-                                value="{{ old('latest_education') }}" id="latest_education" name="latest_education"
+                                id="latest_education" name="latest_education"
                                 style="border-radius: 10px; margin-top: 10px; background-color: #F4F4F4; border-style: none;">
                             @if ($errors->has('latest_education'))
                                 <span class="text-danger">{{ $errors->first('latest_education') }}</span>
@@ -184,7 +191,7 @@
                         <div class="col-3">
                             <label for="">Start Date</label>
                             <input type="date" class="form-control @error('start_date') is-invalid @enderror"
-                                value="{{ old('start_date') }}" id="start_date" name="start_date"
+                                id="start_date" name="start_date"
                                 style="border-radius: 10px; margin-top: 10px; background-color: #F4F4F4; border-style: none;">
                             @if ($errors->has('start_date'))
                                 <span class="text-danger">{{ $errors->first('start_date') }}</span>
@@ -193,7 +200,7 @@
                         <div class="col-3">
                             <label for="">End Date</label>
                             <input type="date" class="form-control @error('end_date') is-invalid @enderror"
-                                value="{{ old('end_date') }}" id="end_date" name="end_date"
+                                id="end_date" name="end_date"
                                 style="border-radius: 10px; margin-top: 10px; background-color: #F4F4F4; border-style: none;">
                             @if ($errors->has('end_date'))
                                 <span class="text-danger">{{ $errors->first('end_date') }}</span>

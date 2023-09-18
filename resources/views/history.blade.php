@@ -109,17 +109,21 @@
                                                             data-bs-target="#ModalView-{{ $data->id }}"
                                                             title="View"><i class="fa fa-eye"></i></button>
                                                         <button type="button" class="btn btn-sm" data-bs-toggle="modal"
-                                                            data-bs-target="#ModalUbah-{{ $data->id }}"
+                                                            data-bs-target="#AgendaEdit-{{ $data->id }}"
                                                             title="Edit"><i class="fa fa-edit"></i></button>
-                                                        <a href="{{ url('delete/' . $data->id) }}"
+                                                        <button type="button" class="btn btn-sm" data-bs-toggle="modal"
+                                                            data-bs-target="#AgendaDelete-{{ $data->id }}"
+                                                            title="Edit"><i class="fa fa-trash"></i></button>
+                                                        {{-- <a href="{{ url('delete/' . $data->id) }}"
                                                             class="btn btn-sm btn-delete" data-id="2057"
                                                             data-toggle="tooltip" title="Hapus"><i
-                                                                class="fa fa-trash"></i></a>
+                                                                class="fa fa-trash"></i></a> --}}
                                                     </div>
                                                 </td>
                                             </tr>
 
-                                            @include('modal.edit')
+                                            @include('modal.edit_agenda')
+                                            @include('modal.delete_agenda')
                                             @include('modal.view')
                                         @endforeach
 

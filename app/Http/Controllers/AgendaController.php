@@ -36,6 +36,11 @@ class AgendaController extends Controller
         return redirect('agenda');
     }
 
+    public function index()
+    {
+        return view('agenda');
+    }
+
     // public function agenda(Request $request) {
     //     $agendagroup = Groups::with('user')->get();
 
@@ -61,14 +66,9 @@ class AgendaController extends Controller
         return redirect('history');
     }
 
-    public function delete($id) {
+    public function destroy($id) {
         $agendas = Agenda::where('id',$id)->firstOrFail();
         $agendas->delete();
         return back();
-    }
-
-    public function index(Request $request) {
-
-
     }
 }

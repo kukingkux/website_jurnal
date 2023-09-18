@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Groups;
+use App\Models\Office;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
@@ -50,6 +51,13 @@ class UserController extends Controller
 
     }
 
+    public function update(Request $request, User $user)
+    {
+        $input = $request->all();
+        $user->fill($input)->save();
+        return back();
+    }
+
     public function destroy($id) {
         $user = User::where('id',$id)->firstOrFail();
         $user->delete();
@@ -60,8 +68,9 @@ class UserController extends Controller
         $userlistgroup = Groups::with('user')->get();
         $user = User::all();
         $roles = Role::all();
+        $office = Office::all();
 
-        return view('admin.users', compact( 'user', 'userlistgroup', 'roles'));
+        return view('admin.users', compact( 'user', 'userlistgroup', 'roles', 'office'));
     }
 
     public function agenda(Request $request) {

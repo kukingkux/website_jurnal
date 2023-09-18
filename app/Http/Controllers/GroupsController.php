@@ -2,23 +2,30 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\Groups;
 use App\User;
+use App\Models\Groups;
+use App\Models\Office;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class GroupsController extends Controller
 {
     public function group()
     {
         $groups = Groups::all();
+
         return view('agenda', compact('groups'));
     }
 
     public function index()
     {
-        $groups = Groups::all();
-        return view('admin.groups', compact('groups'));
+        $groups = Groups::where('group_name', '!=', 'admins')->get();
+        $office = Office::all();
+
+        $group_admin = Groups::where('group_name', 'admins')->first();
+
+
+        return view('admin.groups', compact('groups', 'office', 'group_admin'));
     }
 
     public function create()

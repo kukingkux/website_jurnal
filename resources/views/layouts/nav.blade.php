@@ -51,7 +51,7 @@
                                 class="fa-solid fa-gear"></i>&nbsp; <span class="sdtext">Opsi
                                 Pengguna</span></button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li><a class="dropdown-item" href="#"><i
+                            <li><a class="dropdown-item" href="/logout"><i
                                         class="fa-solid fa-arrow-up-from-bracket"></i>&nbsp; Sign
                                     Out</p></a>
                             </li>
@@ -115,16 +115,15 @@
                         </a>
                     </li>
 
-                    <li class="navsd mb-2 text-center" data-bs-toggle="tooltip" data-bs-placement="right"
-                        title="Dashboard (Admin)">
+                    <li class="navsd mb-2 text-center">
                         <div class="btn-group dropend">
                             <button type="button" class="nav-list btn btn-primary mainsd nav-link dropdown-toggle"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fa-solid fa-circle-user"></i>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#"><i
-                                            class="fa-solid fa-arrow-up-from-bracket"></i>&nbsp;Sign Out</a></li>
+                                <li><a class="dropdown-item" href="/logout"><i
+                                            class="fa-solid fa-arrow-up-from-bracket"></i>&nbsp;Sign Out</li></a>
                             </ul>
                         </div>
                     </li>

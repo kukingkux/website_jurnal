@@ -35,15 +35,6 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected function redirectTo() {
-        if (Auth::user()->user_type == 'Administrator') {
-            return 'admin'; // Admin dashboard
-        } else {
-            return 'dashboard'; // Member dashboard
-        }
-    }
-
-
 
     /**
      * Create a new controller instance.
@@ -67,9 +58,11 @@ class LoginController extends Controller
 
         $credentials = $request->only('username', 'password');
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt($credentials) && $user->role=='admin') {
             // Authentication successful
-            return redirect()->intended('/admin');
+            return redirect()->route('admin.index');
+        } elseif(Auth::attempt($credentials) && $user->role=='user') {
+            return redirect()->intended('/dashboard');
         } else {
             // Authentication failed
             return redirect()->back()->withErrors(['message' => 'Invalid credentials']);

@@ -15,4 +15,8 @@ class Roles extends SpatieRole
     {
         return $this->hasMany(User::class);
     }
+
+    public function permission(){
+        return $this->belongsToMany(Permission::class);
+    }
 }
