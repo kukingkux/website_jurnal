@@ -30,7 +30,7 @@
             <div class="wrapper d-flex justify-content-start gap-2 pb-3 flex-wrap"
                 style="border-radius: 0px 0px 8px 8px">
                 @foreach ($roles as $data)
-                    <div class="card m-auto" style="width: 18rem;">
+                    <div class="card m-auto parent" style="width: 18rem;">
 
                         <div class="card-body">
                             <h5 class="card-title">{{ $data->name }}</h5>
@@ -66,13 +66,12 @@
 
 
     </div>
+    @include('admin.partials.css_container')
 
     @extends('admin.permissions')
     </div>
 
-    @include('admin.partials.css_container')
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
+
+
 
 </body>

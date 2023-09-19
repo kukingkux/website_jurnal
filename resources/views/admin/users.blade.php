@@ -123,7 +123,7 @@
 
     </div>
 
-    @include('admin.partials.users_script')
+    @extends('admin.partials.users_script')
     @include('admin.partials.css_container')
 </body>
 

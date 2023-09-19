@@ -151,7 +151,7 @@
                                     <i class="fa-solid fa-circle-user"></i>
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="logout"><i
+                                    <li><a class="dropdown-item" href="/logout"><i
                                                 class="fa-solid fa-arrow-up-from-bracket"></i>&nbsp;Sign Out</a></li>
                                 </ul>
                             </div>

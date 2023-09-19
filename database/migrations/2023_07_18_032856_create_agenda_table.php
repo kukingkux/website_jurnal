@@ -23,8 +23,8 @@ return new class extends Migration
             $table->string('name');
 
             $table->string('group_name');
-            $table->date('waktu');
-            $table->string('tanggal');
+            $table->string('waktu');
+            $table->date('tanggal');
             $table->string('kegiatan');
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();

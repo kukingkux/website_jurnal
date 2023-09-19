@@ -12,7 +12,7 @@
     <div class="wrapper d-flex justify-content-start gap-2 pb-3 flex-wrap" style="border-radius: 0px 0px 8px 8px">
 
         @foreach ($permission as $data)
-            <div class="card m-auto" style="width: 18rem;">
+            <div class="card m-auto child" style="width: 18rem;" draggable="true">
 
                 <div class="card-body">
                     <h5 class="card-title">{{ $data->name }}</h5>

@@ -1,37 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Riwayat Absensi || User</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
-
-    <script defer src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-    <script defer src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
-</head>
+@extends('partials.history_head')
 
 <body style="background-color: #D9D9D9;">
-    <style>
-        .d-flex.coll {
-            gap: 10px;
-        }
 
-        @media(max-width:500px) {
-            .d-flex.coll {
-                display: flex;
-                flex-direction: column;
-            }
-        }
-
-        @media(max-width:768px) {
-            .container {
-                margin-top: 20px;
-            }
-        }
-    </style>
     <div style="display: flex; gap: 10px;">
         @include('layouts.nav')
         <div class="m-2" style="width: 100%">
@@ -138,13 +108,7 @@
     </div>
     @include('admin.partials.css_container')
     @include('partials.css_readonly')
-    <script src="https://kit.fontawesome.com/056e6cea98.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
-    <script src="js/jquery.js"></script>
-    <script src="js/jquerydatatable.js"></script>
-    <script src="js/date-filter.js"></script>
+    @extends('partials.history_script')
 </body>
 
 </html>

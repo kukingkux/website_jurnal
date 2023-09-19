@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('offices', function (Blueprint $table) {
             $table->id('id');
-            $table->integer('group_id');
+            $table->unsignedBigInteger('group_id');
+            $table->foreign('group_id')->references('id')->on('groups');
             $table->string('name', 255);
-            $table->integer('is_admin');
+            $table->integer('is_admin')->nullable();
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
         });

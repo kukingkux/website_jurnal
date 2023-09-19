@@ -1,18 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard || User</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-
-
-</head>
+@include('partials.dashboard_head')
 
 <body style="background-color: #f4f4f4">
     <div style="display: flex; gap: 10px;">
@@ -97,63 +83,9 @@
 
         </div>
     </div>
-    <style>
-        .btn.btn-outline-secondary.mb-4.mt-2 {
-            width: 90%;
-        }
 
-        @media(max-width:768px) {
-            .container {
-                margin-top: 20px;
-            }
-        }
-
-        .btn.btn-outline-secondary.mb-4.mt-2 {
-            color: white;
-            background-color: #6f61c0;
-            border-color: #6f61c0;
-            border-radius: 12px;
-            border-style: none;
-            box-shadow: 0px 10px 20px -10px #a18aff;
-        }
-
-        .btn.btn-outline-secondary.mb-4.mt-2:hover {
-
-            background-color: #6f61c0df;
-            border-color: #6f61c0df;
-            box-shadow: 0px 5px 25px -5px #8f75f6;
-        }
-
-        .cardflex {
-            display: flex;
-            flex-direction: row;
-            gap: 10px;
-        }
-
-        .card {
-            width: 100%;
-            border-radius: 12px;
-            border-style: none;
-            box-shadow: 0px 10px 20px -10px #a18aff;
-
-        }
-
-        @media(max-width:768px) {
-            .cardflex {
-                flex-direction: column;
-            }
-
-            .card-subtitle {
-                font-size: 16px;
-            }
-
-            .card-subtitle2 {
-                font-size: 20px;
-            }
-        }
-    </style>
-    @include('admin.partials.css_container')
-    @include('admin.partials.dashboard_script')
+    @include('partials.css_container')
+    @extends('partials.dashboard_script')
 </body>
 
 </html>

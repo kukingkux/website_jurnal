@@ -96,7 +96,7 @@
 
     <!-- end tabel -->
 
-    @include('admin.partials.attendance_script')
+    @extends('admin.partials.attendance_script')
     @include('admin.partials.css_container')
 
 </body>

@@ -87,7 +87,7 @@
     </div>
 
     @include('admin.partials.css_container')
-    @include('admin.partials.dashboard_script')
+    @extends('admin.partials.dashboard_script')
 
 </body>
 

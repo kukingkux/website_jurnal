@@ -19,21 +19,22 @@
                             @enderror
                         </div>
                         <div class="col">
-                            <label for="">Group Id</label>
-                            <input type="text" class="form-control" id="group_id" name="group_id"
+                            <label for="">Group id</label>
+                            <select type="text" class="form-control @error('groups_id') is-invalid @enderror"
+                                id="groups_id" name="groups_id"
                                 style="border-radius: 10px; margin-top: 10px; background-color: #F4F4F4; border-style: none;">
-                            @error('group_id')
-                                <span class="text-danger text-sm">{{ $message }}</span>
-                            @enderror
+                                @foreach ($global_groups as $data)
+                                    <option value="{{ $data->id }}">
+                                        <i>({{ $data->id }})</i> {{ $data->group_name }}
+                                    </option>
+
+                                    @if ($errors->has('groups_id'))
+                                        <span class="text-danger">{{ $errors->first('groups_id') }}</span>
+                                    @endif
+                                @endforeach
+                            </select>
                         </div>
-                        <div class="col">
-                            <label for="">Is Admin</label>
-                            <input type="text" class="form-control" id="is_admin" name="is_admin"
-                                style="border-radius: 10px; margin-top: 10px; background-color: #F4F4F4; border-style: none;">
-                            @error('is_admin')
-                                <span class="text-danger text-sm">{{ $message }}</span>
-                            @enderror
-                        </div>
+
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary " data-bs-dismiss="modal">Close</button>
                             <button class="btn btn-primary">Save changes</button>

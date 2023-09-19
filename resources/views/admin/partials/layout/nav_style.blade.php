@@ -72,14 +72,14 @@
         background-color: #f9f9f9;
         border: 2px solid #dddddd;
         border-bottom: 6px solid #dddddd;
-        color: #000;
+        color: #337ccf;
     }
 
     .navsd .btn.btn-primary.mainsd:active {
         width: 100%;
-        background-color: #6f61c0;
-        border: 2px solid #6f61c0;
-        border-bottom: 6px solid #6558a9;
+        background-color: #337ccf;
+        border: 2px solid #337ccf;
+        border-bottom: 6px solid #1450a3;
         color: #fff;
     }
 
